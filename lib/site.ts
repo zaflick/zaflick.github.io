@@ -42,7 +42,10 @@ export const EMAIL = {
 /** Public brand profiles. Only confirmed URLs go here; they feed schema sameAs and the footer. */
 export const SOCIAL: { name: string; url: string }[] = [
   { name: "Instagram", url: "https://www.instagram.com/houseofzaflick/" },
-  // TODO-confirm: Facebook, LinkedIn, Pinterest and Threads URLs.
+  { name: "Facebook", url: "https://www.facebook.com/p/Zaflick-61589328118184/" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/135248227/" },
+  { name: "Threads", url: "https://www.threads.com/@houseofzaflick" },
+  // Pinterest: add once its profile URL is confirmed (account on marketing@).
 ];
 
 export const links = {

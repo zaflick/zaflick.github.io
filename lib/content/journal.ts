@@ -32,6 +32,137 @@ export type Article = {
 
 const POSTS: Article[] = [
   {
+    slug: "how-to-check-leggings-see-through",
+    title: "How do you check if leggings are see-through?",
+    short: "How to check leggings aren't see-through",
+    dek: "The squat test, the light test and what actually makes leggings go sheer, so you can check a pair before it lets you down at the gym.",
+    answer:
+      "Do the squat test: stand with your back to a mirror in bright daylight and squat deep. If you can see skin or the colour of your underwear, they're see-through. Thin fabric and leggings a size too small go sheer first, so check the fit as well as the fabric.",
+    date: "2026-11-19",
+    topic: "Fabric and weather",
+    img: "day-her-yoga",
+    alt: "A woman in the deep forest sports bra and legging stretching in a studio.",
+    sections: [
+      {
+        h: "Why do leggings go see-through?",
+        body: [
+          "Stretch fabric is made of loops. When you bend, the loops open up, and light passes through the gaps. The thinner the fabric and the looser the knit, the more it opens.",
+          {
+            list: [
+              "Thin or lightweight fabric shows through first.",
+              "A size too small stretches the fabric further, so it thins out exactly where you bend.",
+              "Light colours and bright, direct light make it more obvious.",
+              "Washing hot, tumble-drying and fabric softener wear the fibres down over time.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How do you do the squat test?",
+        body: [
+          {
+            steps: [
+              "Put the leggings on with the underwear you'd normally train in.",
+              "Stand with your back to a mirror in daylight or bright white light.",
+              "Squat as deep as you would in a workout and hold it for a few seconds.",
+              "Look at the seat, the back of the thighs and just under the waistband.",
+              "Bend forward and touch your toes, then check again.",
+              "For a stricter test, ask a friend to take a photo with the flash on.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What else should you check before you buy?",
+        body: [
+          {
+            list: [
+              "Weight: the fabric should feel substantial, not like a stocking.",
+              "Finish: matte fabric hides more than shiny fabric.",
+              "Gusset: a gusset panel at the crotch adds coverage and stops the seam pulling.",
+              "Fit: choose your size by waist measurement and don't size down for a tighter look.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How do you stop them going sheer over time?",
+        body: [
+          "Wash them cold and inside out, skip fabric softener, and dry them in the shade instead of a dryer or direct sun. Heat and softener break down the stretch fibres that keep the fabric dense.",
+        ],
+      },
+      {
+        h: "What is Zaflick doing about it?",
+        body: [
+          "Every Zaflick fabric is being tested for see-through and pilling before production. The early list sees the real samples, and what the tests found, before anything goes on sale.",
+        ],
+      },
+    ],
+    related: ["active-legging", "sports-bra"],
+    cta: { label: "See the active legging", href: "/active-legging" },
+    draft: true,
+  },
+  {
+    slug: "travel-outfits-indian-flights-trains",
+    title: "What should you wear for long flights and train journeys in India?",
+    short: "Travel outfits for Indian flights and trains",
+    dek: "Hot platforms, freezing AC coaches, security queues and arriving straight into plans. How to dress once for the whole journey.",
+    answer:
+      "Wear a soft, stretchy set with a waistband that doesn't dig in when you sit, and add a light layer for the cold cabin or AC coach. Choose shoes that slip on and off for security, and keep a spare top and socks in your bag. A matching set still looks put together when you land.",
+    date: "2026-11-22",
+    topic: "Outfits",
+    img: "day-him-airport",
+    alt: "A man in an olive T-shirt and wide-leg pants walking through an airport with a suitcase.",
+    sections: [
+      {
+        h: "Why is travelling in India hard on an outfit?",
+        body: [
+          "A single journey can take you from a hot, humid platform or security queue into a cabin or AC coach that feels like winter, then out into the heat again. Add hours of sitting and you need clothes that breathe, stretch and layer.",
+        ],
+      },
+      {
+        h: "What should you wear on a flight?",
+        body: [
+          {
+            list: [
+              "A stretchy set with a wide waistband that stays comfortable sitting down.",
+              "A light jacket or overshirt for the cabin. Take it off for the queue.",
+              "Slip-on shoes, so security is quicker.",
+              "Pockets that hold a phone and a boarding pass.",
+              "Little metal: skip heavy belts and chunky jewellery.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What about overnight trains?",
+        body: [
+          {
+            list: [
+              "Something you can sleep in on a berth without it twisting or riding up.",
+              "A warm layer and socks: 2AC and 3AC coaches run cold at night.",
+              "A light scarf or shawl that doubles as a blanket.",
+              "Keep valuables in a bag you can keep close, not in loose pockets.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What should be in your carry-on?",
+        body: [{ list: ["A spare top and socks", "Deodorant and wipes", "A light jacket", "A phone charger", "A zip bag for anything damp"] }],
+      },
+      {
+        h: "How do you look put together when you land?",
+        body: [
+          "Travel in a matching set in one tonal colour, so it reads as an outfit rather than pyjamas. When you land, add the overshirt, swap to clean sneakers and you can go straight to a meeting or a family dinner.",
+        ],
+      },
+    ],
+    related: ["wide-leg-pants", "fitted-jacket"],
+    cta: { label: "See the wide-leg pants", href: "/wide-leg-pants" },
+    draft: true,
+  },
+  {
     slug: "gym-to-office-outfits-mumbai",
     title: "What should you wear for a gym-to-office day in Mumbai?",
     short: "Gym-to-office outfits for a Mumbai day",
