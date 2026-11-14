@@ -1,0 +1,348 @@
+/**
+ * Journal: six question-led articles (AEO format: the question is the H1, a direct
+ * 40–60-word answer comes first, then detail). All new copy: TODO-approve.
+ * Zaflick product facts used here are only ones already published on zaflick.com.
+ */
+
+export type Block = string | { list: string[] } | { steps: string[] };
+export type Section = { h: string; body: Block[] };
+export type Article = {
+  slug: string;
+  title: string;
+  /** Short title for cards and the browser tab. */
+  short: string;
+  dek: string;
+  answer: string;
+  date: string;
+  img: string;
+  alt: string;
+  sections: Section[];
+  related: string[];
+  cta?: { label: string; href: string };
+};
+
+export const ARTICLES: Article[] = [
+  {
+    slug: "leggings-that-dont-roll-down",
+    title: "How do you stop leggings rolling down?",
+    short: "Leggings that don't roll down",
+    dek: "Why waistbands fold over when you bend, and what to look for so yours stays put from the first squat to the last meeting.",
+    answer:
+      "Leggings roll down when the waistband is too narrow, too soft or the wrong size, so it folds over as you bend. Look for a wide, flat, high-rise waistband that sits at your natural waist, choose your size by waist measurement rather than sizing up, and pick fabric that springs back after a squat.",
+    date: "2026-11-14",
+    img: "day-her-gym",
+    alt: "A woman in an aubergine set training with a dumbbell.",
+    sections: [
+      {
+        h: "Why do waistbands roll?",
+        body: [
+          "Every time you bend, the fabric at your stomach has to go somewhere. A narrow band concentrates that pressure into one thin line, and the easiest thing for it to do is fold over. Once it has folded once, it keeps folding.",
+          "Three things make it worse: a band that is soft and thin, so it has no structure; fabric with poor recovery, so it stretches and doesn't come back; and a size that is slightly too big at the waist, which is common when people size up for comfort around the hips.",
+        ],
+      },
+      {
+        h: "What should you look for in a waistband?",
+        body: [
+          {
+            list: [
+              "Width. A wide band spreads pressure over a larger area instead of a single line.",
+              "Height. A high rise that sits at your natural waist anchors on the narrowest part of your body, so it has less room to slide.",
+              "Flat construction. A flat, smooth band lies against the body. A thick elastic channel can roll over itself.",
+              "The right waist size. Choose by your waist measurement. If you are between sizes, check the hip measurement too before sizing up.",
+              "Recovery. The fabric should snap back when you stretch it. If it stays stretched in the shop, it will stay stretched on you.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How can you test a pair before you commit?",
+        body: [
+          {
+            steps: [
+              "Do three deep squats in front of a mirror and check the waistband from the side.",
+              "Bend forward and reach for your toes. The band should stay flat across your stomach.",
+              "Sit down for ten minutes. A band that digs in now will roll later.",
+              "Put your phone in the pocket and walk. A heavy pocket on a weak waistband pulls it down.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How is the Zaflick legging designed?",
+        body: [
+          "The Zaflick active legging is built around a wide, flat high-rise waistband, a smooth front with no centre seam, and a deep side pocket on the thigh that holds a phone. The fabric is being tested for see-through and pilling before production.",
+          "It is a concept for now. People on the early list see the real samples, and can try the squat test themselves, before anything goes on sale.",
+        ],
+      },
+    ],
+    related: ["active-legging", "tank-top"],
+  },
+  {
+    slug: "athleisure-for-indian-humidity",
+    title: "What should you wear to train in Indian humidity?",
+    short: "Athleisure for Indian humidity",
+    dek: "Sweat doesn't dry the same way in Mumbai in July as it does in a gym brochure. How to choose fabric, fit and colour for humid weather.",
+    answer:
+      "In humid weather, choose fabric made to move sweat away from your skin and dry quickly, a fit close enough not to rub but not so tight it traps heat, and mid or deep colours that don't show sweat marks. Keep heavy cotton for after training: it soaks up sweat and stays wet.",
+    date: "2026-11-14",
+    img: "training-both-2",
+    alt: "A man and a woman walking through a park after a workout.",
+    sections: [
+      {
+        h: "Why is humidity harder than heat?",
+        body: [
+          "Sweat cools you by evaporating. When the air is already full of moisture, it evaporates slowly, so you sweat more and your clothes stay damp for longer. A top that feels fine on a dry 35° day can feel heavy and clingy on a humid 30° one.",
+          "That's why kit made for cooler, drier places often feels wrong here. The fabric and the fit have to cope with sweat that doesn't go away.",
+        ],
+      },
+      {
+        h: "Which fabrics work best?",
+        body: [
+          "Look for fabric described as quick-drying or sweat-wicking, usually a synthetic blend with some stretch. It pulls sweat off your skin and spreads it out so it dries faster.",
+          "Cotton is comfortable at rest but absorbs sweat and holds on to it, which is why a cotton tee gets heavy halfway through a run. Wear it after you train, not during.",
+          "Check the weight too. In humid months a lighter fabric is easier to live in, as long as it isn't so thin that it turns see-through when it stretches.",
+        ],
+      },
+      {
+        h: "What about fit?",
+        body: [
+          {
+            list: [
+              "Close, not tight. Fabric that touches the skin can wick sweat; fabric squeezed onto it traps heat.",
+              "Watch the rub points: inner thighs, underarms and under the bra band. Flat seams and a smooth front help.",
+              "For him, a relaxed tee with drop shoulders lets air move. A boxy fit is cooler than a compression top for anything except hard training.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "Does colour matter?",
+        body: [
+          "Yes. Deep and mid tones such as aubergine, forest green and olive hide sweat marks far better than light grey. If you are going straight from training to the rest of your day, that matters more than anything on the label.",
+        ],
+      },
+      {
+        h: "How does Zaflick approach it?",
+        body: [
+          "Before designing, we surveyed nearly 200 people and interviewed more than a dozen about what goes wrong with activewear in India. Heat and humidity came up again and again. The fabric for the first drop was chosen for heat and humidity, and is being tested for see-through and pilling before production.",
+        ],
+      },
+    ],
+    related: ["active-tshirt", "sports-bra"],
+  },
+  {
+    slug: "one-set-6am-to-dinner",
+    title: "Can you wear one athleisure set from a 6am workout to dinner?",
+    short: "6am to dinner in one set",
+    dek: "The idea Zaflick is built on: train first, then keep going. How to choose a set that lasts the whole day, and what to change along the way.",
+    answer:
+      "Yes, if the set is built to train in first and cut to look finished. Choose pieces with real support, a waistband that stays put and fabric that dries quickly, in one tonal colour. Then change the layer, not the set: an open shirt for work, a jacket for travel, cleaner shoes for dinner.",
+    date: "2026-11-14",
+    img: "hero-both",
+    alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
+    sections: [
+      {
+        h: "Why start with training?",
+        body: [
+          "If the set can't handle the 6am session, nothing else matters. Support that stays put, a waistband that doesn't roll and fabric that dries are the foundation. Everything after that is styling.",
+        ],
+      },
+      {
+        h: "Why does a matching set look more finished?",
+        body: [
+          "One colour from top to bottom reads as an outfit, not as gym kit. A tank and legging in the same aubergine, or a tee and wide-leg pants in the same olive, looks deliberate in a café in a way that mismatched training clothes don't.",
+        ],
+      },
+      {
+        h: "What should you change through the day?",
+        body: [
+          {
+            list: [
+              "Morning to work: add an open shirt over the tank or tee.",
+              "Travel or air-conditioned rooms: add a light jacket.",
+              "Evening: swap the training shoes for clean sneakers or sandals.",
+              "Keep the set the same. That's the point.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What does a day in one set look like?",
+        body: [
+          "Her day: a studio session at 6:30 am, the coffee run at 8:15, working from a café at 11:30, an evening stretch at 7:10 pm.",
+          "His day: a run in the park at 6:00 am, an early flight at 6:40, coffee with a friend at 10:00, dinner nearby at 8:30 pm.",
+          "Both are from The day, Zaflick's lookbook of the first drop worn from morning to night.",
+        ],
+      },
+      {
+        h: "What should you pack for a long day?",
+        body: [
+          { list: ["A spare top if you train hard", "Deodorant and a small towel", "A light layer for cold rooms", "A second pair of shoes if you're going out"] },
+        ],
+      },
+    ],
+    related: ["tank-top", "wide-leg-pants"],
+    cta: { label: "See the whole day", href: "/the-day" },
+  },
+  {
+    slug: "size-guide-for-indian-bodies",
+    title: "How should you choose athleisure sizes for Indian bodies?",
+    short: "A size guide for Indian bodies",
+    dek: "Why the same letter size fits differently from brand to brand, how to measure yourself properly, and how to choose when you're between sizes.",
+    answer:
+      "Many size charts are graded on measurements from other markets, so an M can fit very differently from one brand to the next. Measure your bust or chest, underbust, waist, hips and inseam with a soft tape, compare the numbers to each brand's own chart instead of your usual letter, and choose bottoms by waist.",
+    date: "2026-11-14",
+    img: "banner-her",
+    alt: "A woman in an aubergine tank and leggings with ivory piping, against a sunlit plaster wall.",
+    sections: [
+      {
+        h: "Why don't letter sizes travel?",
+        body: [
+          "A size chart is a set of assumptions about how bodies are proportioned: how waist relates to hip, how long a leg is for a given height. If those assumptions come from another market, the sizes can be right in one place and wrong in another, often at the waist, the hip or the length.",
+          "That's why Zaflick's sizing is being graded on Indian body measurements rather than a chart borrowed from another market.",
+        ],
+      },
+      {
+        h: "How do you measure yourself?",
+        body: [
+          "Use a soft tape, wear thin clothing, and keep the tape level and snug, not tight.",
+          {
+            steps: [
+              "Bust or chest: around the fullest part, under the arms.",
+              "Underbust: straight around, just below the bust. This is the number for sports bras.",
+              "Waist: around the narrowest part, usually just above the belly button.",
+              "Hips: around the fullest part of the hips and seat, feet together.",
+              "Inseam: from the top of the inner thigh to where you want the hem, standing straight.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What if you're between sizes?",
+        body: [
+          {
+            list: [
+              "Leggings: go by waist first, then check the hip. If the hip is the bigger number, size for the hip.",
+              "Sports bras: go by underband. The band does most of the supporting.",
+              "Tees: check whether the style is meant to be fitted or boxy before sizing up or down.",
+              "Wide-leg pants and shorts: a drawcord waist gives some room, so size for the hip.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "When is the Zaflick size chart published?",
+        body: [
+          "With the real samples. Sizes are still being finalised, and the early list will see the chart before anything goes on sale. Take your measurements now and you'll be ready.",
+        ],
+      },
+    ],
+    related: ["active-legging", "sports-bra"],
+    cta: { label: "Open the size guide", href: "/size-guide" },
+  },
+  {
+    slug: "phone-pockets-that-work",
+    title: "Do leggings with phone pockets actually work?",
+    short: "Phone pockets that actually work",
+    dek: "Most pockets on activewear are too small, too loose or in the wrong place. What makes one that holds a phone through a whole day.",
+    answer:
+      "They work when the pocket sits on the side of the thigh, is deep enough to take the whole phone, and is made from stretch fabric that holds it flat against the leg. Shallow pockets and pockets at the back of the waistband are the ones where phones bounce, drag or slide out.",
+    date: "2026-11-14",
+    img: "p-active-legging-detail",
+    alt: "A close-up of the active legging, concept image.",
+    sections: [
+      {
+        h: "Where should the pocket be?",
+        body: [
+          "On the side of the thigh. The thigh is a broad, flat surface that moves less than the hip or lower back, so a phone stays put there. A back waistband pocket puts the weight on the waistband, which is one of the reasons waistbands get pulled down.",
+        ],
+      },
+      {
+        h: "How deep is deep enough?",
+        body: [
+          "The whole phone should disappear into it, with the top edge of the pocket above the top of the phone. If the top of the phone sticks out, it will work its way out when you sit, squat or run.",
+        ],
+      },
+      {
+        h: "What holds the phone in place?",
+        body: [
+          "Tension. A pocket made from the same stretch fabric as the leg presses the phone flat against you. A loose patch pocket lets it swing. Check a pocket by running on the spot for thirty seconds with your phone in it.",
+        ],
+      },
+      {
+        h: "What about pockets for him?",
+        body: [
+          "Shorts and pants for everyday wear work best with proper side pockets and a back pocket. Zaflick's wide-leg pants have two side pockets and one back pocket, and the athleisure shorts have side pockets and one back pocket.",
+        ],
+      },
+      {
+        h: "How is the Zaflick legging pocket designed?",
+        body: [
+          "The active legging has a deep side pocket on the thigh that holds a phone, paired with a wide, flat high-rise waistband so the weight doesn't drag it down. It's a concept until the samples arrive, and the early list sees them first.",
+        ],
+      },
+    ],
+    related: ["active-legging", "wide-leg-pants"],
+  },
+  {
+    slug: "athleisure-for-wedding-season",
+    title: "What athleisure works for wedding season in India?",
+    short: "Athleisure for wedding season",
+    dek: "It won't replace the lehenga or the sherwani, but it carries everything around them: the flights, the 6am sessions, the hours of getting ready.",
+    answer:
+      "Athleisure won't replace the outfits, but it carries everything around them: early flights and long drives, a morning workout to keep your routine, rehearsals and the long hours of getting ready. Pack a matching set that looks put together, a layer for cold venues and travel, and pieces you can sit in for hours.",
+    date: "2026-11-14",
+    img: "life-hotel",
+    alt: "A woman in a forest green jacket, sports bra and leggings arriving at a small hotel.",
+    sections: [
+      {
+        h: "What should you wear on travel days?",
+        body: [
+          "A matching set you can sit in for hours and still walk into a hotel lobby in. For him, a tee and wide-leg pants in one colour sits somewhere between a tracksuit and a pair of trousers. For her, a fitted jacket over a sports bra and legging works for flights and cold rooms.",
+        ],
+      },
+      {
+        h: "How do you keep your routine through a week of functions?",
+        body: [
+          "Train early, before the day takes over. A short session at 6am is often the only time that's yours during a wedding week. Wear a set that can go straight from the workout to breakfast with the family.",
+        ],
+      },
+      {
+        h: "What should you wear while getting ready?",
+        body: [
+          "Anything with a front zip or an open front, so you never pull something over hair and make-up. A zip jacket over a bra or tank is easy to slip out of when it's time to change.",
+        ],
+      },
+      {
+        h: "What about sangeet rehearsals?",
+        body: [
+          "You'll be dancing for hours, often in a hot room. Wear a supportive bra or a tank with built-in support, leggings with a waistband that stays put, and fabric that copes with sweat.",
+        ],
+      },
+      {
+        h: "What's the wedding-season packing list?",
+        body: [
+          {
+            list: [
+              "One matching set for travel days",
+              "A layer for air-conditioned venues",
+              "Training kit for early sessions",
+              "Something with a front zip for getting-ready hours",
+              "Clean sneakers that work with all of it",
+            ],
+          },
+        ],
+      },
+    ],
+    related: ["fitted-jacket", "active-tshirt"],
+  },
+];
+
+export const article = (slug: string) => ARTICLES.find((a) => a.slug === slug);
+
+export const readMins = (a: Article) => {
+  const words = [a.answer, ...a.sections.flatMap((s) => s.body.map((b) => (typeof b === "string" ? b : "list" in b ? b.list.join(" ") : b.steps.join(" "))))]
+    .join(" ")
+    .split(/\s+/).length;
+  return Math.max(2, Math.round(words / 220));
+};

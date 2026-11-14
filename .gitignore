@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+AGENTS.md
+preview/
+.vercel
+.env*
+
+# Internal notes (copy approvals, content needed, go-live checklist). Kept local only.
+NOTES-private.md
