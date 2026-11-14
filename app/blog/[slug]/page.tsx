@@ -14,7 +14,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const a = article((await params).slug);
   if (!a) return {};
-  return pageMeta({ title: `${a.short} | Zaflick Journal`, description: a.dek, path: `/journal/${a.slug}`, type: "article" });
+  return pageMeta({ title: `${a.short} | Zaflick Blog`, description: a.dek, path: `/blog/${a.slug}`, type: "article" });
 }
 
 function BlockView({ b }: { b: Block }) {
@@ -53,17 +53,17 @@ export default async function Page({ params }: Props) {
     dateModified: a.date,
     author: { "@type": "Organization", name: BRAND.name, url: SITE_URL },
     publisher: { "@id": `${SITE_URL}/#org` },
-    mainEntityOfPage: `${SITE_URL}/journal/${a.slug}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${a.slug}`,
     inLanguage: "en-IN",
   };
 
   return (
     <main id="content" className="page">
-      <Crumbs items={[{ name: "Home", path: "/" }, { name: "Journal", path: "/journal" }, { name: a.short, path: `/journal/${a.slug}` }]} />
+      <Crumbs items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: a.short, path: `/blog/${a.slug}` }]} />
       <article className="article">
         <header className="article-head">
           <p className="eyebrow mono">
-            Journal · <time dateTime={a.date}>{fmtDate(a.date)}</time> · {readMins(a)} min read
+            {a.topic} · <time dateTime={a.date}>{fmtDate(a.date)}</time> · {readMins(a)} min read
           </p>
           <h1 className="display article-h">{a.title}</h1>
           <p className="page-lede">{a.dek}</p>
@@ -104,12 +104,12 @@ export default async function Page({ params }: Props) {
 
       <section className="section" aria-labelledby="more-h">
         <div className="section-head">
-          <h2 id="more-h" className="display">More from the journal</h2>
+          <h2 id="more-h" className="display">More from the blog</h2>
         </div>
         <ul className="jgrid jgrid-3">
           {others.map((o) => (
             <li key={o.slug}>
-              <a className="jcard" href={href(`/journal/${o.slug}`)}>
+              <a className="jcard" href={href(`/blog/${o.slug}`)}>
                 <div className="jcard-img">
                   <Img name={o.img} alt="" />
                 </div>
@@ -120,7 +120,7 @@ export default async function Page({ params }: Props) {
           ))}
         </ul>
       </section>
-      <JoinBand where={`journal-${a.slug}`} />
+      <JoinBand where={`blog-${a.slug}`} />
       <JsonLd data={schema} />
     </main>
   );

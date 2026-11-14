@@ -8,15 +8,14 @@ const MAIN = [
   { label: "Her", href: links.her },
   { label: "Him", href: links.him },
   { label: "Looks", href: links.looks },
-  { label: "The day", href: links.day },
-  { label: "Journal", href: links.journal },
+  { label: "Blog", href: links.blog },
+  { label: "Our story", href: links.about },
 ];
 const MORE = [
-  { label: "About", href: links.about },
-  { label: "Size guide", href: links.size },
+  { label: "Early list", href: links.early },
   { label: "6am Club", href: links.club },
   { label: "Founding Testers", href: links.testers },
-  { label: "Early list", href: links.early },
+  { label: "Size guide", href: links.size },
   { label: "FAQ", href: links.faq },
   { label: "Contact", href: links.contact },
 ];
@@ -71,9 +70,10 @@ export default function Header() {
           <img src={asset("/assets/zaflick-wordmark.png")} alt="Zaflick" width={520} height={108} />
         </a>
         <div className="bar-right">
-          <nav className="bar-quick" aria-label="Collections">
+          <nav className="bar-quick" aria-label="Quick links">
             <a href={links.her} aria-current={here(links.her)}>Her</a>
             <a href={links.him} aria-current={here(links.him)}>Him</a>
+            <a href={links.blog} aria-current={here(links.blog)}>Blog</a>
           </nav>
           <a className="btn btn-accent bar-join" href={links.early} data-join="">
             Join <span aria-hidden="true">↗</span>

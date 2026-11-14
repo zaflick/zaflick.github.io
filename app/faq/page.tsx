@@ -7,6 +7,7 @@ export const metadata = pageMeta({
   title: "Zaflick FAQ: launch, sizes, fabric, shipping and the early list", // TODO-approve
   description: "Answers about Zaflick: what it is, when the first drop launches, sizing, shipping in India, and how the early list works.",
   path: "/faq",
+  image: "/assets/img/og-faq.jpg",
 });
 
 export default function Page() {

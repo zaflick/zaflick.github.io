@@ -13,8 +13,8 @@ const COLS = [
   {
     h: "Zaflick",
     items: [
-      { label: "About", href: links.about },
-      { label: "Journal", href: links.journal },
+      { label: "Our story", href: links.about },
+      { label: "Blog", href: links.blog },
       { label: "6am Club", href: links.club },
       { label: "Founding Testers", href: links.testers },
     ],

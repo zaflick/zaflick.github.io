@@ -7,6 +7,7 @@ export const metadata = pageMeta({
   description:
     "Zaflick is an Indian athleisure brand: seven pieces for women and men, designed from a survey of nearly 200 people to be worn from a morning session to dinner.",
   path: "/about",
+  image: "/assets/img/og-about.jpg",
 });
 
 // Every fact on this page is already public on zaflick.com. Headings marked TODO-approve are new.
@@ -34,7 +35,7 @@ const PRINCIPLES = [
 export default function Page() {
   return (
     <main id="content" className="page">
-      <Crumbs items={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]} />
+      <Crumbs items={[{ name: "Home", path: "/" }, { name: "Our story", path: "/about" }]} />
       <PageHead
         eyebrow="About Zaflick"
         title="Made for the whole day, not just the workout." /* TODO-approve */

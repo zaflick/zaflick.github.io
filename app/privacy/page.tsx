@@ -4,15 +4,14 @@ import { Crumbs, PageHead } from "@/components/site/bits";
 
 export const metadata = pageMeta({
   title: "Privacy | Zaflick",
-  description: "How Zaflick handles your email address, what we send you and how to leave the list at any time.",
+  description: "How Zaflick handles your email address and form answers, the analytics tools we use, and how to leave the list at any time.",
   path: "/privacy",
 });
 
 const mail = <a className="text-link" href={`mailto:${EMAIL.admin}`}>{EMAIL.admin}</a>;
 
-// Word for word from zaflick.com/privacy (last updated September 2026).
-// TODO-approve: the new forms (Founding Testers, 6am Club, contact) collect a little more than
-// an email; the "What we collect" section needs a line about them before go-live.
+// Based on the September 2026 policy. Updated November 2026: the application and contact
+// forms, and the analytics and advertising tools now on the site (GA4 and the Meta Pixel).
 export default function Page() {
   return (
     <main id="content" className="page">
@@ -31,7 +30,18 @@ export default function Page() {
         </p>
         <p>
           If you arrive from a campaign or a friend&apos;s referral link, we record the campaign and referral tags in that link so we know where
-          sign-ups came from. We do not build advertising profiles and we do not try to identify you across other websites.
+          sign-ups came from.
+        </p>
+        <p>
+          If you apply to be a Founding Tester, sign up for the 6am Club or write to us through the contact page, we collect what you type into
+          that form, such as your name, email, city, Instagram handle and your answers. We use it only to reply to you and to run that programme.
+        </p>
+        <h2>Analytics and advertising tools</h2>
+        <p>
+          We use Google Analytics to understand how the site is used, and the Meta Pixel to measure sign-ups from Instagram and Facebook and to
+          show Zaflick to people who have visited the site. These tools use cookies and similar technology, and Google and Meta process that data
+          under their own privacy policies. You can block or clear these cookies in your browser settings at any time; the site works without
+          them.
         </p>
         <h2>Why we collect it</h2>
         <p>Only to contact you about the launch: the drop date, early access and member benefits.</p>
@@ -58,7 +68,7 @@ export default function Page() {
         <p>If this policy changes we will update it here. Material changes to how we use your data will be communicated to members directly.</p>
         <h2>Contact</h2>
         <p>Questions about your data? Email {mail}.</p>
-        <p className="soft">Last updated: September 2026.</p>
+        <p className="soft">Last updated: November 2026.</p>
       </div>
     </main>
   );

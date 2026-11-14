@@ -56,7 +56,7 @@ export const links = {
   privacy: href("/privacy"),
   about: href("/about"),
   size: href("/size-guide"),
-  journal: href("/journal"),
+  blog: href("/blog"),
   club: href("/6am-club"),
   testers: href("/founding-testers"),
   contact: href("/contact"),

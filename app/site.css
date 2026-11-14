@@ -819,7 +819,7 @@
   color: var(--terracotta-deep);
 }
 
-/* ---------- prose (privacy, journal) ---------- */
+/* ---------- prose (privacy, blog) ---------- */
 .prose {
   max-width: 720px;
   font-size: 17.5px;
@@ -868,7 +868,36 @@
   line-height: 1.55;
 }
 
-/* ---------- journal ---------- */
+/* ---------- blog ---------- */
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 28px;
+}
+.chip {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.chip:hover {
+  border-color: var(--ink);
+}
+.chip[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bone);
+}
+.chip:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+}
 .jgrid {
   list-style: none;
   margin: 0;

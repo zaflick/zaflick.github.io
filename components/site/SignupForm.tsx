@@ -14,10 +14,12 @@ type Props = {
   tone?: "light" | "dark";
   /** Autofocus the email field (the drawer). */
   autoFocus?: boolean;
+  /** Line under the form; defaults to the live site's reassurance line. */
+  small?: string;
 };
 
 /** The early-list form: same states, copy and events as the live site. */
-export default function SignupForm({ where, piece = "", tone = "light", autoFocus }: Props) {
+export default function SignupForm({ where, piece = "", tone = "light", autoFocus, small = "A few messages before launch. Leave any time." }: Props) {
   const id = useId();
   const member = useMember();
   const [email, setEmail] = useState("");
@@ -108,7 +110,7 @@ export default function SignupForm({ where, piece = "", tone = "light", autoFocu
           </a>
         </p>
       ) : null}
-      <p className="signup-small">A few messages before launch. Leave any time.</p>
+      <p className="signup-small">{small}</p>
     </div>
   );
 }

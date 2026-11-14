@@ -1,8 +1,11 @@
 /**
- * Journal: six question-led articles (AEO format: the question is the H1, a direct
+ * Blog (served at /blog): question-led articles (AEO format: the question is the H1, a direct
  * 40–60-word answer comes first, then detail). All new copy: TODO-approve.
  * Zaflick product facts used here are only ones already published on zaflick.com.
  */
+
+export const TOPICS = ["Fit and sizing", "Fabric and weather", "Outfits", "Men", "The 6am Test"] as const;
+export type Topic = (typeof TOPICS)[number];
 
 export type Block = string | { list: string[] } | { steps: string[] };
 export type Section = { h: string; body: Block[] };
@@ -14,6 +17,8 @@ export type Article = {
   dek: string;
   answer: string;
   date: string;
+  /** Blog topic, used for the filter chips on /blog. */
+  topic: Topic;
   img: string;
   alt: string;
   sections: Section[];
@@ -30,6 +35,7 @@ export const ARTICLES: Article[] = [
     answer:
       "Leggings roll down when the waistband is too narrow, too soft or the wrong size, so it folds over as you bend. Look for a wide, flat, high-rise waistband that sits at your natural waist, choose your size by waist measurement rather than sizing up, and pick fabric that springs back after a squat.",
     date: "2026-11-14",
+    topic: "Fit and sizing",
     img: "day-her-gym",
     alt: "A woman in an aubergine set training with a dumbbell.",
     sections: [
@@ -85,6 +91,7 @@ export const ARTICLES: Article[] = [
     answer:
       "In humid weather, choose fabric made to move sweat away from your skin and dry quickly, a fit close enough not to rub but not so tight it traps heat, and mid or deep colours that don't show sweat marks. Keep heavy cotton for after training: it soaks up sweat and stays wet.",
     date: "2026-11-14",
+    topic: "Fabric and weather",
     img: "training-both-2",
     alt: "A man and a woman walking through a park after a workout.",
     sections: [
@@ -138,6 +145,7 @@ export const ARTICLES: Article[] = [
     answer:
       "Yes, if the set is built to train in first and cut to look finished. Choose pieces with real support, a waistband that stays put and fabric that dries quickly, in one tonal colour. Then change the layer, not the set: an open shirt for work, a jacket for travel, cleaner shoes for dinner.",
     date: "2026-11-14",
+    topic: "The 6am Test",
     img: "hero-both",
     alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
     sections: [
@@ -192,6 +200,7 @@ export const ARTICLES: Article[] = [
     answer:
       "Many size charts are graded on measurements from other markets, so an M can fit very differently from one brand to the next. Measure your bust or chest, underbust, waist, hips and inseam with a soft tape, compare the numbers to each brand's own chart instead of your usual letter, and choose bottoms by waist.",
     date: "2026-11-14",
+    topic: "Fit and sizing",
     img: "banner-her",
     alt: "A woman in an aubergine tank and leggings with ivory piping, against a sunlit plaster wall.",
     sections: [
@@ -248,6 +257,7 @@ export const ARTICLES: Article[] = [
     answer:
       "They work when the pocket sits on the side of the thigh, is deep enough to take the whole phone, and is made from stretch fabric that holds it flat against the leg. Shallow pockets and pockets at the back of the waistband are the ones where phones bounce, drag or slide out.",
     date: "2026-11-14",
+    topic: "Outfits",
     img: "p-active-legging-detail",
     alt: "A close-up of the active legging, concept image.",
     sections: [
@@ -292,6 +302,7 @@ export const ARTICLES: Article[] = [
     answer:
       "Athleisure won't replace the outfits, but it carries everything around them: early flights and long drives, a morning workout to keep your routine, rehearsals and the long hours of getting ready. Pack a matching set that looks put together, a layer for cold venues and travel, and pieces you can sit in for hours.",
     date: "2026-11-14",
+    topic: "Outfits",
     img: "life-hotel",
     alt: "A woman in a forest green jacket, sports bra and leggings arriving at a small hotel.",
     sections: [

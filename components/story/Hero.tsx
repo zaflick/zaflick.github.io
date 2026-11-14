@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { useProgress } from "@/lib/useProgress";
 import { range } from "@/lib/scroll";
 import { story } from "@/lib/story";
-import { asset, links } from "@/lib/site";
+import { asset, BENEFITS } from "@/lib/site";
+import SignupForm from "@/components/site/SignupForm";
 
 // Fabric captions use lines already published on zaflick.com.
 const CAPTIONS = [
@@ -22,9 +23,13 @@ export default function Hero() {
     story.hero.p = p;
     story.hero.active = inView;
     const out = range(p, 0.06, 0.26);
-    if (copy.current) {
-      copy.current.style.opacity = String(1 - out);
-      copy.current.style.transform = `translate3d(0, ${-out * 60}px, 0)`;
+    const el = copy.current;
+    // Keep the sign-up form fully visible while someone is typing in it, even if the
+    // phone keyboard nudges the page down a little.
+    if (el && !el.contains(document.activeElement)) {
+      el.style.opacity = String(1 - out);
+      el.style.transform = `translate3d(0, ${-out * 60}px, 0)`;
+      el.style.pointerEvents = out > 0.9 ? "none" : "";
     }
     if (cue.current) cue.current.style.opacity = String(1 - range(p, 0, 0.08));
     caps.current.forEach((el, i) => {
@@ -49,9 +54,13 @@ export default function Hero() {
           <p className="eyebrow mono"><span>01</span> The fabric</p>
           <h1 id="hero-title" className="display">Athleisure you can wear from morning to dinner.</h1>
           <p className="lede">Seven pieces for women and men, designed in India. The first drop opens to the early list first.</p>
-          <div className="actions">
-            <a className="btn btn-accent" href={links.early} data-join="">Join the early list</a>
-            <a className="btn btn-ghost-light" href="#day">See the day</a>
+          <ul className="hero-ticks">
+            {BENEFITS.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
+          </ul>
+          <div className="hero-form">
+            <SignupForm where="home-hero" tone="dark" small="You'll get your member number straight away." />
           </div>
         </div>
         <div className="hero-caps">

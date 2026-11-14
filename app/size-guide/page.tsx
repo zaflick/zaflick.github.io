@@ -123,7 +123,7 @@ export default function Page() {
         <h2 id="size-faq" className="display section-h">Sizing questions</h2>
         <FaqList items={QUESTIONS} />
         <p className="more-link">
-          Read more: <a className="text-link" href={href("/journal/size-guide-for-indian-bodies")}>How should you choose athleisure sizes for Indian bodies?</a>
+          Read more: <a className="text-link" href={href("/blog/size-guide-for-indian-bodies")}>How should you choose athleisure sizes for Indian bodies?</a>
         </p>
         <p className="more-link">
           <a className="text-link" href={links.faq}>All questions →</a>

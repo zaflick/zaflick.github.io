@@ -6,9 +6,20 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
+/**
+ * GitHub Pages can't redirect on the server, so old or slightly-off links are fixed here,
+ * before the page paints: /journal/* moved to /blog/*, and a trailing slash (/her/) is
+ * dropped. Anything else shows the 404 below.
+ */
+const REDIRECT = `(function(){var p=location.pathname,t=p;
+if(/^\\/journal(\\/|$)/.test(t))t=t.replace(/^\\/journal/,"/blog");
+if(t.length>1)t=t.replace(/\\/+$/,"")||"/";
+if(t!==p)location.replace(t+location.search+location.hash);})();`;
+
 export default function NotFound() {
   return (
     <main id="content" className="page not-found">
+      <script dangerouslySetInnerHTML={{ __html: REDIRECT }} />
       <p className="eyebrow mono">404</p>
       <h1 className="display">This page has run off.</h1>
       <p className="page-lede">The link may be old, or the page may have moved. Try one of these.</p>
