@@ -17,6 +17,8 @@ const TABS = {
   "early-list": { name: "Early list", fields: ["member_number", "email", "form", "piece"] },
 };
 const EXTRA = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "ref", "page"];
+/** Who gets an email for each new tester, 6am Club or contact entry (not for early-list copies). */
+const ALERT_TO = "marketing@zaflick.com";
 
 function doPost(e) {
   let data;
@@ -34,9 +36,26 @@ function doPost(e) {
   try {
     const sheet = getTab(tab);
     sheet.appendRow([new Date()].concat(tab.fields.concat(EXTRA).map((k) => clean(data[k]))));
+    alertNew(tab, data);
     return reply(true);
   } finally {
     lock.releaseLock();
+  }
+}
+
+/**
+ * Email marketing@ about each new form entry. Needs the "send email" permission, so after
+ * pasting this version, run it once from the editor and click Allow before deploying.
+ * A failed email never blocks the entry.
+ */
+function alertNew(tab, data) {
+  if (tab.name === "Early list") return;
+  try {
+    const lines = tab.fields.concat(EXTRA).map((k) => `${k}: ${clean(data[k])}`).join("\n");
+    const who = clean(data.name) || clean(data.email);
+    MailApp.sendEmail(ALERT_TO, `New ${tab.name} entry: ${who}`, `${lines}\n\nAll entries: https://docs.google.com/spreadsheets/d/${SHEET_ID}`);
+  } catch (err) {
+    /* the row is already saved */
   }
 }
 
