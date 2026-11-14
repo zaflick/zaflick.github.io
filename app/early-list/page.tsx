@@ -38,7 +38,7 @@ export default function Page() {
           </div>
         </div>
         <div className="early-img">
-          <Img name="friends" alt="Four friends in tonal sets talking around a table on a terrace café." eager />
+          <Img name="friends" alt="Four friends in tonal sets talking around a table on a terrace café." eager sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </div>
 

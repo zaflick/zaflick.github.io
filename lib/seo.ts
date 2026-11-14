@@ -80,3 +80,20 @@ export const faqSchema = (items: { q: string; a: string }[]) => ({
     acceptedAnswer: { "@type": "Answer", text: it.a },
   })),
 });
+
+/** One 6am Club morning as a free, in-person Event (Google event results). Times are India time. */
+export const eventSchema = (m: { city: string; venue: string; address: string; date: string; start: string; end: string; activity: string }) => ({
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: `Zaflick 6am Club: ${m.activity}, ${m.city}`,
+  description: `A free early-morning ${m.activity.toLowerCase()} session with Zaflick in ${m.city}. Register on the 6am Club page.`,
+  startDate: `${m.date}T${m.start}:00+05:30`,
+  endDate: `${m.date}T${m.end}:00+05:30`,
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: { "@type": "Place", name: m.venue, address: { "@type": "PostalAddress", streetAddress: m.address, addressLocality: m.city, addressCountry: "IN" } },
+  image: [`${SITE_URL}/assets/img/day-him-run.webp`],
+  organizer: { "@id": `${SITE_URL}/#org`, "@type": "Organization", name: BRAND.name, url: SITE_URL },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${SITE_URL}/6am-club` },
+  isAccessibleForFree: true,
+});

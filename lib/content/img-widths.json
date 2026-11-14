@@ -1,0 +1,266 @@
+{
+  "banner-her": {
+    "w": 2000,
+    "variants": [
+      800,
+      1200
+    ]
+  },
+  "banner-him": {
+    "w": 2000,
+    "variants": [
+      800,
+      1200
+    ]
+  },
+  "day-her-cafe": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "day-her-gym": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "day-her-home": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "day-her-yoga": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "day-him-airport": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "day-him-dinner": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "day-him-run": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "friends": {
+    "w": 1800,
+    "variants": [
+      800,
+      1200
+    ]
+  },
+  "hero-both-m": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "hero-both": {
+    "w": 2000,
+    "variants": [
+      800,
+      1200
+    ]
+  },
+  "hero-her-m": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "hero-her": {
+    "w": 2000,
+    "variants": [
+      800,
+      1200
+    ]
+  },
+  "hero-him-m": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "hero-him": {
+    "w": 2000,
+    "variants": [
+      800,
+      1200
+    ]
+  },
+  "life-hotel": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "life-veranda": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "m-bra": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "m-jacket": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "m-shorts": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-active-legging-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-active-legging-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-active-legging-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-active-tshirt-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-active-tshirt-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-active-tshirt-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-athleisure-shorts-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-athleisure-shorts-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-athleisure-shorts-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-fitted-jacket-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-fitted-jacket-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-fitted-jacket-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-sports-bra-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-sports-bra-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-sports-bra-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-tank-top-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-tank-top-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-tank-top-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-wide-leg-pants-back": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-wide-leg-pants-detail": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "p-wide-leg-pants-front": {
+    "w": 1000,
+    "variants": [
+      800
+    ]
+  },
+  "training-both-2": {
+    "w": 1200,
+    "variants": [
+      800
+    ]
+  }
+}

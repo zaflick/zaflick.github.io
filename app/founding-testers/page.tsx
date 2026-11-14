@@ -36,7 +36,7 @@ export default function Page() {
           </ul>
         </div>
         <div className="feature-img">
-          <Img name="day-her-gym" alt="A woman in an aubergine set training with a dumbbell." eager />
+          <Img name="day-her-gym" alt="A woman in an aubergine set training with a dumbbell." eager sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </div>
 

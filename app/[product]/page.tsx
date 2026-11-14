@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
         <div className="pdp-gallery" role="list" aria-label={`${p.name} images`}>
           {gallery.map((g, i) => (
             <figure key={g.img} role="listitem" className={`pdp-shot${i === 0 ? " is-main" : ""}`}>
-              <Img name={g.img} alt={g.alt} eager={i === 0} />
+              <Img name={g.img} alt={g.alt} eager={i === 0} sizes="(max-width: 900px) 100vw, 50vw" />
               {i === 0 ? <span className="tag mono">Concept</span> : null}
             </figure>
           ))}

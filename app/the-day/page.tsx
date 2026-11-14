@@ -20,7 +20,7 @@ function Day({ id, title, moments, set }: { id: string; title: string; moments: 
         {moments.map((m, i) => (
           <li key={m.t} className="moment reveal" style={{ ["--d" as string]: i }}>
             <div className="moment-img">
-              <Img name={m.img} alt={m.alt} />
+              <Img name={m.img} alt={m.alt} sizes="(max-width: 640px) 100vw, 50vw" />
             </div>
             <p className="mono moment-t">{m.t}</p>
             <h3 className="moment-h">{m.title}</h3>

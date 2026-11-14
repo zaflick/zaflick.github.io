@@ -1,8 +1,9 @@
 /**
  * Zaflick forms (Google Apps Script project "Zaflick forms" on marketing@zaflick.com).
  *
- * Receives the Founding Testers, 6am Club and Contact forms from zaflick.com and adds one row
- * per submission to the matching tab. Deployed as a web app: Execute as marketing@zaflick.com,
+ * Receives the Founding Testers, 6am Club and Contact forms from zaflick.com, plus a copy of every
+ * early-list sign-up (member number, tracking tags, referral code), and adds one row per
+ * submission to the matching tab. The "Referrals" tab counts sign-ups per referral code. Deployed as a web app: Execute as marketing@zaflick.com,
  * Who has access: Anyone. The /exec URL goes into NEXT_PUBLIC_FORMS_ENDPOINT (package.json, build:live).
  *
  * This file is a copy for reference; the live code is in the Apps Script project.
@@ -13,6 +14,7 @@ const TABS = {
   "founding-tester": { name: "Founding Testers", fields: ["name", "email", "city", "for", "training", "often", "size", "instagram", "problem"] },
   "6am-club": { name: "6am Club", fields: ["name", "email", "city", "activity"] },
   contact: { name: "Contact", fields: ["name", "email", "topic", "message"] },
+  "early-list": { name: "Early list", fields: ["member_number", "email", "form", "piece"] },
 };
 const EXTRA = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "ref", "page"];
 
@@ -72,4 +74,21 @@ function setup() {
   const ss = SpreadsheetApp.openById(SHEET_ID);
   const first = ss.getSheetByName("Sheet1");
   if (first && first.getLastRow() === 0) ss.deleteSheet(first);
+}
+
+/**
+ * Run once from the editor: creates the "Early list" tab and a "Referrals" tab that counts
+ * sign-ups per referral code (codes look like Z87, from each member's share link).
+ * Early list columns: A received_at, B member_number, C email, D form, E piece, F-I utm_*, J ref, K page.
+ */
+function setupReferrals() {
+  getTab(TABS["early-list"]);
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const sheet = ss.getSheetByName("Referrals") || ss.insertSheet("Referrals");
+  sheet.clear();
+  sheet
+    .getRange("A1")
+    .setFormula(
+      `=QUERY('Early list'!A:K, "select J, count(C) where J starts with 'Z' group by J order by count(C) desc label J 'referral code', count(C) 'sign-ups'", 1)`
+    );
 }

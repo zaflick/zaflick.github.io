@@ -40,7 +40,7 @@ export default function SignupForm({ where, piece = "", tone = "light", autoFocu
     setNote("Adding you to the list…");
     track("signup_submit", { form: where, piece });
     try {
-      await signup(v);
+      await signup(v, { form: where, piece });
       track("signup_success", { form: where, piece });
       setState("idle");
       setNote("");

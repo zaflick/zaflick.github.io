@@ -112,7 +112,7 @@ export default async function Page({ params }: Props) {
             <li key={o.slug}>
               <a className="jcard" href={href(`/blog/${o.slug}`)}>
                 <div className="jcard-img">
-                  <Img name={o.img} alt="" />
+                  <Img name={o.img} alt="" sizes="(max-width: 640px) 100vw, 33vw" />
                 </div>
                 <p className="mono jcard-meta">{readMins(o)} min read</p>
                 <h3 className="jcard-h">{o.title}</h3>

@@ -42,7 +42,7 @@ export default function Page() {
         lede="Zaflick is an Indian athleisure brand. Seven pieces for women and men, designed to be worn from a morning session through the rest of the day, not only at the gym."
       />
       <div className="banner">
-        <Img name="hero-both" alt="A man in an olive set and a woman in an aubergine set talking at a coffee bar." eager />
+        <Img name="hero-both" alt="A man in an olive set and a woman in an aubergine set talking at a coffee bar." eager sizes="(max-width: 900px) 100vw, 50vw" />
       </div>
 
       <section className="section split-2" aria-labelledby="why-h">

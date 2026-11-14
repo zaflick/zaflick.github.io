@@ -8,6 +8,7 @@ import { bySlug, type Product } from "@/lib/content/products";
 import type { Look } from "@/lib/content/looks";
 import type { QA } from "@/lib/content/faq";
 import SignupForm from "./SignupForm";
+import IMG_WIDTHS from "@/lib/content/img-widths.json";
 
 export function JsonLd({ data }: { data: object | object[] }) {
   const list = Array.isArray(data) ? data : [data];
@@ -48,18 +49,28 @@ export function PageHead({ eyebrow, title, lede, children }: { eyebrow?: string;
   );
 }
 
+/**
+ * Photos. When scripts/make-image-variants.py has made smaller copies (-800, -1200), the
+ * browser picks the smallest one that fills the slot, so phones skip the desktop file.
+ * Pass `sizes` for images that are narrower than the screen (cards, grids).
+ */
 export function Img({ name, alt, className, eager, sizes }: { name: string; alt: string; className?: string; eager?: boolean; sizes?: string }) {
   const src = name.includes(".") ? name : `${name}.webp`;
+  const v = name.includes(".") ? undefined : (IMG_WIDTHS as Record<string, { w: number; variants: number[] }>)[name];
+  const srcSet = v
+    ? [...v.variants.map((w) => `${asset(`/assets/img/${name}-${w}.webp`)} ${w}w`), `${asset(`/assets/img/${src}`)} ${v.w}w`].join(", ")
+    : undefined;
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className}
       src={asset(`/assets/img/${src}`)}
+      srcSet={srcSet}
+      sizes={srcSet ? sizes || "100vw" : sizes}
       alt={alt}
       loading={eager ? "eager" : "lazy"}
       fetchPriority={eager ? "high" : undefined}
       decoding="async"
-      sizes={sizes}
     />
   );
 }
@@ -68,8 +79,8 @@ export function ProductCard({ p, eager }: { p: Product; eager?: boolean }) {
   return (
     <a className="pcard" href={href(`/${p.slug}`)}>
       <div className="pcard-img">
-        <Img name={`p-${p.slug}-front`} alt={`${p.name}, front view`} eager={eager} />
-        <Img name={p.model} alt="" className="pcard-alt" />
+        <Img name={`p-${p.slug}-front`} alt={`${p.name}, front view`} eager={eager} sizes="(max-width: 640px) 50vw, 25vw" />
+        <Img name={p.model} alt="" className="pcard-alt" sizes="(max-width: 640px) 50vw, 25vw" />
         <span className="tag mono">Concept</span>
       </div>
       <div className="pcard-meta">
@@ -97,7 +108,7 @@ export function LookCard({ look, flip, headingLevel = 2 }: { look: Look; flip?: 
   return (
     <article className={`look reveal${flip ? " look-flip" : ""}`} id={look.id}>
       <div className="look-img">
-        <Img name={look.img} alt={look.alt} />
+        <Img name={look.img} alt={look.alt} sizes="(max-width: 640px) 100vw, 50vw" />
       </div>
       <div className="look-copy">
         <p className="eyebrow mono">{look.gender === "her" ? "For her" : "For him"} · Look</p>
@@ -109,7 +120,7 @@ export function LookCard({ look, flip, headingLevel = 2 }: { look: Look; flip?: 
             return (
               <li key={slug}>
                 <a href={href(`/${slug}`)}>
-                  <Img name={`p-${slug}-front`} alt="" />
+                  <Img name={`p-${slug}-front`} alt="" sizes="(max-width: 640px) 30vw, 12vw" />
                   <span>{p.name}</span>
                   <span className="soft look-view">View</span>
                 </a>
@@ -154,7 +165,7 @@ export function JoinBand({ where, title = "Join before the first drop", img = "f
   return (
     <section className="join-band" aria-labelledby={`join-${where}`}>
       <div className="join-band-img">
-        <Img name={img} alt="" />
+        <Img name={img} alt="" sizes="(max-width: 900px) 100vw, 50vw" />
       </div>
       <div className="join-band-copy">
         <p className="eyebrow mono">Early list</p>

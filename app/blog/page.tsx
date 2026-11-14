@@ -31,7 +31,7 @@ export default function Page() {
           <li key={a.slug} data-topic={a.topic} className={`reveal${i === 0 ? " jcard-lead" : ""}`}>
             <a className="jcard" href={href(`/blog/${a.slug}`)}>
               <div className="jcard-img">
-                <Img name={a.img} alt="" eager={i === 0} />
+                <Img name={a.img} alt="" eager={i === 0} sizes="(max-width: 640px) 100vw, 50vw" />
               </div>
               <p className="mono jcard-meta">
                 {a.topic} · {readMins(a)} min read

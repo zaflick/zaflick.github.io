@@ -4,7 +4,7 @@
  * site are still recognised on this one.
  */
 import { useSyncExternalStore } from "react";
-import { IS_LIVE, SIGNUP_API, SITE_URL } from "./site";
+import { FORMS_ENDPOINT, IS_LIVE, SIGNUP_API, SITE_URL } from "./site";
 
 export type Member = { email: string; number: number | null };
 type Source = Record<string, string>;
@@ -86,10 +86,36 @@ function setMember(m: Member) {
 export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
- * Live: POST {email} to the existing Cloudflare worker (it only accepts the
- * https://zaflick.com origin). Prototype: wait a moment and pretend it worked.
+ * Copy a successful sign-up, with its tracking tags and referral code, to the Zaflick-owned
+ * "Zaflick forms" sheet ("Early list" tab). Fire-and-forget: it never delays or breaks the sign-up.
  */
-export async function signup(email: string): Promise<Member> {
+function logSignup(email: string, number: number | null, meta: SignupMeta) {
+  if (!IS_LIVE || !FORMS_ENDPOINT) return;
+  try {
+    const body = JSON.stringify({
+      kind: "early-list",
+      email,
+      member_number: number ?? "",
+      form: meta.form,
+      piece: meta.piece || "",
+      ...getSource(),
+      page: location.pathname,
+    });
+    // text/plain keeps it a simple request for Apps Script; keepalive lets it finish if the page changes.
+    fetch(FORMS_ENDPOINT, { method: "POST", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body }).catch(() => {});
+  } catch {
+    /* never block a sign-up on the copy */
+  }
+}
+
+export type SignupMeta = { form: string; piece?: string };
+
+/**
+ * Live: POST {email} to the existing Cloudflare worker (it only accepts the
+ * https://zaflick.com origin), then copy the sign-up to the Zaflick forms sheet.
+ * Prototype: wait a moment and pretend it worked.
+ */
+export async function signup(email: string, meta: SignupMeta = { form: "unknown" }): Promise<Member> {
   let number: number | null = null;
   if (IS_LIVE) {
     const res = await fetch(`${SIGNUP_API}/signup`, {
@@ -100,6 +126,7 @@ export async function signup(email: string): Promise<Member> {
     const d = (await res.json()) as { ok?: boolean; member_number?: number };
     if (!d?.ok) throw new Error("failed");
     number = d.member_number ?? null;
+    logSignup(email, number, meta);
   } else {
     await new Promise((r) => setTimeout(r, 600));
   }

@@ -1,5 +1,6 @@
-import { pageMeta } from "@/lib/seo";
-import { Crumbs, PageHead, Img, Todo } from "@/components/site/bits";
+import { pageMeta, eventSchema } from "@/lib/seo";
+import { Crumbs, PageHead, Img, Todo, JsonLd } from "@/components/site/bits";
+import { upcomingMornings } from "@/lib/content/club";
 import LeadForm from "@/components/site/LeadForm";
 
 // Whole page is new copy: TODO-approve. The 6am Club format (cities, session types,
@@ -17,7 +18,11 @@ const STEPS = [
   { h: "You hear first", t: "Members get the date, the place and a spot before it's shared anywhere else." },
 ];
 
+const fmt = (d: string) => new Date(`${d}T00:00:00+05:30`).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short", timeZone: "Asia/Kolkata" });
+
 export default function Page() {
+  // Filled from lib/content/club.ts; nothing shows until mornings are added there.
+  const mornings = upcomingMornings();
   return (
     <main id="content" className="page">
       <Crumbs items={[{ name: "Home", path: "/" }, { name: "6am Club", path: "/6am-club" }]} />
@@ -41,9 +46,25 @@ export default function Page() {
           </ol>
         </div>
         <div className="feature-img">
-          <Img name="day-him-run" alt="A man in an olive tee and shorts pausing mid-run in a park." eager />
+          <Img name="day-him-run" alt="A man in an olive tee and shorts pausing mid-run in a park." eager sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </div>
+
+      {mornings.length ? (
+        <section className="section" aria-labelledby="club-dates">
+          <h2 id="club-dates" className="display section-h">Upcoming mornings</h2>
+          <ul className="club-dates">
+            {mornings.map((m) => (
+              <li key={`${m.city}-${m.date}`}>
+                <p className="mono">{fmt(m.date)} · {m.start}</p>
+                <p className="club-dates-h">{m.activity}, {m.city}</p>
+                <p className="soft">{m.venue}</p>
+              </li>
+            ))}
+          </ul>
+          <JsonLd data={mornings.map(eventSchema)} />
+        </section>
+      ) : null}
 
       <section className="section form-section" aria-labelledby="club-form">
         <div className="form-intro">
