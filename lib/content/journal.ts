@@ -38,7 +38,7 @@ const POSTS: Article[] = [
     dek: "Humidity, a packed commute and an office cold enough to need a layer. How to dress once at 6am and still look put together at your 10am meeting.",
     answer:
       "Wear one tonal set built to train in, with real support, a waistband that stays put and fabric that dries quickly, then add a layer instead of changing. An open shirt or a light jacket covers the office and the air-conditioning, and a dry spare top in your bag handles the commute.",
-    date: "2026-11-18",
+    date: "2026-11-15",
     topic: "Outfits",
     img: "day-her-cafe",
     alt: "A woman in an aubergine set and an open white shirt at a café table with a laptop and coffee.",
@@ -103,7 +103,6 @@ const POSTS: Article[] = [
     ],
     related: ["active-legging", "tank-top"],
     cta: { label: "See the looks", href: "/looks" },
-    draft: true,
   },
   {
     slug: "mens-athleisure-for-work-india",
@@ -112,7 +111,7 @@ const POSTS: Article[] = [
     dek: "Where the line is between smart-casual and gym kit, which pieces cross it well, and how to dress for the heat outside and the air-conditioning inside.",
     answer:
       "Yes, in most smart-casual offices, as long as it looks deliberate. Choose a structured T-shirt without big logos, straight or wide-leg pants with a clean waistband and clean sneakers, all in muted tonal colours. Add an overshirt or a light jacket for meetings and cold rooms, and save shorts for days at home.",
-    date: "2026-11-21",
+    date: "2026-11-15",
     topic: "Men",
     img: "day-him-dinner",
     alt: "A man in an olive T-shirt and wide-leg pants with a light overshirt, walking past a lit café in the evening.",
@@ -161,7 +160,6 @@ const POSTS: Article[] = [
     ],
     related: ["active-tshirt", "wide-leg-pants"],
     cta: { label: "See the pieces for him", href: "/him" },
-    draft: true,
   },
   {
     slug: "leggings-that-dont-roll-down",
