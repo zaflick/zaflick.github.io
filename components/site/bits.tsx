@@ -136,7 +136,10 @@ export function FaqList({ items, level = 3, open }: { items: QA[]; level?: 2 | 3
       {items.map((it, i) => (
         <details key={it.id} id={it.id} className="faq-item" open={open && i === 0}>
           <summary>
-            <H className="faq-q">{it.q}</H>
+            <H className="faq-q">
+              {it.q}
+              {it.draft ? <span className="draft-tag">New · needs approval</span> : null}
+            </H>
             <span className="faq-plus" aria-hidden="true" />
           </summary>
           <p className="faq-a">{it.a}</p>

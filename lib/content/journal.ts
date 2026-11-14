@@ -4,6 +4,8 @@
  * Zaflick product facts used here are only ones already published on zaflick.com.
  */
 
+import { IS_LIVE } from "@/lib/site";
+
 export const TOPICS = ["Fit and sizing", "Fabric and weather", "Outfits", "Men", "The 6am Test"] as const;
 export type Topic = (typeof TOPICS)[number];
 
@@ -24,9 +26,143 @@ export type Article = {
   sections: Section[];
   related: string[];
   cta?: { label: string; href: string };
+  /** New post waiting for approval: shown in the local preview, left out of the live site. */
+  draft?: boolean;
 };
 
-export const ARTICLES: Article[] = [
+const POSTS: Article[] = [
+  {
+    slug: "gym-to-office-outfits-mumbai",
+    title: "What should you wear for a gym-to-office day in Mumbai?",
+    short: "Gym-to-office outfits for a Mumbai day",
+    dek: "Humidity, a packed commute and an office cold enough to need a layer. How to dress once at 6am and still look put together at your 10am meeting.",
+    answer:
+      "Wear one tonal set built to train in, with real support, a waistband that stays put and fabric that dries quickly, then add a layer instead of changing. An open shirt or a light jacket covers the office and the air-conditioning, and a dry spare top in your bag handles the commute.",
+    date: "2026-11-18",
+    topic: "Outfits",
+    img: "day-her-cafe",
+    alt: "A woman in an aubergine set and an open white shirt at a café table with a laptop and coffee.",
+    sections: [
+      {
+        h: "Why is a gym-to-office day harder in Mumbai?",
+        body: [
+          "Mumbai is humid for most of the year, and the monsoon adds rain on top. You sweat on the way to the gym, during the session and again on the commute, then walk into an office where the air-conditioning is set for people in suits.",
+          "So the outfit has three jobs: get through the workout, dry out on the way to work, and look finished at your desk.",
+        ],
+      },
+      {
+        h: "What should you train in?",
+        body: [
+          {
+            list: [
+              "Support that stays put: a sports bra, or a tank with built-in support.",
+              "A wide, high-rise waistband that doesn't roll when you bend.",
+              "Fabric chosen for heat and humidity, so it dries instead of staying damp.",
+              "A darker tonal colour such as aubergine or deep forest, which shows sweat less than grey or pastels.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How do you turn it into office wear?",
+        body: [
+          "Don't change the set; change the layer. A crisp open shirt over a tank and legging reads as smart-casual, and a fitted jacket does the same job when the office is cold.",
+          "Matching colours do most of the work. One colour from top to bottom looks like an outfit rather than gym kit. For men, the same rule works with a clean T-shirt and wide-leg pants in one colour and an overshirt for meetings.",
+        ],
+      },
+      {
+        h: "What about the monsoon?",
+        body: [
+          {
+            list: [
+              "Keep a spare top and socks in a zip bag so they stay dry.",
+              "Wear quick-drying shoes, or carry a second pair for the office.",
+              "Pick a layer that dries fast rather than a heavy cotton hoodie.",
+              "Hang wet kit up as soon as you can. Leaving it rolled up in a bag is what makes it smell.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What should be in your bag?",
+        body: [{ list: ["An open shirt or a light jacket", "A spare top and socks", "Deodorant and a small towel", "Office shoes, if your trainers won't pass", "A zip bag for anything damp"] }],
+      },
+      {
+        h: "What does the day look like?",
+        body: [
+          {
+            steps: [
+              "6:00 am: train in the set.",
+              "7:30 am: cool down, change your top if you need to, and put the shirt on.",
+              "8:15 am: commute with the layer on or in your bag.",
+              "10:00 am: walk into the meeting in the same set, shirt on, cleaner shoes.",
+            ],
+          },
+        ],
+      },
+    ],
+    related: ["active-legging", "tank-top"],
+    cta: { label: "See the looks", href: "/looks" },
+    draft: true,
+  },
+  {
+    slug: "mens-athleisure-for-work-india",
+    title: "Can men wear athleisure to work in India?",
+    short: "Men's athleisure for work in India",
+    dek: "Where the line is between smart-casual and gym kit, which pieces cross it well, and how to dress for the heat outside and the air-conditioning inside.",
+    answer:
+      "Yes, in most smart-casual offices, as long as it looks deliberate. Choose a structured T-shirt without big logos, straight or wide-leg pants with a clean waistband and clean sneakers, all in muted tonal colours. Add an overshirt or a light jacket for meetings and cold rooms, and save shorts for days at home.",
+    date: "2026-11-21",
+    topic: "Men",
+    img: "day-him-dinner",
+    alt: "A man in an olive T-shirt and wide-leg pants with a light overshirt, walking past a lit café in the evening.",
+    sections: [
+      {
+        h: "Where is the line between athleisure and gym kit?",
+        body: [
+          "Fit, fabric and finish. Athleisure that works at the office fits close without clinging, is matte rather than shiny, and has no oversized logos. If it looks like it belongs on a treadmill, it stays at the gym.",
+          "Check your office first. Startups, creative teams and hybrid offices are usually relaxed; client-facing roles and formal workplaces may not be.",
+        ],
+      },
+      {
+        h: "Which pieces work best?",
+        body: [
+          {
+            list: [
+              "A structured T-shirt with a clean neckline that holds its shape.",
+              "Straight or wide-leg pants with a flat waistband. Tuck the drawstring in.",
+              "An overshirt or a light jacket to layer for meetings.",
+              "Clean white or neutral sneakers, not your running shoes.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "Which colours look most professional?",
+        body: [
+          "Muted, tonal colours: olive, navy, charcoal, black and ivory. A T-shirt and pants in the same colour look intentional, and an overshirt in a contrasting neutral adds structure.",
+        ],
+      },
+      {
+        h: "How do you handle the heat and the AC?",
+        body: [
+          "Most Indian workdays mean a commute through heat and humidity, then a cold office. Breathable fabric that dries quickly handles the first; a light layer you can take on and off handles the second.",
+          "Avoid heavy cotton joggers and hoodies. They stay damp and look slouchy by midday.",
+        ],
+      },
+      {
+        h: "What should you avoid?",
+        body: [{ list: ["Shiny technical fabrics and big logos", "Anything faded, pilled or stretched out", "Shorts, unless your office is genuinely relaxed", "Running shoes that have seen a lot of mud"] }],
+      },
+      {
+        h: "What's the quick formula?",
+        body: [{ steps: ["A T-shirt and pants in one colour.", "An overshirt or a light jacket on top.", "Clean sneakers.", "One accessory: a watch or a simple bag."] }],
+      },
+    ],
+    related: ["active-tshirt", "wide-leg-pants"],
+    cta: { label: "See the pieces for him", href: "/him" },
+    draft: true,
+  },
   {
     slug: "leggings-that-dont-roll-down",
     title: "How do you stop leggings rolling down?",
@@ -348,6 +484,8 @@ export const ARTICLES: Article[] = [
     related: ["fitted-jacket", "active-tshirt"],
   },
 ];
+
+export const ARTICLES = POSTS.filter((a) => !a.draft || !IS_LIVE);
 
 export const article = (slug: string) => ARTICLES.find((a) => a.slug === slug);
 

@@ -64,6 +64,7 @@ export default async function Page({ params }: Props) {
         <header className="article-head">
           <p className="eyebrow mono">
             {a.topic} · <time dateTime={a.date}>{fmtDate(a.date)}</time> · {readMins(a)} min read
+            {a.draft ? <span className="draft-tag">Draft · needs approval</span> : null}
           </p>
           <h1 className="display article-h">{a.title}</h1>
           <p className="page-lede">{a.dek}</p>

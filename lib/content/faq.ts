@@ -8,10 +8,13 @@
  * percentages or cities).
  */
 
-export type QA = { id: string; q: string; a: string; live?: boolean };
+import { IS_LIVE } from "@/lib/site";
+
+/** `draft: true` = new copy waiting for approval: shown in the local preview, left out of the live site. */
+export type QA = { id: string; q: string; a: string; live?: boolean; draft?: boolean };
 export type Group = { id: string; title: string; items: QA[] };
 
-export const FAQ: Group[] = [
+const BANK: Group[] = [
   {
     id: "about",
     title: "About Zaflick",
@@ -44,6 +47,18 @@ export const FAQ: Group[] = [
         q: "Are the photos on this site real products?",
         a: "No. Every product image on this site is a conceptual representation. The designs are still being finalised and the final pieces may differ. You will see photographs of the real samples before you are asked to buy anything.",
         live: true,
+      },
+      {
+        id: "where-from",
+        q: "Where is Zaflick from?",
+        a: "Zaflick is an Indian brand, from Zaflick Lifestyle Pvt. Ltd. Every piece is designed in India for Indian weather and Indian bodies, with fabric chosen for heat and humidity and sizes graded on Indian measurements rather than a chart borrowed from another market.",
+        draft: true,
+      },
+      {
+        id: "who-for",
+        q: "Who is Zaflick for?",
+        a: "Anyone who starts the day with a workout and doesn't want to change straight after. The pieces are built to train in first, then carry on through work, travel, college and dinner. There are pieces for women and for men.",
+        draft: true,
       },
     ],
   },
@@ -92,6 +107,24 @@ export const FAQ: Group[] = [
         a: "Join the early list, and follow @houseofzaflick on Instagram.",
         live: true,
       },
+      {
+        id: "free",
+        q: "Is the early list free?",
+        a: "Yes. Joining is free and needs only your email address. You get a member number straight away, a few messages before launch, and you can leave whenever you like from any email we send.",
+        draft: true,
+      },
+      {
+        id: "member-number",
+        q: "What is my member number?",
+        a: "It's your place on the Zaflick early list, given the moment you join, so you can see how early you were. The site shows it again whenever you come back on the same device, along with a personal link you can share with friends.",
+        draft: true,
+      },
+      {
+        id: "after-joining",
+        q: "What happens after I join?",
+        a: "You see your member number on screen and get a confirmation by email. Before launch we send a few updates: the real samples, the launch date and your early-access window. Members can buy 48 hours before everyone else and get free shipping on their launch order.",
+        draft: true,
+      },
     ],
   },
   {
@@ -128,6 +161,18 @@ export const FAQ: Group[] = [
         q: "What colours will there be?",
         a: "The concepts are shown in aubergine, deep forest, olive and ivory. Final colours will be confirmed with the real samples, and the early list sees them first.",
       },
+      {
+        id: "work",
+        q: "Can I wear Zaflick to work?",
+        a: "That's the idea. The pieces are cut to look finished rather than sporty: tonal colours, a fitted jacket to layer over the tank or sports bra, and for men a clean T-shirt with wide-leg pants. Train in the morning, then go straight to the office or to dinner.",
+        draft: true,
+      },
+      {
+        id: "care",
+        q: "How should I wash activewear?",
+        a: "Wash it cold and inside out with similar colours, and skip fabric softener, which clogs stretch fabric. Dry it in the shade rather than in a dryer or direct sun. Every Zaflick piece will come with its own care label when it ships.",
+        draft: true,
+      },
     ],
   },
   {
@@ -144,6 +189,18 @@ export const FAQ: Group[] = [
         id: "size-chart",
         q: "Is there a size chart yet?",
         a: "Not yet. The chart is published with the real samples. Until then, the size guide explains how to measure yourself so you are ready when it goes up.",
+      },
+      {
+        id: "choose-size",
+        q: "How do I choose my size?",
+        a: "Measure your waist, hips and chest with a soft tape, then compare them with the size chart when it is published. For leggings, choose by your waist rather than sizing up for the hips. The size guide shows exactly where to measure.",
+        draft: true,
+      },
+      {
+        id: "indian-sizing",
+        q: "Are the sizes made for Indian bodies?",
+        a: "Yes. Zaflick sizes are being graded on Indian body measurements rather than a chart borrowed from another market, so the fit at the waist, hips and chest matches how people here are actually built.",
+        draft: true,
       },
     ],
   },
@@ -166,6 +223,12 @@ export const FAQ: Group[] = [
         id: "returns",
         q: "What is the returns policy?",
         a: "Returns and exchange terms will be published before the first sale, so you can read them before you buy anything.",
+      },
+      {
+        id: "international",
+        q: "Do you ship outside India?",
+        a: "Not at launch. Zaflick ships within India to start. If you live abroad you can still join the early list to follow the samples and the launch, and members will be the first to hear if we start shipping further.",
+        draft: true,
       },
     ],
   },
@@ -198,6 +261,12 @@ export const FAQ: Group[] = [
         q: "How do I reach you?",
         a: "Message @houseofzaflick on Instagram, or use the contact page. Questions about your data go to admin@zaflick.com.",
       },
+      {
+        id: "partners",
+        q: "Can my run club, studio or brand partner with Zaflick?",
+        a: "Yes, we'd like to hear from you. Email marketing@zaflick.com or use the contact page with the name of your club, studio or brand, your city and what you have in mind. We reply to every message.",
+        draft: true,
+      },
     ],
   },
   {
@@ -218,6 +287,7 @@ export const FAQ: Group[] = [
   },
 ];
 
+export const FAQ: Group[] = BANK.map((g) => ({ ...g, items: g.items.filter((x) => !x.draft || !IS_LIVE) }));
 export const ALL_QA = FAQ.flatMap((g) => g.items);
 export const qa = (id: string) => {
   const f = ALL_QA.find((x) => x.id === id);

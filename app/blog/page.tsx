@@ -35,6 +35,7 @@ export default function Page() {
               </div>
               <p className="mono jcard-meta">
                 {a.topic} · {readMins(a)} min read
+                {a.draft ? <span className="draft-tag">Draft · needs approval</span> : null}
               </p>
               <h2 className="jcard-h">{a.title}</h2>
               <p className="soft jcard-dek">{a.dek}</p>
