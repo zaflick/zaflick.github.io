@@ -1,7 +1,7 @@
 /**
  * Zaflick forms (Google Apps Script project "Zaflick forms" on marketing@zaflick.com).
  *
- * Receives the Founding Testers, 6am Club and Contact forms from zaflick.com, plus a copy of every
+ * Receives the Founding Testers, Cast your crew, 6am Club (retired) and Contact forms from zaflick.com, plus a copy of every
  * early-list sign-up (member number, tracking tags, referral code), and adds one row per
  * submission to the matching tab. The "Referrals" tab counts sign-ups per referral code. Deployed as a web app: Execute as marketing@zaflick.com,
  * Who has access: Anyone. The /exec URL goes into NEXT_PUBLIC_FORMS_ENDPOINT (package.json, build:live).
@@ -58,6 +58,11 @@ function alertNew(tab, data) {
   } catch (err) {
     /* the row is already saved */
   }
+}
+
+/** Run once from the editor after pasting this version: it asks for the send-email permission (click Allow). It sends nothing. */
+function authorizeAlerts() {
+  Logger.log("Alert emails left today: " + MailApp.getRemainingDailyQuota());
 }
 
 /** Lets you open the /exec URL in a browser to check the deployment is up. */
