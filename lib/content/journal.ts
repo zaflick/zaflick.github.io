@@ -35,6 +35,131 @@ export type Article = {
 
 const POSTS: Article[] = [
   {
+    slug: "weekend-plans-hyderabad-what-to-wear",
+    title: "What should you wear for a weekend plan with friends in Hyderabad?",
+    short: "Weekend plans in Hyderabad: what to wear",
+    dek: "A morning walk at KBR Park, a game, a café in Banjara Hills, the lake at night. How to dress once for a Hyderabad weekend and not think about it again.",
+    answer:
+      "Wear one comfortable outfit that works for all of it: a breathable top or sports bra, a light jacket you can take off or zip up, relaxed wide-leg pants or a high-waisted legging, and clean sneakers. Hyderabad mornings from November to February are cool and afternoons warm, so a light layer matters more than anything else.",
+    date: "2026-11-24",
+    topic: "Outfits",
+    img: "friends",
+    alt: "Four friends in tonal sets talking around a table on a terrace café.",
+    sections: [
+      {
+        h: "What do friends in Hyderabad actually do on a weekend?",
+        body: [
+          "Most weekends are a mix of a walk, a game and food, often in the same day.",
+          {
+            list: [
+              "A morning walk at KBR National Park in Jubilee Hills, or along Necklace Road by Hussain Sagar.",
+              "A game: badminton, pickleball or padel at a court near you, or a Sunday cricket match.",
+              "A long breakfast or coffee in Banjara Hills or Jubilee Hills, or an evening at Lamakaan.",
+              "The evening by Durgam Cheruvu, when the cable bridge is lit up.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How do you dress for a walk, a game and a café in one day?",
+        body: [
+          "Pick pieces that move with you and still look put together when you sit down.",
+          {
+            list: [
+              "A breathable top or sports bra as the base.",
+              "A light, fitted jacket you can zip up at the café and take off for the game.",
+              "Wide-leg pants or a high-waisted legging with a pocket for your phone.",
+              "Clean sneakers that work on a court and at a table.",
+              "One or two colours, so it reads as an outfit and not as gym kit.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What does Hyderabad weather mean for your outfit?",
+        body: [
+          "From November to February, mornings are cool and afternoons warm and dry, so a light layer does most of the work. From March to June it gets very hot: choose loose, breathable fabric and plan outdoor time early or late. In the monsoon months, carry a light layer and shoes that don't mind a puddle.",
+        ],
+      },
+      {
+        h: "What should you carry for the day?",
+        body: [{ list: ["Water", "A light layer", "Sunscreen", "A pocket or small bag for your phone and keys", "A spare T-shirt if the game runs long"] }],
+      },
+      {
+        h: "Can one outfit really last the whole plan?",
+        body: [
+          "That's the idea behind Zaflick: whatever the plan, you're in. Our first drop is five pieces made to be worn from a walk to a game to dinner, with no changing in between. We're starting in Hyderabad and Bengaluru, and the Circle sees the real samples first.",
+        ],
+      },
+    ],
+    related: ["wide-leg-pants", "fitted-jacket"],
+    cta: { label: "Join the Circle", href: "/circle" },
+    draft: true,
+  },
+  {
+    slug: "game-and-dinner-outfit-bengaluru",
+    title: "What should you wear for a game and dinner after in Bengaluru?",
+    short: "A game, then dinner: Bengaluru outfits",
+    dek: "Badminton or pickleball after work, then dinner in Indiranagar. How to dress for both without going home to change.",
+    answer:
+      "Wear a breathable top, a relaxed or high-waisted bottom that lets you move, and clean sneakers, then add a light jacket when the game is over. Bengaluru evenings are mild and often cool, so a layer you can zip up covers dinner. Keep to one or two colours so the outfit still looks put together at the table.",
+    date: "2026-11-26",
+    topic: "Outfits",
+    img: "hero-both",
+    alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
+    sections: [
+      {
+        h: "Why is a game and then dinner such a common Bengaluru plan?",
+        body: [
+          "Courts are close to where people live and work, and the evenings are mild most of the year. So a lot of plans look the same: badminton, pickleball or football after work, then dinner nearby in Indiranagar, Koramangala or HSR Layout.",
+        ],
+      },
+      {
+        h: "What works for the game and still works at dinner?",
+        body: [
+          {
+            list: [
+              "A breathable T-shirt or sports bra that doesn't look like gym kit.",
+              "Wide-leg pants or a high-waisted legging with a pocket for your phone.",
+              "A fitted jacket to zip up when you sit down.",
+              "Clean sneakers, not muddy court shoes. Keep a second pair in your bag if you can.",
+              "Tonal colours: one colour top to bottom reads as an outfit.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "How do you freshen up between the court and the table?",
+        body: [
+          {
+            steps: [
+              "Cool down for five minutes before you leave the court.",
+              "Use a towel and deodorant from your bag.",
+              "Swap the T-shirt if you've played hard.",
+              "Zip up the jacket, and change shoes if you carried a pair.",
+              "Go straight to dinner.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What about Bengaluru rain?",
+        body: [
+          "In the monsoon months, showers often arrive in the evening. Carry a light jacket, keep your phone in a zipped pocket or bag, and pick shoes that can handle a wet road.",
+        ],
+      },
+      {
+        h: "Can one outfit do both?",
+        body: [
+          "That's what Zaflick is making: whatever the plan, you're in. Our first drop is five pieces for a game, a walk or dinner with no changing in between. We're starting in Hyderabad and Bengaluru, and the Circle sees the real samples first.",
+        ],
+      },
+    ],
+    related: ["active-tshirt", "wide-leg-pants"],
+    cta: { label: "Join the Circle", href: "/circle" },
+    draft: true,
+  },
+  {
     slug: "how-to-check-leggings-see-through",
     title: "How do you check if leggings are see-through?",
     short: "How to check leggings aren't see-through",
