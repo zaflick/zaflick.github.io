@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:live": "NEXT_PUBLIC_SITE_MODE=live NEXT_PUBLIC_GTM_ID=GTM-5G79GDM9 NEXT_PUBLIC_FORMS_ENDPOINT=https://script.google.com/macros/s/AKfycbwqNwaEN7nXZFX0QDIkjJXIXYpkKeQv7YaTqAoPkyxw64VqF75xE4_kQ_8xiUVDiOk/exec next build",
+    "build:live": "NEXT_PUBLIC_SITE_MODE=live NEXT_PUBLIC_GTM_ID=GTM-5G79GDM9 NEXT_PUBLIC_CLARITY_ID=zh4nmp3yq2 NEXT_PUBLIC_FORMS_ENDPOINT=https://script.google.com/macros/s/AKfycbwqNwaEN7nXZFX0QDIkjJXIXYpkKeQv7YaTqAoPkyxw64VqF75xE4_kQ_8xiUVDiOk/exec next build",
     "deploy": "sh scripts/deploy-pages.sh",
     "serve": "npx --yes serve@14.2.4 out -l 4321",
     "check": "node scripts/check-urls.mjs",
