@@ -14,6 +14,7 @@ const TABS = {
   "founding-tester": { name: "Founding Testers", fields: ["name", "email", "city", "for", "training", "often", "size", "instagram", "problem"] },
   "6am-club": { name: "6am Club", fields: ["name", "email", "city", "activity"] },
   contact: { name: "Contact", fields: ["name", "email", "topic", "message"] },
+  crew: { name: "Cast your crew", fields: ["name", "email", "city", "crew_size", "crew", "plan", "why", "instagram", "sizes"] },
   "early-list": { name: "Early list", fields: ["member_number", "email", "form", "piece"] },
 };
 const EXTRA = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "ref", "page"];

@@ -65,6 +65,10 @@ export const links = {
   blog: href("/blog"),
   testers: href("/founding-testers"),
   contact: href("/contact"),
+  /** Draft pages (preview only until approved). */
+  crew: href("/cast-your-crew"),
+  plans: href("/plans"),
+  invite: href("/in"),
   instagram: "https://www.instagram.com/houseofzaflick/",
 };
 
@@ -77,3 +81,9 @@ export const BENEFITS = [
   "Buy 48 hours before the public launch",
   "Free shipping on your launch order",
 ];
+
+/**
+ * Draft pages (page.draft.tsx, see next.config.ts) exist only in the preview build.
+ * Links to them are shown only where they exist.
+ */
+export const SHOW_DRAFTS = !IS_LIVE;

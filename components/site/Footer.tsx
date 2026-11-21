@@ -1,4 +1,4 @@
-import { asset, links, BRAND, EMAIL, LEGAL_NOTE, SOCIAL, WHATSAPP, WHATSAPP_TEXT } from "@/lib/site";
+import { asset, links, BRAND, EMAIL, LEGAL_NOTE, SHOW_DRAFTS, SOCIAL, WHATSAPP, WHATSAPP_TEXT } from "@/lib/site";
 
 const COLS = [
   {
@@ -15,6 +15,14 @@ const COLS = [
       { label: "Our story", href: links.about },
       { label: "Blog", href: links.blog },
       { label: "Founding Testers", href: links.testers },
+      // Draft pages: listed only in the preview build, where they exist.
+      ...(SHOW_DRAFTS
+        ? [
+            { label: "Cast your crew", href: links.crew },
+            { label: "Weekend plans", href: links.plans },
+            { label: "I'm in invite", href: links.invite },
+          ]
+        : []),
     ],
   },
   {
