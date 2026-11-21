@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/06w_zq-9wm84v.css","style"]
+:HL["/_next/static/media/db545dba463279ae-s.p.1cp9-4nby68jc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/f4dab2659b8f35d1-s.p.0dhp2_wm7tc69.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/assets/zaflick-wordmark.png","image"]
+:HL["/assets/img/p-active-legging-front.webp","image",{"imageSrcSet":"/assets/img/p-active-legging-front-800.webp 800w, /assets/img/p-active-legging-front.webp 1000w","imageSizes":"(max-width: 900px) 100vw, 50vw","fetchPriority":"high"}]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":{"n":"product","t":"d","k":"active-legging","s":["about","blog","circle","contact","faq","founding-testers","her","him","looks","privacy","size-guide"]},"h":65600,"c":"$Q2"}]]
+0:{"b":"9iTdwB7Wz66hzpP9mLHWw","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
