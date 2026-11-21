@@ -9,13 +9,16 @@ export const metadata: Metadata = {
 /**
  * GitHub Pages can't redirect on the server, so old or slightly-off links are fixed here,
  * before the page paints: /journal/* moved to /blog/*, the early list became /circle, the
- * 6am Club and The day pages were retired with the 15 Nov brand update, and a trailing
+ * 6am Club and The day pages were retired with the 15 Nov brand update, two blog posts were
+ * renamed on 21 Nov (one-set-6am-to-dinner, size-guide-for-indian-bodies), and a trailing
  * slash (/her/) is dropped. Anything else shows the 404 below.
  */
 const REDIRECT = `(function(){var p=location.pathname,t=p;
 if(/^\\/journal(\\/|$)/.test(t))t=t.replace(/^\\/journal/,"/blog");
 if(/^\\/early-list\\/?$/.test(t))t="/circle";
 if(/^\\/(6am-club|the-day)\\/?$/.test(t))t="/";
+if(/^\\/blog\\/one-set-6am-to-dinner\\/?$/.test(t))t="/blog/one-outfit-morning-to-dinner";
+if(/^\\/blog\\/size-guide-for-indian-bodies\\/?$/.test(t))t="/blog/how-to-choose-athleisure-size-india";
 if(t.length>1)t=t.replace(/\\/+$/,"")||"/";
 if(t!==p)location.replace(t+location.search+location.hash);})();`;
 

@@ -533,12 +533,14 @@ const POSTS: Article[] = [
     related: ["active-tshirt", "sports-bra"],
   },
   {
-    slug: "one-set-6am-to-dinner",
-    title: "Can you wear one athleisure set from a 6am workout to dinner?",
-    short: "6am to dinner in one set",
-    dek: "How to choose one set that carries a long day, from an early session to dinner, and what to change along the way.",
+    // Renamed 21 Nov from /blog/one-set-6am-to-dinner (retired "6am to dinner" line); old URL redirects here.
+    // Rewritten to the brand update: plans with friends, not training first. TODO-approve.
+    slug: "one-outfit-morning-to-dinner",
+    title: "Can one outfit take you from a morning plan to dinner with friends?",
+    short: "One outfit, morning to dinner",
+    dek: "A walk, a game, a long lunch, dinner with friends. How to choose one outfit that works for all of it, and what to change along the way.",
     answer:
-      "Yes, if the set is built to train in first and cut to look finished. Choose pieces with real support, a waistband that stays put and fabric that dries quickly, in one tonal colour. Then change the layer, not the set: an open shirt for work, a jacket for travel, cleaner shoes for dinner.",
+      "Yes, if it's an outfit you can move in, sit in and still feel put together in. Choose a matching set in one colour, with a waistband that stays put and a pocket for your phone, and bring one light layer. Then change one thing as the plan changes: the layer, the shoes or the bag, not the outfit.",
     date: "2026-11-14",
     updated: "2026-11-21",
     topic: "Outfits",
@@ -546,34 +548,48 @@ const POSTS: Article[] = [
     alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
     sections: [
       {
-        h: "Why start with training?",
-        body: [
-          "If the set can't handle the 6am session, nothing else matters. Support that stays put, a waistband that doesn't roll and fabric that dries are the foundation. Everything after that is styling.",
-        ],
-      },
-      {
-        h: "Why does a matching set look more finished?",
-        body: [
-          "One colour from top to bottom reads as an outfit, not as gym kit. A sports bra and legging in the same colour under a fitted jacket, or a tee and wide-leg pants in the same olive, looks deliberate in a café in a way that mismatched training clothes don't.",
-        ],
-      },
-      {
-        h: "What should you change through the day?",
+        h: "What does an outfit need to last a whole day of plans?",
         body: [
           {
             list: [
-              "Morning to work: add an open shirt over the tank or tee.",
-              "Travel or air-conditioned rooms: add a light jacket.",
-              "Evening: swap the training shoes for clean sneakers or sandals.",
-              "Keep the set the same. That's the point.",
+              "It moves with you: a walk, a game of badminton or a dance floor shouldn't need a change.",
+              "You can sit in it for hours: a long lunch, a drive, a movie.",
+              "It looks finished when you sit down at a café or walk into dinner.",
+              "It has somewhere for your phone, so you aren't holding it all day.",
             ],
           },
         ],
       },
       {
-        h: "What should you pack for a long day?",
+        h: "Why does a matching set look more finished?",
         body: [
-          { list: ["A spare top if you train hard", "Deodorant and a small towel", "A light layer for cold rooms", "A second pair of shoes if you're going out"] },
+          "One colour from top to bottom reads as an outfit, not as gym kit. A sports bra and legging in the same colour under a fitted jacket, or a tee and wide-leg pants in the same olive, looks deliberate in a café in a way that mismatched pieces don't.",
+        ],
+      },
+      {
+        h: "What should you change as the plan changes?",
+        body: [
+          {
+            list: [
+              "Morning walk or game: wear the set as it is.",
+              "Café or air-conditioned rooms: add the light jacket.",
+              "Lunch or a day out: add a bag so your hands are free.",
+              "Dinner: swap to clean sneakers or sandals.",
+              "Keep the outfit the same. That's the point.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "What should you carry for a long day out?",
+        body: [
+          { list: ["A light layer", "Water", "Deodorant and a small towel if there's a game", "A second pair of shoes if you're going out after"] },
+        ],
+      },
+      {
+        h: "How does Zaflick's first drop fit a day like this?",
+        body: [
+          "That's the idea behind Zaflick: whatever the plan, you're in. For her, the active legging has a deep side pocket that holds a phone, and the fitted jacket is the layer. For him, the active T-shirt and the wide-leg pants are made to be worn as a set. They're concepts until the samples arrive, and the Circle sees them first.",
         ],
       },
     ],
@@ -581,9 +597,10 @@ const POSTS: Article[] = [
     cta: { label: "See the looks", href: "/looks" },
   },
   {
-    slug: "size-guide-for-indian-bodies",
-    title: "How should you choose athleisure sizes for Indian bodies?",
-    short: "A size guide for Indian bodies",
+    // Renamed 21 Nov from /blog/size-guide-for-indian-bodies (the brief says not to use "Indian bodies"); old URL redirects here.
+    slug: "how-to-choose-athleisure-size-india",
+    title: "How should you choose your athleisure size in India?", // TODO-approve
+    short: "Choosing your athleisure size", // TODO-approve
     dek: "Why the same letter size fits differently from brand to brand, how to measure yourself properly, and how to choose when you're between sizes.",
     answer:
       "Many size charts are graded on measurements from other markets, so an M can fit very differently from one brand to the next. Measure your bust or chest, underbust, waist, hips and inseam with a soft tape, compare the numbers to each brand's own chart instead of your usual letter, and choose bottoms by waist.",
