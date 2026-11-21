@@ -18,6 +18,8 @@ export const IS_LIVE = MODE === "live";
 
 export const SITE_URL = "https://zaflick.com";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || ""; // GTM-5G79GDM9 at go-live
+/** Microsoft Clarity project (heatmaps, session replays). Empty = Clarity off. */
+export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "";
 export const SIGNUP_API = "https://zaflick-circle.dunnarahulraja50.workers.dev"; // existing worker, unchanged
 /** Apps Script web app on marketing@ for the tester and contact forms (set at go-live). */
 export const FORMS_ENDPOINT = process.env.NEXT_PUBLIC_FORMS_ENDPOINT || "";
@@ -37,7 +39,7 @@ export const BRAND = {
 export const EMAIL = {
   /** Already public on zaflick.com/privacy. */
   admin: "admin@zaflick.com",
-  /** TODO-confirm: collabs, partners and press. */
+  /** Collabs, partners, press and general contact (public in the FAQ and footer). */
   marketing: "marketing@zaflick.com",
 };
 

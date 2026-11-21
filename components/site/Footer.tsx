@@ -1,4 +1,4 @@
-import { asset, links, BRAND, LEGAL_NOTE, SOCIAL } from "@/lib/site";
+import { asset, links, BRAND, EMAIL, LEGAL_NOTE, SOCIAL, WHATSAPP, WHATSAPP_TEXT } from "@/lib/site";
 
 const COLS = [
   {
@@ -37,6 +37,20 @@ export default function Footer() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={asset("/assets/zaflick-wordmark.png")} alt="Zaflick" width={520} height={108} />
           <p className="mono">{BRAND.tagline}</p>
+          {/* Contact on every page (playbook 4.5). WhatsApp appears once the number is set. */}
+          <ul className="foot-contact">
+            <li>
+              <a href={`mailto:${EMAIL.marketing}`}>{EMAIL.marketing}</a>
+            </li>
+            <li>
+              <a href={links.instagram} rel="noopener" target="_blank">DM @houseofzaflick</a>
+            </li>
+            {WHATSAPP ? (
+              <li>
+                <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WHATSAPP_TEXT)}`} rel="noopener" target="_blank">WhatsApp us</a>
+              </li>
+            ) : null}
+          </ul>
           <ul className="foot-social">
             {SOCIAL.map((s) => (
               <li key={s.name}>

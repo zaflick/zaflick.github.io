@@ -1,5 +1,5 @@
 import { pageMeta } from "@/lib/seo";
-import { EMAIL } from "@/lib/site";
+import { CLARITY_ID, EMAIL } from "@/lib/site";
 import { Crumbs, PageHead } from "@/components/site/bits";
 
 export const metadata = pageMeta({
@@ -28,6 +28,13 @@ export default function Page() {
           viewed, which pieces you opened the join form from, whether you chose the women&apos;s or men&apos;s view, and taps on share and WhatsApp
           links.
         </p>
+        {CLARITY_ID ? (
+          <p>
+            We use Microsoft Clarity to see, in aggregate, how people scroll and tap on the site (heatmaps and session replays), so we can fix
+            what is confusing. Clarity hides what you type, such as your email address. Microsoft processes this data under its own privacy
+            statement.
+          </p>
+        ) : null}
         <p>
           If you arrive from a campaign or a friend&apos;s referral link, we record the campaign and referral tags in that link so we know where
           sign-ups came from.

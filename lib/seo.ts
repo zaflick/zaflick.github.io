@@ -46,6 +46,11 @@ export const orgSchema = () => ({
   description: BRAND.oneLine,
   slogan: BRAND.tagline,
   foundingLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressCountry: "IN" } },
+  email: EMAIL.marketing,
+  areaServed: [
+    { "@type": "City", name: "Hyderabad" },
+    { "@type": "City", name: "Bengaluru" },
+  ],
   sameAs: SOCIAL.map((s) => s.url),
   contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: EMAIL.admin, areaServed: "IN", availableLanguage: ["en"] }],
 });

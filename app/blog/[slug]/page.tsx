@@ -50,7 +50,7 @@ export default async function Page({ params }: Props) {
     description: a.dek,
     image: `${SITE_URL}/assets/img/${imgFile}`,
     datePublished: `${a.date}T09:00:00+05:30`,
-    dateModified: `${a.date}T09:00:00+05:30`,
+    dateModified: `${a.updated ?? a.date}T09:00:00+05:30`,
     author: { "@type": "Organization", name: BRAND.name, url: SITE_URL },
     publisher: { "@id": `${SITE_URL}/#org` },
     mainEntityOfPage: `${SITE_URL}/blog/${a.slug}`,
@@ -63,7 +63,13 @@ export default async function Page({ params }: Props) {
       <article className="article">
         <header className="article-head">
           <p className="eyebrow mono">
-            {a.topic} · <time dateTime={a.date}>{fmtDate(a.date)}</time> · {readMins(a)} min read
+            {a.topic} · <time dateTime={a.date}>{fmtDate(a.date)}</time>
+            {a.updated && a.updated !== a.date ? (
+              <>
+                {" "}· Updated <time dateTime={a.updated}>{fmtDate(a.updated)}</time>
+              </>
+            ) : null}{" "}
+            · {readMins(a)} min read
             {a.draft ? <span className="draft-tag">Draft · needs approval</span> : null}
           </p>
           <h1 className="display article-h">{a.title}</h1>

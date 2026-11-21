@@ -20,6 +20,8 @@ export type Article = {
   dek: string;
   answer: string;
   date: string;
+  /** Last real content change (shown as "Updated …" and used for dateModified). */
+  updated?: string;
   /** Blog topic, used for the filter chips on /blog. */
   topic: Topic;
   img: string;
@@ -36,10 +38,10 @@ const POSTS: Article[] = [
     slug: "how-to-check-leggings-see-through",
     title: "How do you check if leggings are see-through?",
     short: "How to check leggings aren't see-through",
-    dek: "The squat test, the light test and what actually makes leggings go sheer, so you can check a pair before it lets you down at the gym.",
+    dek: "The squat test, the light test and what actually makes leggings go sheer, so you can check a pair before it lets you down.",
     answer:
       "Do the squat test: stand with your back to a mirror in bright daylight and squat deep. If you can see skin or the colour of your underwear, they're see-through. Thin fabric and leggings a size too small go sheer first, so check the fit as well as the fabric.",
-    date: "2026-11-19",
+    date: "2026-11-21",
     topic: "Fabric and weather",
     img: "day-her-yoga",
     alt: "A woman in the deep forest sports bra and legging stretching in a studio.",
@@ -101,7 +103,6 @@ const POSTS: Article[] = [
     ],
     related: ["active-legging", "sports-bra"],
     cta: { label: "See the active legging", href: "/active-legging" },
-    draft: true,
   },
   {
     slug: "travel-outfits-indian-flights-trains",
@@ -110,7 +111,7 @@ const POSTS: Article[] = [
     dek: "Hot platforms, freezing AC coaches, security queues and arriving straight into plans. How to dress once for the whole journey.",
     answer:
       "Wear a soft, stretchy set with a waistband that doesn't dig in when you sit, and add a light layer for the cold cabin or AC coach. Choose shoes that slip on and off for security, and keep a spare top and socks in your bag. A matching set still looks put together when you land.",
-    date: "2026-11-22",
+    date: "2026-11-21",
     topic: "Outfits",
     img: "day-him-airport",
     alt: "A man in an olive T-shirt and wide-leg pants walking through an airport with a suitcase.",
@@ -161,7 +162,6 @@ const POSTS: Article[] = [
     ],
     related: ["wide-leg-pants", "fitted-jacket"],
     cta: { label: "See the wide-leg pants", href: "/wide-leg-pants" },
-    draft: true,
   },
   {
     slug: "gym-to-office-outfits-mumbai",
@@ -171,6 +171,7 @@ const POSTS: Article[] = [
     answer:
       "Wear one tonal set built to train in, with real support, a waistband that stays put and fabric that dries quickly, then add a layer instead of changing. An open shirt or a light jacket covers the office and the air-conditioning, and a dry spare top in your bag handles the commute.",
     date: "2026-11-15",
+    updated: "2026-11-21",
     topic: "Outfits",
     img: "day-her-cafe",
     alt: "A woman in an aubergine set and an open white shirt at a café table with a laptop and coffee.",
@@ -244,6 +245,7 @@ const POSTS: Article[] = [
     answer:
       "Yes, in most smart-casual offices, as long as it looks deliberate. Choose a structured T-shirt without big logos, straight or wide-leg pants with a clean waistband and clean sneakers, all in muted tonal colours. Add an overshirt or a light jacket for meetings and cold rooms, and save shorts for days at home.",
     date: "2026-11-15",
+    updated: "2026-11-21",
     topic: "Men",
     img: "day-him-dinner",
     alt: "A man in an olive T-shirt and wide-leg pants with a light overshirt, walking past a lit café in the evening.",
@@ -301,6 +303,7 @@ const POSTS: Article[] = [
     answer:
       "Leggings roll down when the waistband is too narrow, too soft or the wrong size, so it folds over as you bend. Look for a wide, flat, high-rise waistband that sits at your natural waist, choose your size by waist measurement rather than sizing up, and pick fabric that springs back after a squat.",
     date: "2026-11-14",
+    updated: "2026-11-21",
     topic: "Fit and sizing",
     img: "day-her-gym",
     alt: "A woman in an aubergine set training with a dumbbell.",
@@ -357,6 +360,7 @@ const POSTS: Article[] = [
     answer:
       "In humid weather, choose fabric made to move sweat away from your skin and dry quickly, a fit close enough not to rub but not so tight it traps heat, and mid or deep colours that don't show sweat marks. Keep heavy cotton for after training: it soaks up sweat and stays wet.",
     date: "2026-11-14",
+    updated: "2026-11-21",
     topic: "Fabric and weather",
     img: "training-both-2",
     alt: "A man and a woman walking through a park after a workout.",
@@ -411,6 +415,7 @@ const POSTS: Article[] = [
     answer:
       "Yes, if the set is built to train in first and cut to look finished. Choose pieces with real support, a waistband that stays put and fabric that dries quickly, in one tonal colour. Then change the layer, not the set: an open shirt for work, a jacket for travel, cleaner shoes for dinner.",
     date: "2026-11-14",
+    updated: "2026-11-21",
     topic: "Outfits",
     img: "hero-both",
     alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
@@ -458,6 +463,7 @@ const POSTS: Article[] = [
     answer:
       "Many size charts are graded on measurements from other markets, so an M can fit very differently from one brand to the next. Measure your bust or chest, underbust, waist, hips and inseam with a soft tape, compare the numbers to each brand's own chart instead of your usual letter, and choose bottoms by waist.",
     date: "2026-11-14",
+    updated: "2026-11-21",
     topic: "Fit and sizing",
     img: "banner-her",
     alt: "A woman in an aubergine tank and leggings with ivory piping, against a sunlit plaster wall.",
@@ -515,6 +521,7 @@ const POSTS: Article[] = [
     answer:
       "They work when the pocket sits on the side of the thigh, is deep enough to take the whole phone, and is made from stretch fabric that holds it flat against the leg. Shallow pockets and pockets at the back of the waistband are the ones where phones bounce, drag or slide out.",
     date: "2026-11-14",
+    updated: "2026-11-21",
     topic: "Outfits",
     img: "p-active-legging-detail",
     alt: "A close-up of the active legging, concept image.",
@@ -560,6 +567,7 @@ const POSTS: Article[] = [
     answer:
       "Athleisure won't replace the outfits, but it carries everything around them: early flights and long drives, a morning workout to keep your routine, rehearsals and the long hours of getting ready. Pack a matching set that looks put together, a layer for cold venues and travel, and pieces you can sit in for hours.",
     date: "2026-11-14",
+    updated: "2026-11-21",
     topic: "Outfits",
     img: "life-hotel",
     alt: "A woman in a forest green jacket, sports bra and leggings arriving at a small hotel.",

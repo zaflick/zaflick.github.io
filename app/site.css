@@ -1894,3 +1894,23 @@
   visibility: visible !important;
   transform: none !important;
 }
+
+/* footer contact line */
+.foot-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+.foot-contact a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+}
+.foot-contact a:hover {
+  opacity: 1;
+  color: var(--terracotta);
+}

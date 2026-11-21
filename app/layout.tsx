@@ -8,7 +8,7 @@ import ThreadRail from "@/components/site/ThreadRail";
 import JoinDrawer from "@/components/site/JoinDrawer";
 import StickyJoin from "@/components/site/StickyJoin";
 import SiteRuntime from "@/components/site/SiteRuntime";
-import { BASE, BRAND, GTM_ID, IS_LIVE, SITE_URL } from "@/lib/site";
+import { BASE, BRAND, CLARITY_ID, GTM_ID, IS_LIVE, SITE_URL } from "@/lib/site";
 
 // Same families as zaflick.com. Archivo is variable in width, so the big
 // headings can run wide (Davaris-style) without another font file.
@@ -41,6 +41,12 @@ const gtmScript = (id: string) =>
 
 const useGtm = IS_LIVE && GTM_ID;
 
+// Microsoft Clarity, live only. Loaded after the page has finished loading so it never
+// competes with the first paint. Clarity masks typed text (like emails) by default.
+const clarityScript = (id: string) =>
+  `window.addEventListener("load",function(){setTimeout(function(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${id}");},1500);});`;
+const useClarity = IS_LIVE && CLARITY_ID;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-IN" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
@@ -61,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JoinDrawer />
         <StickyJoin />
         <SiteRuntime />
+        {useClarity ? <script dangerouslySetInnerHTML={{ __html: clarityScript(CLARITY_ID) }} /> : null}
         {IS_LIVE ? null : (
           <p className="proto-badge mono" role="note">
             Prototype · forms don&apos;t send
