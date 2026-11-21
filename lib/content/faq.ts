@@ -2,10 +2,14 @@
  * The answer bank: the one source for the site FAQ and, later, the Instagram/Messenger
  * automations, WhatsApp quick replies and the email auto-reply.
  *
- * `live: true` = word for word from zaflick.com (faq + early-list, checked 14 Nov 2026).
- * Everything else is new copy: TODO-approve.
- * Rule: never answer with a fact Zaflick hasn't published (no prices, dates, fabric
- * percentages or cities).
+ * `live: true` = started word for word from the old zaflick.com (checked 14 Nov 2026).
+ * Rewritten 21 Nov for the 15 Nov brand update ("Whatever the plan, you're in"; the early
+ * list is now the Circle; five pieces). All changed answers: TODO-approve.
+ * Rule: never answer with a fact Zaflick hasn't published. Published in the brand update:
+ * the launch cities (Hyderabad and Bengaluru), a December launch, men's pieces from
+ * mid-December and women's from 1 January. Still unpublished: prices, the booking amount,
+ * the exchange policy and fabric percentages. Claims on hold: no-pilling, keeps its shape,
+ * "sized for Indian bodies" (say "sizing built on Indian measurements").
  */
 
 import { IS_LIVE } from "@/lib/site";
@@ -22,25 +26,25 @@ const BANK: Group[] = [
       {
         id: "what-is-zaflick",
         q: "What is Zaflick?",
-        a: "Zaflick is an Indian athleisure brand. Seven pieces for women and men, designed to be worn from a morning session through the rest of the day, not only at the gym.",
+        a: "Zaflick is an Indian athleisure brand for good times with friends. Five pieces for women and men: one outfit for a walk, a game or a coffee, with no changing in between. We are starting in Hyderabad and Bengaluru.",
         live: true,
       },
       {
         id: "different",
         q: "What makes it different?",
-        a: "Most activewear asks you to choose between looking right and performing. These pieces are designed to do both: fabric chosen for heat and humidity, a waistband that stays put, pockets that hold a phone, and cuts you can wear to dinner.",
+        a: "Jeans can't do the game, and gym wear looks wrong at the coffee after. Zaflick is one outfit that is ready for any plan and looks good the whole way through: designed style-first, with fabric chosen for heat and humidity and pockets that hold a phone.",
         live: true,
       },
       {
         id: "men-and-women",
         q: "Is it for men and women?",
-        a: "Both. For her: a tank top with built-in support, an active legging with a side pocket, a sports bra and a fitted jacket. For him: an active T-shirt, wide-leg pants and athleisure shorts.",
+        a: "Both. For her: a sports bra, an active legging with a side pocket and a fitted jacket. For him: an active T-shirt. The wide-leg pants are unisex. A tank top and shorts follow in the next drop, in March–April.",
         live: true,
       },
       {
         id: "how-designed",
         q: "How did you decide what to make?",
-        a: "We asked before designing. We surveyed nearly 200 people and interviewed more than a dozen about what goes wrong with activewear in India, then designed the seven pieces around what they told us.",
+        a: "We asked before designing. We surveyed nearly 200 people and interviewed more than a dozen about what goes wrong with activewear in India, then designed the first drop around what they told us.",
       },
       {
         id: "photos-real",
@@ -51,41 +55,41 @@ const BANK: Group[] = [
       {
         id: "where-from",
         q: "Where is Zaflick from?",
-        a: "Zaflick is an Indian brand, from Zaflick Lifestyle Pvt. Ltd. Every piece is designed in India for Indian weather and Indian bodies, with fabric chosen for heat and humidity and sizes graded on Indian measurements rather than a chart borrowed from another market.",
+        a: "Zaflick is an Indian brand, from Zaflick Lifestyle Pvt. Ltd. Every piece is designed in India for Indian weather, with fabric chosen for heat and humidity and sizing built on Indian measurements rather than a chart borrowed from another market. We are starting in Hyderabad and Bengaluru.",
       },
       {
         id: "who-for",
         q: "Who is Zaflick for?",
-        a: "Anyone who starts the day with a workout and doesn't want to change straight after. The pieces are built to train in first, then carry on through work, travel, college and dinner. There are pieces for women and for men.",
+        a: "Anyone who makes plans with friends and wants to look good through all of them: a walk, a game, a coffee, a day out. There are pieces for women and for men, and the wide-leg pants are unisex.",
       },
     ],
   },
   {
     id: "early-list",
-    title: "The early list and launch",
+    title: "The Circle and launch",
     items: [
       {
         id: "buy-yet",
         q: "Can I buy yet?",
-        a: "Not yet. Zaflick is in pre-launch. The first drop has not been released and prices have not been announced. Joining the early list is the way in first.",
+        a: "Not yet. Zaflick is in pre-launch. The first drop opens in December, to the Circle first, and prices have not been announced yet. Joining the Circle is the way in first.",
         live: true,
       },
       {
         id: "early-list",
-        q: "What is the early list?",
-        a: "It is a free list. Members see the real samples before anyone else, can buy 48 hours before the public launch, and get free shipping on their launch order.",
+        q: "What is the Circle?",
+        a: "The Circle is Zaflick's free early list. Members see the real samples before anyone else, can buy 48 hours before the public launch, and get free shipping on their launch order.",
         live: true,
       },
       {
         id: "launch",
         q: "When does it launch?",
-        a: "The date is not public yet. People on the early list hear it first and get in 48 hours early.",
+        a: "The first drop launches in December, starting with Hyderabad and Bengaluru, and opens to the Circle first. Men's pieces are expected from mid-December and women's from 1 January. Circle members hear the exact date first and get in 48 hours early.",
         live: true,
       },
       {
         id: "price",
         q: "What will it cost?",
-        a: "Prices will be shared with the early list before launch. Sets will cost less than buying the pieces separately.",
+        a: "Prices will be shared with the Circle before launch. Sets will cost less than buying the pieces separately.",
         live: true,
       },
       {
@@ -96,24 +100,24 @@ const BANK: Group[] = [
       },
       {
         id: "share",
-        q: "Can I share the early list with a friend?",
-        a: "Yes. Once you join, you get a share button with your own link. Anyone who joins through it is added to the early list the same way you were.",
+        q: "Can I bring a friend into the Circle?",
+        a: "Yes. Once you join, you get a Bring a friend button with your own link. Anyone who joins through it is in the Circle the same way you were. Good times are better with company.",
       },
       {
         id: "updates",
         q: "How do I stay updated?",
-        a: "Join the early list, and follow @houseofzaflick on Instagram.",
+        a: "Join the Circle, and follow @houseofzaflick on Instagram.",
         live: true,
       },
       {
         id: "free",
-        q: "Is the early list free?",
+        q: "Is the Circle free?",
         a: "Yes. Joining is free and needs only your email address. You get a member number straight away, a few messages before launch, and you can leave whenever you like from any email we send.",
       },
       {
         id: "member-number",
         q: "What is my member number?",
-        a: "It's your place on the Zaflick early list, given the moment you join, so you can see how early you were. The site shows it again whenever you come back on the same device, along with a personal link you can share with friends.",
+        a: "It's your place in the Zaflick Circle, given the moment you join, so you can see how early you were. The site shows it again whenever you come back on the same device, along with a personal link you can share with friends.",
       },
       {
         id: "after-joining",
@@ -129,12 +133,12 @@ const BANK: Group[] = [
       {
         id: "fabric",
         q: "What is the fabric?",
-        a: "Fabric chosen for heat and humidity. It is being tested for see-through and pilling before production, and the full fabric details will be shared with the real samples.",
+        a: "Fabric chosen for heat and humidity. We are testing it for see-through, pilling and shape before production, and the full fabric details will be shared with the real samples.",
       },
       {
         id: "see-through",
         q: "Is the legging see-through when you squat?",
-        a: "The fabric is being tested for see-through and pilling before production. The early list will see the real samples, and what the tests found, before anything goes on sale.",
+        a: "We are testing the fabric for see-through and pilling before production. The Circle will see the real samples, and what the tests found, before anything goes on sale.",
       },
       {
         id: "pocket",
@@ -144,22 +148,22 @@ const BANK: Group[] = [
       {
         id: "waistband",
         q: "Will the waistband roll down?",
-        a: "It is designed not to. The active legging has a wide, flat high-rise waistband, built to stay put through training and the rest of the day.",
+        a: "It is designed not to. The active legging has a wide, flat high-rise waistband, designed to stay put through a walk, a game and the rest of the day. We are testing it on real people before launch.",
       },
       {
         id: "bra-under-tank",
         q: "Do I need a bra under the tank top?",
-        a: "No. The tank top has built-in support, so it works on its own without a separate bra.",
+        a: "No. The tank top, coming in the next drop in March–April, has built-in support, so it works on its own without a separate bra.",
       },
       {
         id: "colours",
         q: "What colours will there be?",
-        a: "The concepts are shown in aubergine, deep forest, olive and ivory. Final colours will be confirmed with the real samples, and the early list sees them first.",
+        a: "The concepts are shown in aubergine, deep forest, olive and ivory. Final colours will be confirmed with the real samples, and the Circle sees them first.",
       },
       {
         id: "work",
         q: "Can I wear Zaflick to work?",
-        a: "That's the idea. The pieces are cut to look finished rather than sporty: tonal colours, a fitted jacket to layer over the tank or sports bra, and for men a clean T-shirt with wide-leg pants. Train in the morning, then go straight to the office or to dinner.",
+        a: "That's the idea. The pieces are cut to look finished rather than sporty: tonal colours, a fitted jacket to layer over the sports bra, and for men a clean T-shirt with wide-leg pants. Go from a game to the office or to dinner without changing.",
       },
       {
         id: "care",
@@ -175,7 +179,7 @@ const BANK: Group[] = [
       {
         id: "sizes",
         q: "What sizes will there be?",
-        a: "Sizes are still being finalised. They will be graded on Indian body measurements rather than a chart borrowed from another market.",
+        a: "Sizes are still being finalised. Sizing is built on Indian measurements rather than a chart borrowed from another market.",
         live: true,
       },
       {
@@ -190,8 +194,8 @@ const BANK: Group[] = [
       },
       {
         id: "indian-sizing",
-        q: "Are the sizes made for Indian bodies?",
-        a: "Yes. Zaflick sizes are being graded on Indian body measurements rather than a chart borrowed from another market, so the fit at the waist, hips and chest matches how people here are actually built.",
+        q: "Is Zaflick sizing built on Indian measurements?",
+        a: "Yes. Sizing is built on Indian measurements rather than a chart borrowed from another market. We are checking the fit on real people across every size before launch.",
       },
     ],
   },
@@ -208,7 +212,7 @@ const BANK: Group[] = [
       {
         id: "shipping-cost",
         q: "Is shipping free?",
-        a: "Early-list members get free shipping on their launch order. Shipping for everyone else will be shared before launch.",
+        a: "Circle members get free shipping on their launch order. Shipping for everyone else will be shared before launch.",
       },
       {
         id: "returns",
@@ -218,7 +222,7 @@ const BANK: Group[] = [
       {
         id: "international",
         q: "Do you ship outside India?",
-        a: "Not at launch. Zaflick ships within India to start. If you live abroad you can still join the early list to follow the samples and the launch, and members will be the first to hear if we start shipping further.",
+        a: "Not at launch. Zaflick ships within India to start. If you live abroad you can still join the Circle to follow the samples and the launch, and members will be the first to hear if we start shipping further.",
       },
     ],
   },
@@ -232,9 +236,9 @@ const BANK: Group[] = [
         a: "Apply on the Founding Testers page. We are choosing a small group to wear the samples before launch and tell us honestly what to change.",
       },
       {
-        id: "club",
-        q: "What is the 6am Club?",
-        a: "Early-morning sessions for people who train before the day starts, in the kit they will wear for the rest of it. Register your interest on the 6am Club page and we will tell you when a session is planned in your city.",
+        id: "sessions",
+        q: "Does Zaflick host sessions?",
+        a: "We are starting sessions in Hyderabad. Join the Circle and you will hear first when one is planned.",
       },
       {
         id: "collab",
@@ -253,8 +257,8 @@ const BANK: Group[] = [
       },
       {
         id: "partners",
-        q: "Can my run club, studio or brand partner with Zaflick?",
-        a: "Yes, we'd like to hear from you. Email marketing@zaflick.com or use the contact page with the name of your club, studio or brand, your city and what you have in mind. We reply to every message.",
+        q: "Can my club, café, court or studio partner with Zaflick?",
+        a: "Yes, we'd like to hear from you. Email marketing@zaflick.com or use the contact page with the name of your club, café, court, studio or brand, your city and what you have in mind. We reply to every message.",
       },
     ],
   },

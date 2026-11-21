@@ -12,7 +12,7 @@ export const metadata = pageMeta({
 });
 
 const ROUTES = [
-  { h: "Questions", t: "Launch, sizes, the early list. Most answers are in the FAQ.", cta: { label: "Read the FAQ", href: links.faq } },
+  { h: "Questions", t: "Launch, sizes, the Circle. Most answers are in the FAQ.", cta: { label: "Read the FAQ", href: links.faq } },
   { h: "Creators and collabs", t: "Send your handle, city and a line about what you make.", cta: { label: EMAIL.marketing, href: `mailto:${EMAIL.marketing}?subject=Collab` } },
   { h: "Studios, run clubs and partners", t: "Tell us about your community and your city.", cta: { label: EMAIL.marketing, href: `mailto:${EMAIL.marketing}?subject=Partnership` } },
   { h: "Press", t: "Your publication and your deadline.", cta: { label: EMAIL.marketing, href: `mailto:${EMAIL.marketing}?subject=Press` } },

@@ -39,7 +39,7 @@ export default function StickyJoin() {
   return (
     <div className={`sticky-join${up ? " is-up" : ""}`} aria-hidden={!up}>
       <p>See the real samples first.</p>
-      <a className="btn btn-accent" href={links.early} data-join="" tabIndex={up ? 0 : -1}>
+      <a className="btn btn-accent" href={links.circle} data-join="" tabIndex={up ? 0 : -1}>
         Join
       </a>
     </div>

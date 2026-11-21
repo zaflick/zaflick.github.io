@@ -3,32 +3,32 @@ import { links, BRAND, IS_LIVE } from "@/lib/site";
 import { Crumbs, PageHead, Img, Todo, JoinBand } from "@/components/site/bits";
 
 export const metadata = pageMeta({
-  title: "About Zaflick: athleisure designed in India", // TODO-approve
+  title: "About Zaflick: clothes for whatever the plan", // TODO-approve
   description:
-    "Zaflick is an Indian athleisure brand: seven pieces for women and men, designed from a survey of nearly 200 people to be worn from a morning session to dinner.",
+    "Zaflick is an Indian athleisure brand for good times with friends: five pieces for women and men, one outfit for a walk, a game or a coffee, starting in Hyderabad and Bengaluru.",
   path: "/about",
   image: "/assets/img/og-about.jpg",
 });
 
-// Every fact on this page is already public on zaflick.com. Headings marked TODO-approve are new.
+// Rewritten for the 15 Nov brand update. All copy: TODO-approve. The survey numbers were already public.
 const NUMBERS = [
   { v: "~200", k: "People surveyed before designing" },
   { v: "12+", k: "Interviews about what goes wrong with activewear in India" },
-  { v: "7", k: "Pieces in the first drop, for women and men" },
+  { v: "5", k: "Pieces in the first drop, for women and men" },
 ];
 
 const PRINCIPLES = [
   {
-    h: "It has to work at 6am too",
-    t: "The pieces are built to train in first: support that stays put, a waistband that does not roll, and fabric being tested for see-through and pilling. Everything after that is the point of athleisure.",
+    h: "Style first",
+    t: "Designed to look right at the café, not only on the court. One outfit for the whole plan, with no changing in between.",
   },
   {
-    h: "Built for Indian weather and sizes",
-    t: "Fabric chosen for heat and humidity, and sizing graded on Indian body measurements.",
+    h: "Built for Indian weather",
+    t: "Fabric chosen for heat and humidity, and sizing built on Indian measurements. We are testing the fabric for pilling and shape before anything goes on sale.",
   },
   {
-    h: "The early list sees it first",
-    t: "Every image here is a concept. Real samples are shown to the early list before anything goes on sale.",
+    h: "Small batches, sold direct",
+    t: "Made in small batches and sold direct. Every image here is a concept: the Circle sees the real samples first.",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function Page() {
       <Crumbs items={[{ name: "Home", path: "/" }, { name: "Our story", path: "/about" }]} />
       <PageHead
         eyebrow="About Zaflick"
-        title="Made for the whole day, not just the workout." /* TODO-approve */
-        lede="Zaflick is an Indian athleisure brand. Seven pieces for women and men, designed to be worn from a morning session through the rest of the day, not only at the gym."
+        title="Dressed for every good time with friends."
+        lede="Zaflick is an Indian athleisure brand for the plans you make with friends: a walk, a game, a coffee, a day out. One outfit that is ready for any of them, and looks good the whole way through."
       />
       <div className="banner">
         <Img name="hero-both" alt="A man in an olive set and a woman in an aubergine set talking at a coffee bar." eager sizes="(max-width: 900px) 100vw, 50vw" />
@@ -49,10 +49,13 @@ export default function Page() {
         <h2 id="why-h" className="display section-h">Why Zaflick</h2>
         <div className="lead-text">
           <p>
-            Most activewear asks you to choose between looking right and performing. These pieces are designed to do both: fabric chosen for heat
-            and humidity, a waistband that stays put, pockets that hold a phone, and cuts you can wear to dinner.
+            You know when friends make a plan and you think, I&apos;m not dressed for that? We make clothes so that never happens. One outfit takes
+            you from a walk to a game to dinner, and you look good the whole way.
           </p>
-          <p className="soft">One set, from the morning session to dinner. It starts as training kit and stays on all day.</p>
+          <p className="soft">
+            Jeans can&apos;t do the game. Gym wear looks wrong at the coffee after. Zaflick does both. Five pieces for women and men, starting in
+            Hyderabad and Bengaluru.
+          </p>
         </div>
       </section>
 

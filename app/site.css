@@ -695,7 +695,7 @@
   display: none;
 }
 
-/* ---------- early list ---------- */
+/* ---------- the Circle page (was the early list) ---------- */
 .early {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -1134,7 +1134,7 @@
   text-align: center;
 }
 
-/* ---------- feature pages (6am club, testers) ---------- */
+/* ---------- feature pages (Founding Testers) ---------- */
 .feature {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
@@ -1537,21 +1537,360 @@
   vertical-align: middle;
 }
 
-/* 6am Club dates (shown once lib/content/club.ts has mornings) */
-.club-dates {
+/* ---------- homepage (brand update, 21 Nov 2026) ---------- */
+.home-top {
+  display: grid;
+  align-content: end;
+  min-height: 88vh;
+  min-height: 88svh;
+  padding: 150px var(--g) clamp(56px, 11vh, 128px);
+  background: var(--aubergine);
+  color: var(--bone);
+}
+.home-top {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.home-fabric,
+.home-fabric picture,
+.home-fabric img,
+.home-fabric canvas,
+.home-fabric-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.home-fabric {
+  z-index: -1;
+}
+.home-fabric img {
+  object-fit: cover;
+}
+.home-fabric canvas {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.home-fabric.is-live canvas {
+  opacity: 1;
+}
+/* Keeps the headline and button readable over the lit folds of the fabric. */
+.home-fabric-scrim {
+  background:
+    linear-gradient(0deg, rgba(43, 18, 28, 0.62) 0%, rgba(43, 18, 28, 0.28) 50%, rgba(43, 18, 28, 0) 100%),
+    linear-gradient(90deg, rgba(43, 18, 28, 0.3) 0%, rgba(43, 18, 28, 0) 70%);
+}
+.home-top .eyebrow {
+  color: rgba(244, 241, 234, 0.72);
+}
+.home-top h1 {
+  max-width: 11ch;
+  font-size: clamp(54px, 11.5vw, 176px);
+}
+.home-lede {
+  max-width: 34ch;
+  margin-top: 24px;
+  font-size: clamp(18px, 1.7vw, 22px);
+  color: rgba(244, 241, 234, 0.9);
+}
+.plan-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
   list-style: none;
+}
+.plan-chips li {
+  padding: 6px 14px;
+  border: 1px solid rgba(244, 241, 234, 0.42);
+  border-radius: 999px;
+  font-size: 14px;
+}
+.home-top .btn {
+  margin-top: 32px;
+}
+.home-small {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: rgba(244, 241, 234, 0.72);
+}
+
+.home-sec {
+  padding: clamp(64px, 11vh, 128px) var(--g) 0;
+  padding-right: calc(var(--g) + 14px);
+}
+.home-sec h2 {
+  max-width: 17ch;
+  font-size: clamp(36px, 6vw, 84px);
+}
+.home-sub {
+  max-width: 48ch;
+  margin-top: 20px;
+  font-size: clamp(17px, 1.5vw, 20px);
+}
+.home-links {
+  display: flex;
+  gap: 20px;
+}
+.home-note {
+  margin-top: 18px;
+  font-size: 14px;
+}
+.home-actions {
+  margin-top: 28px;
+}
+
+.plan-tiles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.plan-tiles li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 150px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.plan-k {
+  font-size: clamp(26px, 2.6vw, 34px);
+}
+
+.piece-list {
   margin: 0;
   padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.piece-list a {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.piece-name {
+  font-size: clamp(26px, 3vw, 36px);
+  transition: color 0.2s;
+}
+.piece-list a:hover .piece-name {
+  color: var(--terracotta-deep);
+}
+.piece-good {
+  max-width: 52ch;
+}
+
+.home-friend {
+  padding: clamp(28px, 5vw, 64px);
+  border-radius: 16px;
+  background: var(--blush);
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px 32px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.how-steps li {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.how-n {
+  color: var(--terracotta-deep);
+}
+.how-k {
+  margin: 10px 0 6px;
+  font-size: 19px;
+}
+
+.home-join {
+  margin: clamp(64px, 11vh, 128px) var(--g) 0;
+  padding: clamp(32px, 6vw, 72px);
+  border-radius: 16px;
+  background: var(--ink);
+  color: var(--bone);
+}
+.home-join h2 {
+  max-width: 14ch;
+  font-size: clamp(36px, 6vw, 84px);
+}
+.home-join .ticks {
+  max-width: 560px;
+}
+.home-join .ticks li {
+  border-color: rgba(244, 241, 234, 0.2);
+}
+.home-join .signup {
+  max-width: 560px;
+}
+
+@media (min-width: 760px) {
+  .plan-tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .how-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .piece-list a {
+    grid-template-columns: minmax(0, 1fr) 120px minmax(0, 1.6fr) auto;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .how-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- homepage: the clothing animation (cut and stitch) ---------- */
+.stitch {
+  position: relative;
+  height: 480vh;
+  margin-top: clamp(32px, 6vh, 72px);
+}
+.stitch-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+.stitch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+.stitch-steps {
+  position: absolute;
+  z-index: 2;
+  left: var(--g);
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(26vw, 420px);
+  height: 260px;
+}
+.stitch-step {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+.stitch-step h2 {
+  font-size: clamp(28px, 3.3vw, 52px);
+}
+.stitch-t {
+  max-width: 34ch;
+  margin-top: 18px;
+  font-size: 16px;
+  color: var(--soft);
+}
+.stitch-pieces {
+  --card-h: min(60vh, 33vw);
+  position: absolute;
+  z-index: 1;
+  left: 63%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: clamp(14px, 3.6vw, 56px);
+  margin: 0;
+}
+.stitch-piece {
+  margin: 0;
+}
+.stitch-card {
+  height: var(--card-h);
+  aspect-ratio: 4 / 5;
+}
+.stitch-label {
+  display: flex;
+  justify-content: space-between;
   gap: 12px;
+  margin-top: 12px;
+  font-size: 13px;
+  opacity: 0;
 }
-.club-dates li {
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
+.stitch-meter {
+  position: absolute;
+  left: var(--g);
+  right: calc(var(--g) + 18px);
+  bottom: 22px;
+  height: 1px;
+  background: var(--line);
 }
-.club-dates-h {
-  margin: 6px 0 2px;
-  font-weight: 600;
+.stitch-meter div {
+  height: 100%;
+  background: var(--terracotta);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+@media (max-aspect-ratio: 4/5), (max-width: 760px) {
+  .stitch-steps {
+    top: 92px;
+    transform: none;
+    left: var(--g);
+    right: var(--g);
+    width: auto;
+    height: 200px;
+  }
+  .stitch-step h2 {
+    font-size: clamp(26px, 7.4vw, 40px);
+  }
+  .stitch-t {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+  .stitch-pieces {
+    --card-h: min(40vh, calc((100vw - 2 * var(--g) - 14px) / 2 * 1.25));
+    left: 50%;
+    top: 63%;
+    gap: 14px;
+  }
+}
+/* Reduced motion or no hardware WebGL: the three steps as plain text. */
+.stitch.is-still {
+  height: auto;
+}
+.stitch.is-still .stitch-stage {
+  position: static;
+  height: auto;
+  padding: clamp(64px, 11vh, 128px) var(--g) 0;
+}
+.stitch.is-still .stitch-canvas,
+.stitch.is-still .stitch-pieces,
+.stitch.is-still .stitch-meter {
+  display: none;
+}
+.stitch.is-still .stitch-steps {
+  position: static;
+  transform: none;
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+.stitch.is-still .stitch-step {
+  position: static;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }

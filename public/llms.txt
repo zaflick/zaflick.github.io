@@ -1,46 +1,48 @@
 # Zaflick
 
-> Zaflick is an Indian athleisure brand, made by Zaflick Lifestyle Pvt. Ltd. Seven pieces for women and men, designed in India to be worn from a morning session through the rest of the day, not only at the gym. Zaflick is in pre-launch: the first drop has not been released, prices have not been announced, and every product image on the site is a concept. The first drop opens to the early list first.
+> Zaflick is an Indian athleisure brand, made by Zaflick Lifestyle Pvt. Ltd. Its line is "Whatever the plan, you're in": clothes for good times with friends, and one outfit that is ready for any plan (a walk, a game, a coffee, a day out) and looks good throughout, with no changing in between. Zaflick is in pre-launch, starting in Hyderabad and Bengaluru. Prices have not been announced, and every product image on the site is a concept until the real samples are photographed. The first drop opens to the Circle (Zaflick's free early list) first.
 
 Key facts:
-- Pieces for her: tank top with built-in support, active legging with a deep side pocket that holds a phone, sports bra (medium support), fitted jacket.
-- Pieces for him: active T-shirt (boxy, drop-shoulder), wide-leg pants (drawcord waist), athleisure shorts.
-- Designed after surveying nearly 200 people and interviewing more than a dozen about what goes wrong with activewear in India.
-- Fabric chosen for heat and humidity, being tested for see-through and pilling. Sizing graded on Indian body measurements.
-- Early list (free): see the real samples first, buy 48 hours before the public launch, free shipping on the launch order.
-- Ships in India to start. Launch date not public yet.
+- The first drop is five pieces. For women: sports bra (medium support), active legging with a deep side pocket that holds a phone, fitted jacket. For men: active T-shirt (boxy, drop-shoulder). Unisex: wide-leg pants (drawcord waist).
+- A tank top with built-in support and athleisure shorts follow in the next drop, March–April.
+- Launch: December, starting with Hyderabad and Bengaluru, Circle members first. Men's pieces are expected from mid-December, women's pieces from 1 January.
+- Designed style-first in India, made in small batches and sold direct. Designed after surveying nearly 200 people and interviewing more than a dozen about what goes wrong with activewear in India.
+- Fabric chosen for heat and humidity. Zaflick is testing the fabric for see-through, pilling and shape. Sizing is built on Indian measurements.
+- The Circle (free): see the real samples first, buy 48 hours before the public launch, free shipping on the launch order. Members get a personal link to bring a friend.
+- Zaflick is starting sessions in Hyderabad.
+- Ships in India to start.
 - Instagram: https://www.instagram.com/houseofzaflick/
 
 ## Pages
-- [Home](https://zaflick.com/): the story from fabric to a full day of wear
+- [Home](https://zaflick.com/): whatever the plan, you're in. The reason, the five pieces, bring a friend, how it works
+- [The Circle](https://zaflick.com/circle): join the free early list
 - [For her](https://zaflick.com/her)
 - [For him](https://zaflick.com/him)
-- [Looks](https://zaflick.com/looks): four sets
-- [The day](https://zaflick.com/the-day): one set from 6am to dinner
-- [Early list](https://zaflick.com/early-list)
+- [Looks](https://zaflick.com/looks)
 - [FAQ](https://zaflick.com/faq): launch, sizes, fabric, shipping, returns, collabs
 - [Size guide](https://zaflick.com/size-guide)
 - [About](https://zaflick.com/about)
 
 ## Products
-- [Tank top](https://zaflick.com/tank-top)
-- [Active legging](https://zaflick.com/active-legging)
 - [Sports bra](https://zaflick.com/sports-bra)
+- [Active legging](https://zaflick.com/active-legging)
 - [Fitted jacket](https://zaflick.com/fitted-jacket)
 - [Active T-shirt](https://zaflick.com/active-tshirt)
-- [Wide-leg pants](https://zaflick.com/wide-leg-pants)
-- [Athleisure shorts](https://zaflick.com/athleisure-shorts)
+- [Wide-leg pants](https://zaflick.com/wide-leg-pants): unisex
+- [Tank top](https://zaflick.com/tank-top): next drop, March–April
+- [Athleisure shorts](https://zaflick.com/athleisure-shorts): next drop, March–April
 
-## Journal
-- [How do you stop leggings rolling down?](https://zaflick.com/journal/leggings-that-dont-roll-down)
-- [What should you wear to train in Indian humidity?](https://zaflick.com/journal/athleisure-for-indian-humidity)
-- [Can you wear one athleisure set from a 6am workout to dinner?](https://zaflick.com/journal/one-set-6am-to-dinner)
-- [How should you choose athleisure sizes for Indian bodies?](https://zaflick.com/journal/size-guide-for-indian-bodies)
-- [Do leggings with phone pockets actually work?](https://zaflick.com/journal/phone-pockets-that-work)
-- [What athleisure works for wedding season in India?](https://zaflick.com/journal/athleisure-for-wedding-season)
+## Blog
+- [What should you wear for a gym-to-office day in Mumbai?](https://zaflick.com/blog/gym-to-office-outfits-mumbai)
+- [Can men wear athleisure to work in India?](https://zaflick.com/blog/mens-athleisure-for-work-india)
+- [How do you stop leggings rolling down?](https://zaflick.com/blog/leggings-that-dont-roll-down)
+- [What should you wear to train in Indian humidity?](https://zaflick.com/blog/athleisure-for-indian-humidity)
+- [Can you wear one athleisure set from a 6am workout to dinner?](https://zaflick.com/blog/one-set-6am-to-dinner)
+- [How should you choose athleisure sizes for Indian bodies?](https://zaflick.com/blog/size-guide-for-indian-bodies)
+- [Do leggings with phone pockets actually work?](https://zaflick.com/blog/phone-pockets-that-work)
+- [What athleisure works for wedding season in India?](https://zaflick.com/blog/athleisure-for-wedding-season)
 
 ## Optional
 - [Founding Testers](https://zaflick.com/founding-testers)
-- [6am Club](https://zaflick.com/6am-club)
 - [Contact](https://zaflick.com/contact)
 - [Privacy](https://zaflick.com/privacy)

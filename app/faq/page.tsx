@@ -4,8 +4,8 @@ import { links } from "@/lib/site";
 import { Crumbs, PageHead, FaqList, JsonLd, JoinBand } from "@/components/site/bits";
 
 export const metadata = pageMeta({
-  title: "Zaflick FAQ: launch, sizes, fabric, shipping and the early list", // TODO-approve
-  description: "Answers about Zaflick: what it is, when the first drop launches, sizing, shipping in India, and how the early list works.",
+  title: "Zaflick FAQ: launch, sizes, fabric, shipping and the Circle", // TODO-approve
+  description: "Answers about Zaflick: what it is, when the first drop launches, sizing, shipping in India, and how the Circle works.",
   path: "/faq",
   image: "/assets/img/og-faq.jpg",
 });

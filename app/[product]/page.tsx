@@ -15,7 +15,7 @@ const SEO_TITLE: Record<string, string> = {
   "sports-bra": "Medium-support sports bra | Zaflick",
   "fitted-jacket": "Fitted zip jacket with thumbhole cuffs | Zaflick",
   "active-tshirt": "Men's boxy active T-shirt | Zaflick",
-  "wide-leg-pants": "Men's wide-leg athleisure pants | Zaflick",
+  "wide-leg-pants": "Unisex wide-leg athleisure pants | Zaflick",
   "athleisure-shorts": "Men's athleisure shorts with drawcord | Zaflick",
 };
 
@@ -46,7 +46,7 @@ export default async function Page({ params }: Props) {
     image: [`${SITE_URL}/assets/img/og-${p.slug}.jpg`, `${SITE_URL}/assets/img/p-${p.slug}-back.webp`, `${SITE_URL}/assets/img/p-${p.slug}-detail.webp`],
     brand: { "@type": "Brand", name: "Zaflick" },
     color: p.colour,
-    audience: { "@type": "PeopleAudience", suggestedGender: p.gender === "her" ? "female" : "male" },
+    audience: { "@type": "PeopleAudience", suggestedGender: p.unisex ? "unisex" : p.gender === "her" ? "female" : "male" },
     url: `${SITE_URL}/${p.slug}`,
   };
 
@@ -63,13 +63,15 @@ export default async function Page({ params }: Props) {
           ))}
         </div>
         <div className="pdp-info">
-          <p className="eyebrow mono">The first drop, for {p.gender}</p>
+          <p className="eyebrow mono">
+            {p.nextDrop ? "Next drop, March–April" : p.unisex ? "The first drop, unisex" : `The first drop, for ${p.gender}`}
+          </p>
           <h1 className="display pdp-h">{p.name}</h1>
           <p className="pdp-lede">{p.lede}</p>
           <dl className="pdp-facts">
             <div>
               <dt className="mono">Status</dt>
-              <dd>Concept, first drop</dd>
+              <dd>{p.nextDrop ? "Concept, coming in the next drop (March–April)" : "Concept, first drop"}</dd>
             </div>
             <div>
               <dt className="mono">Shown in</dt>
@@ -77,11 +79,11 @@ export default async function Page({ params }: Props) {
             </div>
             <div>
               <dt className="mono">Price</dt>
-              <dd>Shared with the early list first</dd>
+              <dd>Shared with the Circle first</dd>
             </div>
           </dl>
-          <a className="btn btn-accent btn-lg pdp-cta" href={links.early} data-join={p.name.toLowerCase()}>
-            Reserve on the early list
+          <a className="btn btn-accent btn-lg pdp-cta" href={links.circle} data-join={p.name.toLowerCase()}>
+            {p.nextDrop ? "Hear when it drops" : "Join the Circle"}
           </a>
           <ul className="ticks pdp-features">
             {p.features.map((f) => (

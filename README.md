@@ -2,7 +2,7 @@
 
 The Zaflick website: athleisure for women and men, designed in India to be worn from morning to dinner.
 
-A Next.js static export. The homepage is a 3D scroll story (three.js + Lenis); every other page is static HTML. Hosted on GitHub Pages from the `gh-pages` branch.
+A Next.js static export. Every page is static HTML. The homepage is seven sections built for phones first; its top section sits on a 3D knit fabric, and a pinned cut-and-stitch animation leads into the five pieces (three.js, loaded after the page is up / when the section gets close). Hosted on GitHub Pages from the `gh-pages` branch.
 
 ## Run it
 ```
@@ -21,12 +21,13 @@ Add `?still=1` to the homepage to see the story without 3D (also used for reduce
 
 ## Where things are
 - `lib/site.ts`: the prototype/live switch, links, emails and social profiles.
-- `lib/content/`: all copy as data (products, looks, the day, FAQ answer bank, journal).
-- `lib/member.ts`: early-list sign-up and member state.
+- `lib/content/`: all copy as data (products, looks, FAQ answer bank, journal).
+- `lib/member.ts`: Circle sign-up (formerly the early list) and member state.
 - `lib/track.ts`: analytics events, sent through Google Tag Manager.
 - `lib/seo.ts`: titles, canonicals, Open Graph and structured data.
 - `components/site/`: header, footer, join drawer, forms and shared blocks.
-- `components/story/` and `components/three/`: the homepage scroll story and its 3D.
+- `components/home/`: homepage sections that need the browser (the 3D fabric behind the top section, Bring a friend).
+- `components/three/`: `fabric.ts` (knit fabric), `stitch.ts` + `patterns.ts` (cut and stitch), `gl-check.ts` (skip 3D on reduced motion or software WebGL).
 
 ## Settings (build-time)
 | Variable | Live value |

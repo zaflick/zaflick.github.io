@@ -5,15 +5,15 @@ import { Crumbs, Img, FaqList, JsonLd } from "@/components/site/bits";
 import SignupForm from "@/components/site/SignupForm";
 
 export const metadata = pageMeta({
-  title: "Join the Zaflick early list: first look at the first drop", // TODO-approve
+  title: "Join the Zaflick Circle: whatever the plan, you're in", // TODO-approve
   description:
-    "Join the Zaflick early list: see the real samples first, buy 48 hours before the public launch, and free shipping on your launch order.",
-  path: "/early-list",
+    "Join the Zaflick Circle: see the real samples first, buy 48 hours before the public launch in December, and get free shipping on your launch order.",
+  path: "/circle",
 });
 
-// The early-list page on zaflick.com answers these four, with slightly shorter wording for launch.
+// The Circle page (formerly /early-list) answers these four.
 const QUESTIONS = [
-  { ...qa("launch"), a: "We are finalising samples now. People on the early list will hear the date first." },
+  qa("launch"),
   qa("price"),
   qa("photos-real"),
   qa("messages"),
@@ -22,19 +22,21 @@ const QUESTIONS = [
 export default function Page() {
   return (
     <main id="content" className="page">
-      <Crumbs items={[{ name: "Home", path: "/" }, { name: "Early list", path: "/early-list" }]} />
+      <Crumbs items={[{ name: "Home", path: "/" }, { name: "The Circle", path: "/circle" }]} />
       <div className="early">
         <div className="early-copy">
-          <p className="eyebrow mono">Early list</p>
-          <h1 className="display">Join before the first drop</h1>
-          <p className="page-lede">The first drop opens to the early list before anyone else.</p>
+          <p className="eyebrow mono">The Circle</p>
+          <h1 className="display">Whatever the plan, you&apos;re in.</h1>
+          <p className="page-lede">
+            The Circle is Zaflick&apos;s list. The first drop opens to the Circle before anyone else, starting in Hyderabad and Bengaluru.
+          </p>
           <ul className="ticks early-ticks">
             {BENEFITS.map((b) => (
               <li key={b}>{b}</li>
             ))}
           </ul>
           <div className="early-form">
-            <SignupForm where="early-list" />
+            <SignupForm where="circle" />
           </div>
         </div>
         <div className="early-img">

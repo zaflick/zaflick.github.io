@@ -8,7 +8,7 @@ import { track } from "@/lib/track";
 
 /**
  * The join drawer. Any element with data-join opens it (the attribute value is the piece
- * or look being reserved, or empty). Those elements are real links to /early-list, so
+ * or look being reserved, or empty). Those elements are real links to /circle, so
  * everything still works without JavaScript.
  */
 export default function JoinDrawer() {
@@ -67,19 +67,19 @@ export default function JoinDrawer() {
   return (
     <div className="drawer-wrap" hidden={!open}>
       <div className="scrim" onClick={close} aria-hidden="true" />
-      <div ref={panel} id="drawer" className="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-lenis-prevent>
+      <div ref={panel} id="drawer" className="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
         <button type="button" className="drawer-close" onClick={close} aria-label="Close">
           Close
           <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" fill="none" />
           </svg>
         </button>
-        <p className="eyebrow mono">Early list</p>
-        <h2 id="drawer-title" className="display">Join the early list</h2>
+        <p className="eyebrow mono">The Circle</p>
+        <h2 id="drawer-title" className="display">Join the Circle</h2>
         <p className="drawer-ctx">
           {piece
             ? `You are reserving early access to the ${piece}. We will email you before it opens to anyone else.`
-            : "Be first to see the real samples and first to buy."}
+            : "Whatever the plan, you're in. Be first to see the real samples and first to buy."}
         </p>
         {open ? <SignupForm where="drawer" piece={piece} autoFocus /> : null}
         <ul className="drawer-list">

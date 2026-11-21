@@ -1,12 +1,13 @@
 "use client";
 
 import { useId, useState } from "react";
-import { EMAIL_RE, signup, shareUrl, SHARE_TEXT, useMember } from "@/lib/member";
+import { EMAIL_RE, signup, useMember } from "@/lib/member";
+import ShareButton from "./ShareButton";
 import { track } from "@/lib/track";
 import { IS_LIVE, WHATSAPP, WHATSAPP_TEXT } from "@/lib/site";
 
 type Props = {
-  /** Which form this is, sent with the events (hero, drawer, early-list, …). */
+  /** Which form this is, sent with the events (drawer, circle, home-end, …). */
   where: string;
   /** Piece or look the visitor is reserving, when opened from one. */
   piece?: string;
@@ -18,14 +19,13 @@ type Props = {
   small?: string;
 };
 
-/** The early-list form: same states, copy and events as the live site. */
+/** The Circle sign-up form (formerly the early list): same worker, states and events. */
 export default function SignupForm({ where, piece = "", tone = "light", autoFocus, small = "A few messages before launch. Leave any time." }: Props) {
   const id = useId();
   const member = useMember();
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
   const [note, setNote] = useState("");
-  const [copied, setCopied] = useState(false);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -50,30 +50,18 @@ export default function SignupForm({ where, piece = "", tone = "light", autoFocu
     }
   }
 
-  function onShare() {
-    const url = shareUrl(member);
-    track("share_click");
-    if (navigator.share) {
-      navigator.share({ title: "Zaflick", text: SHARE_TEXT, url }).catch(() => {});
-    } else if (navigator.clipboard) {
-      navigator.clipboard.writeText(`${SHARE_TEXT} ${url}`).then(() => setCopied(true));
-    }
-  }
-
   const wa = WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WHATSAPP_TEXT)}` : "";
 
   if (member?.email) {
     return (
       <div className={`signup is-done tone-${tone}`} data-signup={where}>
-        <h3 className="signup-done-h">You are on the early list.</h3>
+        <h3 className="signup-done-h">You&apos;re in the Circle.</h3>
         <p>
           {IS_LIVE ? "We have sent a confirmation to " : "Prototype: nothing was sent to "}
           <strong>{member.email}</strong>. You will hear from us before anyone else.
         </p>
         {member.number ? <p className="mono signup-num">Member no. {member.number}</p> : null}
-        <button type="button" className="btn btn-ink" onClick={onShare}>
-          {copied ? "Link copied" : "Share Zaflick with a friend"}
-        </button>
+        <ShareButton />
       </div>
     );
   }
@@ -96,7 +84,7 @@ export default function SignupForm({ where, piece = "", tone = "light", autoFocu
           required
         />
         <button type="submit" className="btn btn-accent" disabled={state === "sending"}>
-          Join the early list
+          Join the Circle
         </button>
       </form>
       <p id={`${id}-note`} className={`signup-note${state === "error" ? " is-error" : ""}`} aria-live="polite">

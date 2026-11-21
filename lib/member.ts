@@ -1,5 +1,5 @@
 /**
- * Early-list member state and sign-up, ported from the live zaflick.com app.js (v4).
+ * Circle (formerly early-list) member state and sign-up, ported from the live zaflick.com app.js (v4).
  * Same localStorage keys (zf_member, zf_source), so people who joined on the current
  * site are still recognised on this one.
  */
@@ -87,7 +87,7 @@ export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /**
  * Copy a successful sign-up, with its tracking tags and referral code, to the Zaflick-owned
- * "Zaflick forms" sheet ("Early list" tab). Fire-and-forget: it never delays or breaks the sign-up.
+ * "Zaflick forms" sheet ("Early list" tab, which now holds Circle sign-ups). Fire-and-forget: it never delays or breaks the sign-up.
  */
 function logSignup(email: string, number: number | null, meta: SignupMeta) {
   if (!IS_LIVE || !FORMS_ENDPOINT) return;
@@ -137,4 +137,4 @@ export async function signup(email: string, meta: SignupMeta = { form: "unknown"
 
 /** Personal share link: zaflick.com/?ref=Z<number>, as on the live site. */
 export const shareUrl = (m: Member | null) => `${SITE_URL}/${m?.number ? `?ref=Z${m.number}` : ""}`;
-export const SHARE_TEXT = "Zaflick is making athleisure you can wear all day. The first drop opens to the early list first:";
+export const SHARE_TEXT = "Whatever the plan, you're in. Zaflick's first drop opens to the Circle first. Come with me:"; // TODO-approve

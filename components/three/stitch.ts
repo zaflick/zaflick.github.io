@@ -1,7 +1,29 @@
 import * as THREE from "three";
-import { story, CUT } from "@/lib/story";
-import { range, ease, easeOut, lerp } from "@/lib/scroll";
 import { GARMENTS, toGU, PX_PER_GU, type GarmentDef, type P } from "./patterns";
+
+/*
+ * The homepage's cut-and-stitch scene, ported from the old scroll story: two drapes of
+ * knit (aubergine, olive) flatten into panels, the pattern pieces are drawn, lift off,
+ * glide together and get stitched into the active legging and the active T-shirt.
+ * It ends on the stitched 3D pieces (no product photos: none on the homepage until
+ * the sample shoot).
+ */
+
+/** Timing, as fractions of the section's scroll. */
+export const CUT = {
+  flatten: [0.0, 0.16] as const,
+  outline: [0.16, 0.34] as const,
+  lift: [0.34, 0.43] as const,
+  glide: [0.43, 0.6] as const,
+  stitch: [0.58, 0.83] as const,
+  label: [0.85, 0.9] as const,
+};
+
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+export const range = (p: number, a: number, b: number) => clamp01((p - a) / (b - a));
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
 /* ------------------------------------------------------------------ */
 /* Shaders                                                             */
@@ -357,33 +379,27 @@ function buildGarment(def: GarmentDef): GarmentRig {
 /* Scene                                                               */
 /* ------------------------------------------------------------------ */
 
-type Mode = "none" | "hero" | "cut" | "split";
+type Rect = { x: number; y: number; w: number; h: number };
 
-export class StoryScene {
+export class StitchScene {
   private renderer: THREE.WebGLRenderer;
   private scene = new THREE.Scene();
   private camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
   private sheets: { mesh: THREE.Mesh; mat: THREE.ShaderMaterial }[];
-  private garments: GarmentRig[] = [];
-  private canvas: HTMLCanvasElement;
+  private garments: GarmentRig[];
   private w = 0;
   private h = 0;
-  private cardRects: { x: number; y: number; w: number; h: number }[] = [];
-  private lastMode: Mode = "none";
-  private firstFrame = true;
+  private cardRects: Rect[] = [];
   private readonly CZ = 8;
-  private tmpV = new THREE.Vector3();
-  private look = new THREE.Vector3();
 
-  constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas;
+  constructor(
+    private canvas: HTMLCanvasElement,
+    private cards: HTMLElement[],
+  ) {
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
     this.renderer.setClearColor(0x000000, 0);
-    // Shaders write sRGB values directly.
-    this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
-
-    const mobile = window.innerWidth < 768;
-    const seg = mobile ? 110 : 170;
+    this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace; // shaders write sRGB directly
+    const seg = window.innerWidth < 768 ? 90 : 140;
     this.sheets = [COLORS.aubergine, COLORS.olive].map((c, i) => {
       const mat = clothMaterial(c);
       const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, seg, seg), mat);
@@ -391,22 +407,9 @@ export class StoryScene {
       this.scene.add(mesh);
       return { mesh, mat };
     });
-
-    this.resize();
-    // The cut & stitch pieces aren't needed for a few screens: build them when the
-    // browser is idle so starting the 3D stays light.
-    const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number })
-      .requestIdleCallback;
-    const build = () => this.buildGarments();
-    if (idle) idle(build, { timeout: 2000 });
-    else window.setTimeout(build, 300);
-  }
-
-  private buildGarments() {
-    if (this.garments.length) return;
     this.garments = GARMENTS.map(buildGarment);
     this.garments.forEach((g) => this.scene.add(g.group));
-    this.measureCards();
+    this.resize();
   }
 
   resize() {
@@ -415,22 +418,19 @@ export class StoryScene {
     if (!w || !h) return;
     this.w = w;
     this.h = h;
-    const dprCap = w < 768 ? 1.35 : 1.6;
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, w < 768 ? 1.35 : 1.6));
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.measureCards();
   }
 
-  /** Card positions inside the pinned (sticky) stage, i.e. where they sit while pinned. */
+  /** Card positions relative to the canvas (both sit in the same pinned stage). */
   measureCards() {
-    this.cardRects = story.cards.map((el) => {
-      if (!el) return { x: 0, y: 0, w: 0, h: 0 };
-      const stage = el.closest("[data-stage]") as HTMLElement | null;
+    const c = this.canvas.getBoundingClientRect();
+    this.cardRects = this.cards.map((el) => {
       const r = el.getBoundingClientRect();
-      const s = stage ? stage.getBoundingClientRect() : { left: 0, top: 0 };
-      return { x: r.left - s.left + r.width / 2, y: r.top - s.top + r.height / 2, w: r.width, h: r.height };
+      return { x: r.left - c.left + r.width / 2, y: r.top - c.top + r.height / 2, w: r.width, h: r.height };
     });
   }
 
@@ -438,79 +438,14 @@ export class StoryScene {
     return 2 * z * Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2));
   }
 
-  private mode(): Mode {
-    if (story.cut.active) return "cut";
-    if (story.split.active) return "split";
-    if (story.hero.active) return "hero";
-    return "none";
-  }
-
-  render(tMs: number) {
-    const mode = this.mode();
-    if (mode === "none") {
-      if (this.lastMode !== "none") this.canvas.style.visibility = "hidden";
-      this.lastMode = mode;
-      return;
-    }
-    if (this.lastMode === "none") this.canvas.style.visibility = "visible";
-    if (mode === "cut" && !this.garments.length) this.buildGarments();
-    if (mode === "cut" && this.lastMode !== "cut") this.measureCards();
-    this.lastMode = mode;
-
+  render(tMs: number, p: number) {
     const t = tMs / 1000;
     this.sheets.forEach((s) => (s.mat.uniforms.uTime.value = t));
-
-    if (mode === "hero") this.layoutHero(story.hero.p);
-    else if (mode === "cut") this.layoutCut(story.cut.p);
-    else this.layoutSplit(story.split.p);
-
+    this.layout(p);
     this.renderer.render(this.scene, this.camera);
-    if (this.firstFrame) {
-      this.firstFrame = false;
-      story.glReady = true;
-      document.documentElement.classList.add("gl-ready");
-    }
   }
 
-  /* ---------------- hero: a field of fabric, then a macro of the knit ---------------- */
-  private layoutHero(p: number) {
-    this.garments.forEach((g) => (g.group.visible = false));
-    const [a, b] = this.sheets;
-    const aspect = this.w / this.h;
-    const push = ease(range(p, 0.08, 0.9));
-
-    a.mesh.visible = true;
-    b.mesh.visible = false;
-    a.mat.uniforms.uSplit.value = 0;
-    a.mesh.position.set(0, -1.6, 0);
-    a.mesh.rotation.set(-1.08, 0, 0.12);
-    a.mat.uniforms.uSize.value.set(Math.max(30, 22 * aspect), 30);
-    a.mat.uniforms.uAmp.value = lerp(1.0, 0.45, push);
-    a.mat.uniforms.uOpacity.value = 1;
-    a.mat.uniforms.uKnitAmt.value = 1;
-    a.mat.uniforms.uLight.value = 1;
-    a.mat.uniforms.uKnitOffset.value.set(0, 0);
-    a.mat.uniforms.uKnitRot.value = 0;
-
-    b.mesh.position.set(4.5, 0.6, -9);
-    b.mesh.rotation.set(-1.08, 0, -0.2);
-    b.mat.uniforms.uSize.value.set(16, 9);
-    b.mat.uniforms.uAmp.value = 1.15;
-    b.mat.uniforms.uOpacity.value = 1;
-    b.mat.uniforms.uKnitAmt.value = 1;
-    b.mat.uniforms.uLight.value = 1;
-
-    // Camera: wide view → close over the knit.
-    const narrow = aspect < 0.8;
-    const start = this.tmpV.set(0, narrow ? 1.6 : 1.1, narrow ? 11 : 8.5);
-    const end = new THREE.Vector3(0.35, -0.55, 0.62);
-    this.camera.position.lerpVectors(start, end, push);
-    this.look.set(0, -1.5, -2.2).lerp(new THREE.Vector3(0.38, -1.7, -0.45), push);
-    this.camera.lookAt(this.look);
-  }
-
-  /* ---------------- cut → stitch → photo ---------------- */
-  private layoutCut(p: number) {
+  private layout(p: number) {
     this.camera.position.set(0, 0, this.CZ);
     this.camera.lookAt(0, 0, 0);
     const vh = this.visH();
@@ -522,7 +457,6 @@ export class StoryScene {
     const lift = easeOut(range(p, ...CUT.lift));
     const glide = ease(range(p, ...CUT.glide));
     const stitch = range(p, ...CUT.stitch);
-    const hide3D = p > CUT.photo[1] + 0.01;
 
     this.garments.forEach((g, gi) => {
       const r = this.cardRects[gi] || { x: 0, y: 0, w: 0, h: 0 };
@@ -531,11 +465,11 @@ export class StoryScene {
       const cy = -(r.y - this.h / 2) * k;
       g.group.position.set(cx, cy, 0);
       g.group.scale.setScalar(s || 0.001);
-      g.group.visible = !hide3D && flat > 0.98;
+      g.group.visible = flat > 0.98;
 
       // Sheet: from a hanging drape to a flat panel exactly behind this garment.
       const sheet = this.sheets[gi];
-      sheet.mesh.visible = !hide3D && lift < 1;
+      sheet.mesh.visible = lift < 1;
       const panelW = g.panelS.x * s;
       const panelH = g.panelS.y * s;
       const px = cx + g.panelC.x * s;
@@ -547,13 +481,7 @@ export class StoryScene {
       sheet.mat.uniforms.uSize.value.set(lerp(vw * 0.62, panelW, flat), lerp(vh * 1.35, panelH, flat));
       sheet.mat.uniforms.uAmp.value = lerp(0.55, 0, flat);
       sheet.mat.uniforms.uOpacity.value = 1 - lift;
-      sheet.mat.uniforms.uKnitAmt.value = 1;
-      sheet.mat.uniforms.uLight.value = 1;
-      sheet.mat.uniforms.uKnitOffset.value.set(0, 0);
-      sheet.mat.uniforms.uKnitRot.value = 0;
       sheet.mat.depthWrite = lift === 0;
-      sheet.mat.uniforms.uKnitMul.value = 1;
-      sheet.mat.uniforms.uSplit.value = 0;
 
       // Pieces: cut lines are drawn on the fabric, the pieces lift off, then glide together.
       g.pieces.forEach((pc) => {
@@ -562,7 +490,6 @@ export class StoryScene {
         pc.outlineMat.uniforms.uOpacity.value = 1 - range(glide, 0.2, 0.7);
         pc.mesh.visible = lift > 0;
         pc.mat.uniforms.uKnitMul.value = s;
-        pc.mat.uniforms.uLight.value = 1;
         const settle = range(glide, 0.75, 1);
         const z = 0.01 + lift * 0.12 * (1 - settle) + (pc.front ? 0.006 : 0);
         pc.group.position.set(pc.c.x + pc.marker.x * (1 - glide), pc.c.y + pc.marker.y * (1 - glide), z);
@@ -588,36 +515,14 @@ export class StoryScene {
     });
   }
 
-  /* ---------------- her | him: two fabrics side by side ---------------- */
-  private layoutSplit(p: number) {
-    this.garments.forEach((g) => (g.group.visible = false));
-    this.camera.position.set(0, 0, this.CZ);
-    this.camera.lookAt(0, 0, 0);
-    const vh = this.visH();
-    const vw = vh * (this.w / this.h);
-    const narrow = this.w / this.h < 0.8;
-    const [a, b] = this.sheets;
-    b.mesh.visible = false;
-    a.mesh.visible = true;
-    // One cloth, aubergine | olive. The colour line sits on x = 0 (or y = 0 on phones),
-    // which projects onto the column divider whatever the waves do.
-    a.mesh.position.set(0, (p - 0.5) * 0.6, 0);
-    a.mesh.rotation.set(narrow ? -0.18 : -0.3, 0, 0);
-    a.mat.uniforms.uSize.value.set(vw * 1.7, vh * 1.9);
-    a.mat.uniforms.uColor2.value.copy(b.mat.uniforms.uColor.value);
-    a.mat.uniforms.uSplit.value = 1;
-    a.mat.uniforms.uSplitDir.value.set(narrow ? 0 : 1, narrow ? -1 : 0);
-    a.mat.uniforms.uAmp.value = 0.7;
-    a.mat.uniforms.uOpacity.value = 1;
-    a.mat.uniforms.uKnitAmt.value = 1;
-    a.mat.uniforms.uLight.value = 0.95;
-    a.mat.uniforms.uKnitOffset.value.set(0, 0);
-    a.mat.uniforms.uKnitRot.value = 0;
-    a.mat.uniforms.uKnitMul.value = 1;
-    a.mat.depthWrite = true;
-  }
-
   dispose() {
+    this.scene.traverse((o) => {
+      const m = o as THREE.Mesh;
+      m.geometry?.dispose();
+      const mat = m.material as THREE.Material | THREE.Material[] | undefined;
+      if (Array.isArray(mat)) mat.forEach((x) => x.dispose());
+      else mat?.dispose();
+    });
     this.renderer.dispose();
   }
 }

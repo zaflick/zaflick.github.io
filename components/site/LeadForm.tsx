@@ -20,7 +20,6 @@ type Props = {
 
 const SUBJECT: Record<string, string> = {
   "founding-tester": "Founding Testers application",
-  "6am-club": "6am Club application",
   contact: "Message from zaflick.com",
 };
 
@@ -36,7 +35,7 @@ function mailtoFor(kind: string, fields: Field[], data: Record<string, string>) 
 }
 
 /**
- * Applications and messages (Founding Testers, 6am Club, contact).
+ * Applications and messages (Founding Testers, contact).
  * Prototype: validates, then shows the thank-you without sending anything.
  * Live: posts JSON to the Apps Script endpoint on marketing@ (NEXT_PUBLIC_FORMS_ENDPOINT).
  * Live without an endpoint: opens a prefilled email to marketing@ instead.

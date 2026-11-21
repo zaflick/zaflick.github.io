@@ -6,7 +6,7 @@ import { Crumbs, PageHead, AnswerBox, FaqList, JsonLd, JoinBand } from "@/compon
 export const metadata = pageMeta({
   title: "Size guide: how to measure for athleisure | Zaflick", // TODO-approve
   description:
-    "How Zaflick sizes are being graded on Indian body measurements, how to measure your bust, underbust, waist, hips and inseam, and which measurement matters for each piece.",
+    "How Zaflick sizing is built on Indian measurements, how to measure your bust, underbust, waist, hips and inseam, and which measurement matters for each piece.",
   path: "/size-guide",
 });
 
@@ -20,16 +20,14 @@ const MEASURE = [
 ];
 
 const BY_PIECE = [
-  { piece: "Tank top", slug: "tank-top", by: "Bust and underbust", note: "It has built-in support, so check your underbust too." },
   { piece: "Active legging", slug: "active-legging", by: "Waist, then hips", note: "If your hip measurement is the larger size, go by the hip." },
   { piece: "Sports bra", slug: "sports-bra", by: "Underbust", note: "The underband does most of the supporting." },
   { piece: "Fitted jacket", slug: "fitted-jacket", by: "Bust and waist", note: "Cut to the natural waist." },
   { piece: "Active T-shirt", slug: "active-tshirt", by: "Chest", note: "A relaxed, boxy fit by design." },
-  { piece: "Wide-leg pants", slug: "wide-leg-pants", by: "Hips and inseam", note: "The drawcord waist adjusts." },
-  { piece: "Athleisure shorts", slug: "athleisure-shorts", by: "Hips", note: "The drawcord waist adjusts." },
+  { piece: "Wide-leg pants", slug: "wide-leg-pants", by: "Hips and inseam", note: "Unisex. The drawcord waist adjusts." },
 ];
 
-const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
+const SIZES = ["XS", "S", "M", "L", "XL"];
 const QUESTIONS = [qa("sizes"), qa("size-chart")];
 
 export default function Page() {
@@ -39,7 +37,7 @@ export default function Page() {
       <PageHead
         eyebrow="Size guide"
         title="Size guide"
-        lede="Sizes are still being finalised. They will be graded on Indian body measurements rather than a chart borrowed from another market."
+        lede="Sizes are still being finalised. Sizing is built on Indian measurements, not on a chart borrowed from another market."
       />
       <div className="narrow-left">
         <AnswerBox q="Is there a size chart yet?">{qa("size-chart").a}</AnswerBox>
@@ -92,7 +90,7 @@ export default function Page() {
       <section className="section" aria-labelledby="chart-h">
         <div className="section-head">
           <h2 id="chart-h" className="display">The size chart</h2>
-          <p className="soft section-sub">Published with the real samples. The early list sees it first.</p>
+          <p className="soft section-sub">Published with the real samples. The Circle sees it first.</p>
         </div>
         <div className="table-wrap">
           <table className="table table-chart">

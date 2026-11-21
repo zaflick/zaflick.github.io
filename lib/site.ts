@@ -19,17 +19,19 @@ export const IS_LIVE = MODE === "live";
 export const SITE_URL = "https://zaflick.com";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || ""; // GTM-5G79GDM9 at go-live
 export const SIGNUP_API = "https://zaflick-circle.dunnarahulraja50.workers.dev"; // existing worker, unchanged
-/** Apps Script web app on marketing@ for the tester / 6am Club / contact forms (set at go-live). */
+/** Apps Script web app on marketing@ for the tester and contact forms (set at go-live). */
 export const FORMS_ENDPOINT = process.env.NEXT_PUBLIC_FORMS_ENDPOINT || "";
 /** Digits only, e.g. 919876543210. Empty = WhatsApp buttons hidden (same rule as the live site). */
 export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || "";
-export const WHATSAPP_TEXT = "Hi Zaflick, please add me to the early list.";
+export const WHATSAPP_TEXT = "Hi Zaflick, please add me to the Circle.";
 
 export const BRAND = {
   name: "Zaflick",
   legal: "Zaflick Lifestyle Pvt. Ltd.",
-  tagline: "move. vibe. style.",
-  oneLine: "Athleisure for women and men, designed in India to be worn from morning to dinner.",
+  /** The line (brand update, 15 Nov 2026). "Move, Vibe, Style" now lives only on packaging and tags. */
+  tagline: "Whatever the plan, you're in.",
+  oneLine:
+    "Clothes for good times with friends. One outfit for a walk, a game or a coffee, with no changing in between. Designed in India, starting in Hyderabad and Bengaluru.", // TODO-approve
 };
 
 export const EMAIL = {
@@ -53,21 +55,19 @@ export const links = {
   her: href("/her"),
   him: href("/him"),
   looks: href("/looks"),
-  day: href("/the-day"),
-  early: href("/early-list"),
+  circle: href("/circle"),
   faq: href("/faq"),
   privacy: href("/privacy"),
   about: href("/about"),
   size: href("/size-guide"),
   blog: href("/blog"),
-  club: href("/6am-club"),
   testers: href("/founding-testers"),
   contact: href("/contact"),
   instagram: "https://www.instagram.com/houseofzaflick/",
 };
 
 export const CONCEPT_NOTE =
-  "This is a concept image. The design is still being finalised and the final piece may differ. People on the early list see the real samples first.";
+  "This is a concept image. The design is still being finalised and the final piece may differ. People in the Circle see the real samples first.";
 export const LEGAL_NOTE =
   "Every product image on this site is a conceptual representation, not a photograph of an actual product. Final pieces may differ.";
 export const BENEFITS = [

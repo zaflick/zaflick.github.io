@@ -24,7 +24,7 @@ export default function Page() {
         </p>
         <h2>What we collect</h2>
         <p>
-          When you join the early list, we collect the email address you submit. We also receive analytics about how the site is used: pages
+          When you join the Circle (our early list), we collect the email address you submit. We also receive analytics about how the site is used: pages
           viewed, which pieces you opened the join form from, whether you chose the women&apos;s or men&apos;s view, and taps on share and WhatsApp
           links.
         </p>
@@ -33,7 +33,7 @@ export default function Page() {
           sign-ups came from.
         </p>
         <p>
-          If you apply to be a Founding Tester, sign up for the 6am Club or write to us through the contact page, we collect what you type into
+          If you apply to be a Founding Tester or write to us through the contact page, we collect what you type into
           that form, such as your name, email, city, Instagram handle and your answers. We use it only to reply to you and to run that programme.
         </p>
         <h2>Analytics and advertising tools</h2>
@@ -50,7 +50,7 @@ export default function Page() {
         <p>
           Your browser also keeps a copy of your email, your member number and your women&apos;s or men&apos;s preference on your own device, so the site
           remembers you are already on the list. Clearing your browser data for this site removes that local copy. It does not remove you from the
-          early list — email {mail} to be taken off.
+          Circle — email {mail} to be taken off.
         </p>
         <h2>What we never do</h2>
         <ul>

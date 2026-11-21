@@ -8,7 +8,7 @@ import ThreadRail from "@/components/site/ThreadRail";
 import JoinDrawer from "@/components/site/JoinDrawer";
 import StickyJoin from "@/components/site/StickyJoin";
 import SiteRuntime from "@/components/site/SiteRuntime";
-import { BASE, GTM_ID, IS_LIVE, SITE_URL } from "@/lib/site";
+import { BASE, BRAND, GTM_ID, IS_LIVE, SITE_URL } from "@/lib/site";
 
 // Same families as zaflick.com. Archivo is variable in width, so the big
 // headings can run wide (Davaris-style) without another font file.
@@ -18,7 +18,7 @@ const body = Rethink_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], v
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Zaflick",
-  description: "Athleisure for women and men, designed in India to be worn from morning to dinner.",
+  description: BRAND.oneLine,
   // Prototype: kept out of search. Each page sets the same via pageMeta().
   robots: IS_LIVE ? { index: true, follow: true } : { index: false, follow: false },
   icons: {
@@ -33,9 +33,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// Runs before first paint. Marks JS as available (for fade-ins) and picks the still
-// version of the homepage story for reduced motion, ?still=1 or no WebGL.
-const bootScript = `(function(){var d=document.documentElement;d.classList.add('js');try{var q=/[?&]still=1/.test(location.search);var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;var g=!!window.WebGLRenderingContext;if(q||r||!g){d.dataset.still='1';}}catch(e){}})();`;
+// Runs before first paint: marks JS as available, for fade-ins.
+const bootScript = `document.documentElement.classList.add('js');`;
 
 const gtmScript = (id: string) =>
   `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${id}');`;

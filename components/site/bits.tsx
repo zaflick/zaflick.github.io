@@ -128,7 +128,7 @@ export function LookCard({ look, flip, headingLevel = 2 }: { look: Look; flip?: 
             );
           })}
         </ul>
-        <a className="btn btn-ink" href={links.early} data-join={look.name.toLowerCase()}>
+        <a className="btn btn-ink" href={links.circle} data-join={look.name.toLowerCase()}>
           Reserve this look
         </a>
       </div>
@@ -168,7 +168,7 @@ export function JoinBand({ where, title = "Join before the first drop", img = "f
         <Img name={img} alt="" sizes="(max-width: 900px) 100vw, 50vw" />
       </div>
       <div className="join-band-copy">
-        <p className="eyebrow mono">Early list</p>
+        <p className="eyebrow mono">The Circle</p>
         <h2 id={`join-${where}`} className="display">{title}</h2>
         <ul className="ticks">
           {BENEFITS.map((b) => (

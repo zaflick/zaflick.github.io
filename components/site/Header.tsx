@@ -12,8 +12,7 @@ const MAIN = [
   { label: "Our story", href: links.about },
 ];
 const MORE = [
-  { label: "Early list", href: links.early },
-  { label: "6am Club", href: links.club },
+  { label: "The Circle", href: links.circle },
   { label: "Founding Testers", href: links.testers },
   { label: "Size guide", href: links.size },
   { label: "FAQ", href: links.faq },
@@ -48,8 +47,8 @@ export default function Header() {
   return (
     <>
       <a className="skip" href="#content">Skip to content</a>
-      <a className="announce" href={links.early} data-join="">
-        The first drop opens to the early list first. <span>Join</span>
+      <a className="announce" href={links.circle} data-join="">
+        The first drop opens to the Circle first. <span>Join</span>
       </a>
       <header className="bar">
         <button
@@ -75,7 +74,7 @@ export default function Header() {
             <a href={links.him} aria-current={here(links.him)}>Him</a>
             <a href={links.blog} aria-current={here(links.blog)}>Blog</a>
           </nav>
-          <a className="btn btn-accent bar-join" href={links.early} data-join="">
+          <a className="btn btn-accent bar-join" href={links.circle} data-join="">
             Join <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -96,7 +95,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <p className="mono">move. vibe. style.</p>
+          <p className="mono">Whatever the plan, you&apos;re in.</p>
         </div>
       </nav>
     </>

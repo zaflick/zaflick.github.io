@@ -2,11 +2,12 @@
  * Blog (served at /blog): question-led articles (AEO format: the question is the H1, a direct
  * 40–60-word answer comes first, then detail). All new copy: TODO-approve.
  * Zaflick product facts used here are only ones already published on zaflick.com.
+ * 21 Nov: brand facts updated for the 15 Nov brand update (five pieces, the Circle, claims wording).
  */
 
 import { IS_LIVE } from "@/lib/site";
 
-export const TOPICS = ["Fit and sizing", "Fabric and weather", "Outfits", "Men", "The 6am Test"] as const;
+export const TOPICS = ["Fit and sizing", "Fabric and weather", "Outfits", "Men"] as const;
 export type Topic = (typeof TOPICS)[number];
 
 export type Block = string | { list: string[] } | { steps: string[] };
@@ -94,7 +95,7 @@ const POSTS: Article[] = [
       {
         h: "What is Zaflick doing about it?",
         body: [
-          "Every Zaflick fabric is being tested for see-through and pilling before production. The early list sees the real samples, and what the tests found, before anything goes on sale.",
+          "We are testing every Zaflick fabric for see-through and pilling before production. The Circle sees the real samples, and what the tests found, before anything goes on sale.",
         ],
       },
     ],
@@ -232,7 +233,7 @@ const POSTS: Article[] = [
         ],
       },
     ],
-    related: ["active-legging", "tank-top"],
+    related: ["active-legging", "fitted-jacket"],
     cta: { label: "See the looks", href: "/looks" },
   },
   {
@@ -341,12 +342,12 @@ const POSTS: Article[] = [
       {
         h: "How is the Zaflick legging designed?",
         body: [
-          "The Zaflick active legging is built around a wide, flat high-rise waistband, a smooth front with no centre seam, and a deep side pocket on the thigh that holds a phone. The fabric is being tested for see-through and pilling before production.",
-          "It is a concept for now. People on the early list see the real samples, and can try the squat test themselves, before anything goes on sale.",
+          "The Zaflick active legging is built around a wide, flat high-rise waistband, a smooth front with no centre seam, and a deep side pocket on the thigh that holds a phone. We are testing the fabric for see-through and pilling before production.",
+          "It is a concept for now. People in the Circle see the real samples, and can try the squat test themselves, before anything goes on sale.",
         ],
       },
     ],
-    related: ["active-legging", "tank-top"],
+    related: ["active-legging", "sports-bra"],
   },
   {
     slug: "athleisure-for-indian-humidity",
@@ -406,11 +407,11 @@ const POSTS: Article[] = [
     slug: "one-set-6am-to-dinner",
     title: "Can you wear one athleisure set from a 6am workout to dinner?",
     short: "6am to dinner in one set",
-    dek: "The idea Zaflick is built on: train first, then keep going. How to choose a set that lasts the whole day, and what to change along the way.",
+    dek: "How to choose one set that carries a long day, from an early session to dinner, and what to change along the way.",
     answer:
       "Yes, if the set is built to train in first and cut to look finished. Choose pieces with real support, a waistband that stays put and fabric that dries quickly, in one tonal colour. Then change the layer, not the set: an open shirt for work, a jacket for travel, cleaner shoes for dinner.",
     date: "2026-11-14",
-    topic: "The 6am Test",
+    topic: "Outfits",
     img: "hero-both",
     alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
     sections: [
@@ -423,7 +424,7 @@ const POSTS: Article[] = [
       {
         h: "Why does a matching set look more finished?",
         body: [
-          "One colour from top to bottom reads as an outfit, not as gym kit. A tank and legging in the same aubergine, or a tee and wide-leg pants in the same olive, looks deliberate in a café in a way that mismatched training clothes don't.",
+          "One colour from top to bottom reads as an outfit, not as gym kit. A sports bra and legging in the same colour under a fitted jacket, or a tee and wide-leg pants in the same olive, looks deliberate in a café in a way that mismatched training clothes don't.",
         ],
       },
       {
@@ -440,22 +441,14 @@ const POSTS: Article[] = [
         ],
       },
       {
-        h: "What does a day in one set look like?",
-        body: [
-          "Her day: a studio session at 6:30 am, the coffee run at 8:15, working from a café at 11:30, an evening stretch at 7:10 pm.",
-          "His day: a run in the park at 6:00 am, an early flight at 6:40, coffee with a friend at 10:00, dinner nearby at 8:30 pm.",
-          "Both are from The day, Zaflick's lookbook of the first drop worn from morning to night.",
-        ],
-      },
-      {
         h: "What should you pack for a long day?",
         body: [
           { list: ["A spare top if you train hard", "Deodorant and a small towel", "A light layer for cold rooms", "A second pair of shoes if you're going out"] },
         ],
       },
     ],
-    related: ["tank-top", "wide-leg-pants"],
-    cta: { label: "See the whole day", href: "/the-day" },
+    related: ["active-legging", "wide-leg-pants"],
+    cta: { label: "See the looks", href: "/looks" },
   },
   {
     slug: "size-guide-for-indian-bodies",
@@ -473,7 +466,7 @@ const POSTS: Article[] = [
         h: "Why don't letter sizes travel?",
         body: [
           "A size chart is a set of assumptions about how bodies are proportioned: how waist relates to hip, how long a leg is for a given height. If those assumptions come from another market, the sizes can be right in one place and wrong in another, often at the waist, the hip or the length.",
-          "That's why Zaflick's sizing is being graded on Indian body measurements rather than a chart borrowed from another market.",
+          "That's why Zaflick's sizing is built on Indian measurements rather than a chart borrowed from another market.",
         ],
       },
       {
@@ -507,7 +500,7 @@ const POSTS: Article[] = [
       {
         h: "When is the Zaflick size chart published?",
         body: [
-          "With the real samples. Sizes are still being finalised, and the early list will see the chart before anything goes on sale. Take your measurements now and you'll be ready.",
+          "With the real samples. Sizes are still being finalised, and the Circle will see the chart before anything goes on sale. Take your measurements now and you'll be ready.",
         ],
       },
     ],
@@ -547,13 +540,13 @@ const POSTS: Article[] = [
       {
         h: "What about pockets for him?",
         body: [
-          "Shorts and pants for everyday wear work best with proper side pockets and a back pocket. Zaflick's wide-leg pants have two side pockets and one back pocket, and the athleisure shorts have side pockets and one back pocket.",
+          "Shorts and pants for everyday wear work best with proper side pockets and a back pocket. Zaflick's wide-leg pants have two side pockets and one back pocket, and the athleisure shorts, coming in the next drop, have side pockets and one back pocket.",
         ],
       },
       {
         h: "How is the Zaflick legging pocket designed?",
         body: [
-          "The active legging has a deep side pocket on the thigh that holds a phone, paired with a wide, flat high-rise waistband so the weight doesn't drag it down. It's a concept until the samples arrive, and the early list sees them first.",
+          "The active legging has a deep side pocket on the thigh that holds a phone, paired with a wide, flat high-rise waistband so the weight doesn't drag it down. It's a concept until the samples arrive, and the Circle sees them first.",
         ],
       },
     ],

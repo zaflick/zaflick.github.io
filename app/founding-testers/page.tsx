@@ -12,7 +12,7 @@ export const metadata = pageMeta({
 });
 
 const DO = [
-  { h: "Wear the samples for real", t: "Training, the commute, a full workday. The way you'd actually wear them." },
+  { h: "Wear the samples for real", t: "A walk, a game, a coffee, a whole day out with friends. The way you'd actually wear them." },
   { h: "Tell us what to change", t: "A short questionnaire and a quick call. Honest beats polite." },
   { h: "No posting required", t: "Share it if you love it. You don't have to." },
 ];
@@ -36,7 +36,7 @@ export default function Page() {
           </ul>
         </div>
         <div className="feature-img">
-          <Img name="day-her-gym" alt="A woman in an aubergine set training with a dumbbell." eager sizes="(max-width: 900px) 100vw, 50vw" />
+          <Img name="friends" alt="Four friends in tonal sets talking around a table on a terrace café." eager sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </div>
 
@@ -59,8 +59,8 @@ export default function Page() {
         <div className="form-intro">
           <h2 id="apply-h" className="display section-h">Apply</h2>
           <p className="soft">
-            We&apos;re looking for people who train regularly and want kit that lasts the whole day, across sizes and cities. Not chosen this time? You
-            stay on the <a className="text-link" href={links.early}>early list</a> and still see the samples first.
+            We&apos;re looking for people who are always making plans with friends, across sizes, in Hyderabad and Bengaluru first. Not chosen this
+            time? You stay in <a className="text-link" href={links.circle}>the Circle</a> and still see the samples first.
           </p>
           <Todo>Confirm: how many testers, whether every tester gets a set, and the timeline (samples arrive end of November).</Todo>
         </div>
@@ -73,9 +73,10 @@ export default function Page() {
             { name: "email", label: "Email", type: "email", required: true, autoComplete: "email" },
             { name: "city", label: "City", type: "text", required: true, autoComplete: "address-level2" },
             { name: "for", label: "Which pieces would you test?", type: "select", required: true, options: ["For her", "For him"] },
-            { name: "training", label: "How do you train?", type: "select", required: true, options: ["Gym", "Running", "Yoga or Pilates", "Sport", "Walking", "A mix"] },
-            { name: "often", label: "How often?", type: "select", required: true, options: ["1–2 times a week", "3–4 times a week", "5 or more times a week"] },
-            { name: "size", label: "Your usual size", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "XXL", "Not sure"] },
+            // Field names stay "training" and "often" so the Founding Testers sheet columns still line up.
+            { name: "training", label: "What are your usual plans with friends?", type: "select", required: true, options: ["Walks", "A game or a sport", "Gym or classes", "Runs", "Cafés and days out", "A mix"] },
+            { name: "often", label: "How often do you make plans like that?", type: "select", required: true, options: ["1–2 times a week", "3–4 times a week", "5 or more times a week"] },
+            { name: "size", label: "Your usual size", type: "select", required: true, options: ["XS", "S", "M", "L", "XL", "Not sure"] },
             { name: "instagram", label: "Instagram handle", type: "text", placeholder: "@" },
             { name: "problem", label: "What goes wrong with your activewear now?", type: "textarea", required: true },
           ]}

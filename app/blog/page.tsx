@@ -7,7 +7,7 @@ import BlogTopics from "@/components/site/BlogTopics";
 export const metadata = pageMeta({
   title: "Blog: athleisure guides for Indian weather and bodies | Zaflick",
   description:
-    "Straight answers about athleisure in India: leggings that stay up, training in humidity, sizing, phone pockets and one set from 6am to dinner.",
+    "Straight answers about athleisure in India: leggings that stay up, humidity, sizing, phone pockets and one outfit for whatever the plan is.",
   path: "/blog",
   image: "/assets/img/og-blog.jpg",
 });

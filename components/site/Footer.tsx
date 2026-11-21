@@ -7,7 +7,6 @@ const COLS = [
       { label: "Her", href: links.her },
       { label: "Him", href: links.him },
       { label: "Looks", href: links.looks },
-      { label: "The day", href: links.day },
     ],
   },
   {
@@ -15,14 +14,13 @@ const COLS = [
     items: [
       { label: "Our story", href: links.about },
       { label: "Blog", href: links.blog },
-      { label: "6am Club", href: links.club },
       { label: "Founding Testers", href: links.testers },
     ],
   },
   {
     h: "Help",
     items: [
-      { label: "Early list", href: links.early },
+      { label: "The Circle", href: links.circle },
       { label: "Size guide", href: links.size },
       { label: "FAQ", href: links.faq },
       { label: "Contact", href: links.contact },

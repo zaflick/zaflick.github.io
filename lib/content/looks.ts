@@ -1,6 +1,6 @@
 import type { Gender } from "./products";
 
-/** The four looks, word for word from zaflick.com/looks. */
+/** Looks from Drop 1, from the old zaflick.com/looks. The tank-top and shorts looks return with the next drop. */
 export type Look = {
   id: string;
   gender: Gender;
@@ -12,15 +12,6 @@ export type Look = {
 };
 
 export const LOOKS: Look[] = [
-  {
-    id: "her-everyday",
-    gender: "her",
-    name: "Her everyday set",
-    text: "The tank and the legging in one colour. Add an open shirt and it carries from the morning through a working lunch.",
-    img: "day-her-cafe",
-    alt: "A woman in an aubergine tank and leggings with an open striped shirt, working at a café table.",
-    pieces: ["tank-top", "active-legging"],
-  },
   {
     id: "her-layered",
     gender: "her",
@@ -38,14 +29,5 @@ export const LOOKS: Look[] = [
     img: "day-him-airport",
     alt: "A man in an olive tee and wide-leg pants walking through an airport.",
     pieces: ["active-tshirt", "wide-leg-pants"],
-  },
-  {
-    id: "him-weekend",
-    gender: "him",
-    name: "His weekend set",
-    text: "The shorts with the T-shirt, shown here in ivory. An open linen shirt is all it needs.",
-    img: "life-veranda",
-    alt: "A man in an ivory tee and shorts on a shaded veranda.",
-    pieces: ["athleisure-shorts", "active-tshirt"],
   },
 ];
