@@ -35,6 +35,81 @@ export type Article = {
 
 const POSTS: Article[] = [
   {
+    // Weekly post for 4 Dec 2026 (draft: Ayushi approves). Answers an AI-check question where
+    // ChatGPT named only Decathlon and H&M (27 Nov). Product facts: published ones only.
+    slug: "how-to-choose-unisex-athleisure-pants",
+    title: "How do you choose unisex athleisure pants that fit?",
+    short: "Choosing unisex athleisure pants",
+    dek: "Unisex pants are cut to work on more than one body. How to check the waist, rise, length and fabric so a pair fits you, not just the hanger.",
+    answer:
+      "Start with the waist and the rise, not the size letter. An elasticated waist with a drawcord adjusts across sizes, so fit the pants to your hips and tighten the waist. Check that the rise sits where you like it and the hem just grazes your shoes, and pick a fabric with enough weight to drape instead of cling.",
+    date: "2026-12-04",
+    topic: "Fit and sizing",
+    img: "friends",
+    alt: "Four friends in tonal sets talking around a table on a terrace café.",
+    sections: [
+      {
+        h: "What makes athleisure pants unisex?",
+        body: [
+          "Unisex pants are cut with room through the hip and thigh, a relaxed leg and a waist you can adjust, so the same pattern works on different bodies. That's why the waist and the leg shape matter more than whether the label says men's or women's.",
+        ],
+      },
+      {
+        h: "Which measurements should you check?",
+        body: [
+          {
+            steps: [
+              "Waist: measure where you actually wear your pants, with the tape relaxed.",
+              "Hip: measure around the fullest part. For unisex pants this usually decides the size.",
+              "Inseam: from the crotch to where you want the hem to end, ideally just above your shoes.",
+              "Rise: how high the pants sit. A mid or high rise stays put when you sit, bend or play.",
+            ],
+          },
+          "Compare all four with the brand's size chart. If you're between sizes, size for your hips and use the drawcord to take in the waist.",
+        ],
+      },
+      {
+        h: "Drawcord, elastic or both?",
+        body: [
+          "An elasticated waist with a drawcord is the most forgiving: the elastic holds the shape and the cord takes in the difference. A plain elastic waist can roll if it's loose, and a drawcord on its own can bunch the fabric.",
+        ],
+      },
+      {
+        h: "How should the length and hem fall?",
+        body: [
+          "Wide-leg pants look intentional when the hem just grazes the top of your shoe. Too long and they drag on a court or a wet road; too short and they read as cropped. If you're between lengths, choose the shorter one for walks and games.",
+        ],
+      },
+      {
+        h: "What fabric works in Indian weather?",
+        body: [
+          "Look for a breathable fabric with enough weight to drape and hold its shape when you sit down. Very thin fabric clings in humidity and shows sweat; very heavy fabric is hot from March to June.",
+        ],
+      },
+      {
+        h: "How do you wear them for a walk, a game and dinner?",
+        body: [
+          {
+            list: [
+              "For a walk: with a fitted T-shirt or sports bra, and a light jacket for the morning chill.",
+              "For a game: roll the hem once if you need more room, and wear proper court shoes.",
+              "For dinner: keep the top and the pants in one or two colours, so it reads as an outfit and not as gym kit.",
+            ],
+          },
+        ],
+      },
+      {
+        h: "Are Zaflick's wide-leg pants unisex?",
+        body: [
+          "Yes. Zaflick's first drop includes unisex wide-leg pants with an elasticated waist and a metal-tipped drawcord, two side pockets and a back pocket. They open to the Circle first, and the size chart goes up once the samples are in.",
+        ],
+      },
+    ],
+    related: ["wide-leg-pants", "active-tshirt"],
+    cta: { label: "Join the Circle", href: "/circle" },
+    draft: true,
+  },
+  {
     slug: "weekend-plans-hyderabad-what-to-wear",
     title: "What should you wear for a weekend plan with friends in Hyderabad?",
     short: "Weekend plans in Hyderabad: what to wear",
