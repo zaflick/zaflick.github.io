@@ -1999,3 +1999,114 @@
   opacity: 1;
   color: var(--terracotta);
 }
+
+/* ---------- draft pages (21 Nov): weekend plans, Cast your crew, "I'm in" ---------- */
+.plan-cities {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 32px 0 56px;
+}
+.plan-list {
+  list-style: none;
+  margin: 40px 0 24px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.plan-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--paper);
+  border-top: 2px solid var(--terracotta);
+}
+.plan-n,
+.plan-where {
+  color: var(--terracotta-deep);
+  font-size: 13px;
+}
+.plan-h {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.plan-wear {
+  display: grid;
+  gap: 4px;
+  margin: 6px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+}
+.plan-wear div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 8px;
+}
+.plan-wear dt {
+  color: var(--soft);
+  font-size: 13px;
+  padding-top: 2px;
+}
+.plan-wear dd {
+  margin: 0;
+}
+.plan-tip {
+  font-size: 15px;
+}
+.invite {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  padding: 24px 0 64px;
+}
+.invite h1 {
+  font-size: clamp(40px, 5.6vw, 88px);
+  max-width: 12ch;
+}
+.invite-link {
+  margin-top: 18px;
+  font-size: 14px;
+  text-transform: none;
+  word-break: break-all;
+}
+.invite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.invite-small {
+  margin-top: 16px;
+  font-size: 15px;
+}
+.invite-card img,
+.invite-card-wait {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(11, 11, 10, 0.18);
+}
+.invite-card-wait {
+  background: var(--aubergine);
+}
+@media (max-width: 900px) {
+  .plan-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .invite {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .plan-list,
+  .plan-cities {
+    grid-template-columns: 1fr;
+  }
+}

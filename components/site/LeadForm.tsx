@@ -21,6 +21,7 @@ type Props = {
 const SUBJECT: Record<string, string> = {
   "founding-tester": "Founding Testers application",
   contact: "Message from zaflick.com",
+  crew: "Cast your crew application",
 };
 
 /** A prefilled email to marketing@ with the visitor's answers (used until the forms sheet exists). */
