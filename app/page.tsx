@@ -1,11 +1,12 @@
-import { JsonLd, Todo } from "@/components/site/bits";
+import { FounderPhotos, JsonLd, StoryText, Todo } from "@/components/site/bits";
 import SignupForm from "@/components/site/SignupForm";
 import BringFriend from "@/components/home/BringFriend";
 import HeroFabric from "@/components/home/HeroFabric";
 import StitchStory from "@/components/home/StitchStory";
 import { DROP1 } from "@/lib/content/products";
+import { FOUNDERS_NOTE } from "@/lib/content/founders";
 import { pageMeta, orgSchema, websiteSchema } from "@/lib/seo";
-import { BENEFITS, IS_LIVE, href, links } from "@/lib/site";
+import { BENEFITS, href, links } from "@/lib/site";
 
 /*
  * Homepage, rebuilt for the 15 Nov 2026 brand update ("Whatever the plan, you're in").
@@ -14,7 +15,7 @@ import { BENEFITS, IS_LIVE, href, links } from "@/lib/site";
  * section sits on the 3D knit fabric from the old scroll story, and the cut-and-stitch
  * animation (3D, labelled as an illustration) leads into The clothes.
  *   1 Top · 2 The reason · 3 The clothes · 4 Fit and fabric (hidden until wash tests are done)
- *   5 Bring a friend · 6 Who we are (hidden until the founders' note arrives) · 7 How it works
+ *   5 Bring a friend · 6 Who we are (the founders' note, 27 Nov) · 7 How it works
  * All copy on this page: TODO-approve.
  */
 
@@ -119,12 +120,21 @@ export default function Page() {
       {/* 5 · Bring a friend */}
       <BringFriend />
 
-      {/* 6 · Who we are: prototype placeholder only, until the founders' note and photo arrive. */}
-      {IS_LIVE ? null : (
-        <section className="home-sec" aria-label="Who we are">
-          <Todo>Who we are: a short note from the two founders (why we started, four or five lines) and their photo.</Todo>
-        </section>
-      )}
+      {/* 6 · Who we are: the founders' note. The photos are a pair, never captioned one by one (lib/content/founders.ts). */}
+      <section className="home-sec home-founders" aria-labelledby="founders-h">
+        <div className="home-founders-copy">
+          <p className="eyebrow mono">Who we are</p>
+          <h2 id="founders-h" className="display">
+            {FOUNDERS_NOTE.title}
+          </h2>
+          <StoryText lines={FOUNDERS_NOTE.text} className="home-sub" />
+          <p className="founders-sign mono">{FOUNDERS_NOTE.sign}</p>
+          <a className="text-link" href={`${links.about}#founders`}>
+            Read the whole story →
+          </a>
+        </div>
+        <FounderPhotos sizes="(max-width: 620px) 45vw, (max-width: 899px) 275px, 22vw" />
+      </section>
 
       {/* 7 · How it works */}
       <section className="home-sec" aria-labelledby="how-h">

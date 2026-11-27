@@ -7,6 +7,8 @@ import { breadcrumbSchema } from "@/lib/seo";
 import { bySlug, type Product } from "@/lib/content/products";
 import type { Look } from "@/lib/content/looks";
 import type { QA } from "@/lib/content/faq";
+import { FOUNDER_PHOTOS, FOUNDER_PHOTOS_ALT, type Line } from "@/lib/content/founders";
+import { Fragment } from "react";
 import SignupForm from "./SignupForm";
 import IMG_WIDTHS from "@/lib/content/img-widths.json";
 
@@ -157,6 +159,44 @@ export function FaqList({ items, level = 3, open }: { items: QA[]; level?: 2 | 3
         </details>
       ))}
     </div>
+  );
+}
+
+/**
+ * The founders' photos as one pair. The first image carries the alt text for both (image-group
+ * pattern). Never caption them one by one: who is in which photo isn't confirmed.
+ */
+export function FounderPhotos({ sizes }: { sizes: string }) {
+  return (
+    <div className="founders-pics">
+      {FOUNDER_PHOTOS.map((name, i) => (
+        <Img key={name} name={name} alt={i === 0 ? FOUNDER_PHOTOS_ALT : ""} sizes={sizes} />
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Founder story text (lib/content/founders.ts) as one paragraph. Lines marked `guess` are left
+ * out of the live site and highlighted in the prototype until Rahul confirms them.
+ */
+export function StoryText({ lines, className }: { lines: Line[]; className?: string }) {
+  const shown = IS_LIVE ? lines.filter((l) => !l.guess) : lines;
+  return (
+    <p className={className}>
+      {shown.map((l, i) => (
+        <Fragment key={i}>
+          {i ? " " : null}
+          {l.guess ? (
+            <mark className="guess" title="Guess: Rahul to confirm">
+              {l.t}
+            </mark>
+          ) : (
+            l.t
+          )}
+        </Fragment>
+      ))}
+    </p>
   );
 }
 

@@ -1,6 +1,7 @@
-import { pageMeta } from "@/lib/seo";
-import { links, BRAND, IS_LIVE } from "@/lib/site";
-import { Crumbs, PageHead, Img, Todo, JoinBand } from "@/components/site/bits";
+import { pageMeta, founderSchema } from "@/lib/seo";
+import { links, BRAND } from "@/lib/site";
+import { Crumbs, PageHead, Img, JoinBand, FounderPhotos, JsonLd, StoryText, Todo } from "@/components/site/bits";
+import { FOUNDERS, FOUNDERS_HEADLINE, FOUNDERS_STORY } from "@/lib/content/founders";
 
 export const metadata = pageMeta({
   title: "About Zaflick: clothes for whatever the plan", // TODO-approve
@@ -59,6 +60,34 @@ export default function Page() {
         </div>
       </section>
 
+      {/* The founders (27 Nov). Photos stay a pair in their own column, apart from the bios: who is in which photo isn't confirmed.
+          Guess lines (lib/content/founders.ts) are left out of the live site until Rahul confirms them. */}
+      <section className="section founders" id="founders" aria-labelledby="founders-h">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow mono">The founders</p>
+            <h2 id="founders-h" className="display">
+              {FOUNDERS_HEADLINE}
+            </h2>
+          </div>
+        </div>
+        <Todo>Highlighted lines are our guesses: the why, the when and two cheeky lines. They stay off the live site until Rahul confirms them.</Todo>
+        <div className="split-2">
+          <FounderPhotos sizes="(max-width: 620px) 45vw, (max-width: 999px) 275px, 21vw" />
+          <div className="founders-text">
+            <div className="lead-text">
+              <StoryText lines={FOUNDERS_STORY} />
+            </div>
+            {FOUNDERS.map((f) => (
+              <div key={f.id} id={f.id} className="founder-bio">
+                <h3 className="founder-name">{f.name}</h3>
+                <StoryText lines={f.bio} className="soft" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="asked-h">
         <div className="section-head">
           <h2 id="asked-h" className="display">We asked before designing</h2>
@@ -88,25 +117,13 @@ export default function Page() {
         </ol>
       </section>
 
-      {/* Shown in the prototype only, until the founder story arrives. */}
-      {IS_LIVE ? null : (
-        <section className="section" aria-labelledby="founders-h">
-          <div className="section-head">
-            <h2 id="founders-h" className="display">The founders</h2>
-          </div>
-          <Todo>
-            Founder names, roles, photos and the &ldquo;why we started&rdquo; story, from the founders. This section is hidden on the live site until they
-            arrive.
-          </Todo>
-        </section>
-      )}
-
       <section className="section narrow" aria-label="Company">
         <p className="soft">
           {BRAND.name} is made by {BRAND.legal}, India. Questions? <a className="text-link" href={links.contact}>Contact us</a>.
         </p>
       </section>
       <JoinBand where="about" />
+      <JsonLd data={founderSchema()} />
     </main>
   );
 }

@@ -30,6 +30,11 @@ const BANK: Group[] = [
         live: true,
       },
       {
+        id: "who-founded",
+        q: "Who founded Zaflick?",
+        a: "Zaflick was founded by Rahul Raja Dunna and Hemanth Kumar Jami, both from Visakhapatnam. Rahul is the first person in his family to go into business: he studied computer science, did an MBA at IIM Amritsar, and has a background in data science, with work in sales, political strategy and product development. Hemanth studied computer science engineering and is a traveller and creative professional, with a background in photography capturing weddings and wildlife.",
+      },
+      {
         id: "different",
         q: "What makes it different?",
         a: "Jeans can't do the game, and gym wear looks wrong at the coffee after. Zaflick is one outfit that is ready for any plan and looks good the whole way through: designed style-first, with fabric chosen for heat and humidity and pockets that hold a phone.",

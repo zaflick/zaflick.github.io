@@ -55,6 +55,20 @@
       800
     ]
   },
+  "founders-1": {
+    "w": 1200,
+    "variants": [
+      400,
+      800
+    ]
+  },
+  "founders-2": {
+    "w": 1040,
+    "variants": [
+      400,
+      800
+    ]
+  },
   "friends": {
     "w": 1800,
     "variants": [

@@ -1054,6 +1054,91 @@
   font-weight: 600;
   line-height: 1.25;
 }
+
+/* ---------- founders: homepage "Who we are" and the About section ---------- */
+.founders-pics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.founders-pics img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--tile);
+}
+.home-founders {
+  display: grid;
+  gap: 36px;
+}
+.home-founders h2 {
+  font-size: clamp(36px, 4.8vw, 68px);
+}
+.home-founders .home-sub {
+  max-width: 50ch;
+}
+/* No single word left alone on the last line. */
+.home-founders .home-sub,
+.founders .lead-text p,
+.founder-bio p {
+  text-wrap: pretty;
+}
+.founders-sign {
+  margin: 22px 0 14px;
+  color: var(--soft);
+}
+.founders {
+  scroll-margin-top: 120px;
+}
+.founders .section-head h2 {
+  max-width: 20ch;
+  text-wrap: balance;
+}
+/* Prototype only: founder story lines that are still guesses (lib/content/founders.ts). */
+.guess {
+  padding: 0 2px;
+  border-radius: 3px;
+  background: var(--blush);
+  color: inherit;
+  box-shadow: inset 0 -2px 0 var(--terracotta);
+}
+.founders-text .lead-text p {
+  margin-bottom: 34px;
+}
+.founder-bio {
+  max-width: 60ch;
+  margin-bottom: 30px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.founder-name {
+  margin-bottom: 8px;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+@media (max-width: 899px) {
+  .home-founders .founders-pics {
+    max-width: 560px;
+  }
+}
+@media (min-width: 900px) {
+  .home-founders {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+  }
+}
+/* About: below 1000px the photo column gets too narrow, so the section stacks. */
+@media (max-width: 999px) {
+  .founders .split-2 {
+    grid-template-columns: 1fr;
+  }
+  .founders .founders-pics {
+    max-width: 560px;
+  }
+}
 .todo-box {
   display: grid;
   grid-template-columns: auto 1fr;

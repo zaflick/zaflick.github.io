@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BRAND, IS_LIVE, SITE_URL, SOCIAL, EMAIL } from "./site";
+import { FOUNDERS } from "./content/founders";
 
 type MetaInput = {
   /** Full <title>. Keep under ~60 characters. */
@@ -46,6 +47,7 @@ export const orgSchema = () => ({
   description: BRAND.oneLine,
   slogan: BRAND.tagline,
   foundingLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressCountry: "IN" } },
+  founder: FOUNDERS.map((f) => ({ "@type": "Person", "@id": `${SITE_URL}/about#${f.id}`, name: f.name })),
   email: EMAIL.marketing,
   areaServed: [
     { "@type": "City", name: "Hyderabad" },
@@ -54,6 +56,20 @@ export const orgSchema = () => ({
   sameAs: SOCIAL.map((s) => s.url),
   contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: EMAIL.admin, areaServed: "IN", availableLanguage: ["en"] }],
 });
+
+/** One Person per founder, for the About page. No `image`: who is in which photo isn't confirmed. */
+export const founderSchema = () =>
+  FOUNDERS.map((f) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/about#${f.id}`,
+    name: f.name,
+    url: `${SITE_URL}/about#${f.id}`,
+    description: f.summary,
+    worksFor: { "@type": "Organization", "@id": `${SITE_URL}/#org`, name: BRAND.name },
+    knowsAbout: f.knowsAbout,
+    ...(f.alumniOf ? { alumniOf: { "@type": "CollegeOrUniversity", name: f.alumniOf } } : {}),
+  }));
 
 export const websiteSchema = () => ({
   "@context": "https://schema.org",
