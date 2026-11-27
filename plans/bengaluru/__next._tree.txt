@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/0nt2skv3qx14q.css","style"]
+:HL["/_next/static/media/db545dba463279ae-s.p.1cp9-4nby68jc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/f4dab2659b8f35d1-s.p.0dhp2_wm7tc69.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/assets/zaflick-wordmark.png","image"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"city","t":"d","k":"bengaluru","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"plans","h":131136,"c":"$Q2"}]]
+0:{"b":"raZKeeeXC1uT0xfs6HURy","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
