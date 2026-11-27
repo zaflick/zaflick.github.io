@@ -3,10 +3,10 @@
  * From Rahul's message of 27 Nov 2026 (bios and photos); cheeky story version asked for by
  * Ayushi the same day. Rules: no titles, British spelling, no "tribe" or fitness talk.
  *
- * Guesses: lines marked `guess: true` (the why, the when and two cheeky traits) were written by
- * us, not the founders. The live build leaves them out; the prototype shows them highlighted.
- * When Rahul replies: drop `guess` from lines he confirms, rewrite the ones he corrects, delete
- * the rest. The copy is written to read naturally with or without them.
+ * Guesses: any line marked `guess: true` is ours, not the founders': the live build leaves it out
+ * and the prototype highlights it. 27 Nov 2026: Ayushi confirmed the origin line (2025, "dressed
+ * for the wrong half") and "one more photo", and cut "spreadsheets for fun". Blog posts stay
+ * credited to Zaflick, not a founder, and only the two founders are named (Ayushi, 27 Nov).
  *
  * Photos: shown as a pair and never captioned one by one. Who is in which photo isn't confirmed,
  * so nothing on the site may tie a face to a name (including schema `image`).
@@ -38,7 +38,6 @@ export const FOUNDERS: Founder[] = [
         t: "I studied computer science, did an MBA at IIM Amritsar, and built a background in data science, with detours through sales, political strategy and product development.",
       },
       { t: "Marketing and sales are the fun part for me, and if there's a new AI tool out, I've probably tried it: I use them every day to work better." },
-      { t: "Yes, I make spreadsheets for fun.", guess: true },
     ],
     summary:
       "Founder of Zaflick, from Visakhapatnam, and the first person in his family to go into business. Studied computer science and did an MBA at IIM Amritsar; background in data science, with work in sales, political strategy and product development.",
@@ -55,7 +54,7 @@ export const FOUNDERS: Founder[] = [
         t: "After graduating in computer science engineering, I followed my passion and built a background in photography, capturing weddings and wildlife (both involve a lot of waiting for the perfect moment).",
       },
       { t: "In my free time, I'm out exploring diverse cultures." },
-      { t: "I'm also the one who makes everyone stop for one more photo.", guess: true },
+      { t: "I'm also the one who makes everyone stop for one more photo." },
     ],
     summary:
       "Founder of Zaflick, from Visakhapatnam. Graduated in computer science engineering; a traveller and creative professional with a background in photography, capturing weddings and wildlife.",
@@ -63,8 +62,8 @@ export const FOUNDERS: Founder[] = [
   },
 ];
 
-/** The why and the when: a guess until Rahul confirms it (used on both pages). */
-const ORIGIN_GUESS =
+/** The why and the when (confirmed by Ayushi for the founders, 27 Nov 2026; used on both pages). */
+const ORIGIN =
   "after one plan too many where one of us turned up dressed for the wrong half: gym clothes at dinner, jeans at the game.";
 
 /** Homepage section 6, "Who we are": a short note from both founders (brief: four or five lines). */
@@ -76,7 +75,7 @@ export const FOUNDERS_NOTE = {
       t: "Rahul went into numbers: data science, sales, political strategy and product, an MBA from IIM Amritsar, and the first business in his family.",
     },
     { t: "Hemanth went behind the camera, shooting weddings and wildlife, and spends his free time travelling and exploring diverse cultures." },
-    { t: `It started in 2025, ${ORIGIN_GUESS}`, guess: true },
+    { t: `It started in 2025, ${ORIGIN}` },
     { t: "Before designing a single stitch, we asked nearly 200 people what their activewear gets wrong." },
     { t: "Now we're making clothes for the plans you make with friends." },
   ] as Line[],
@@ -87,7 +86,7 @@ export const FOUNDERS_NOTE = {
 export const FOUNDERS_HEADLINE = "Two computer science grads walk into a clothing brand.";
 export const FOUNDERS_STORY: Line[] = [
   { t: "We're Rahul Raja Dunna and Hemanth Kumar Jami. Same city (Visakhapatnam), same degree, wildly different exits." },
-  { t: `Zaflick started in 2025, ${ORIGIN_GUESS} We figured we couldn't be the only ones.`, guess: true },
+  { t: `Zaflick started in 2025, ${ORIGIN} We figured we couldn't be the only ones.` },
   { t: "Before designing a single stitch, we asked around. The numbers are just below." },
 ];
 
