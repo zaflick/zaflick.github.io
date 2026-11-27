@@ -65,7 +65,7 @@ export const links = {
   blog: href("/blog"),
   testers: href("/founding-testers"),
   contact: href("/contact"),
-  /** Draft pages (preview only until approved). */
+  /** Live 27 Nov 2026. */
   crew: href("/cast-your-crew"),
   plans: href("/plans"),
   invite: href("/in"),

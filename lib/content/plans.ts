@@ -1,6 +1,6 @@
 /**
  * Weekend plans with friends, by city (pages /plans, /plans/hyderabad, /plans/bengaluru).
- * DRAFT: all copy is new and TODO-approve. Places are well-known public spots only; no prices,
+ * Approved by Ayushi and live 27 Nov 2026. Places are well-known public spots only; no prices,
  * timings or events that can go out of date. Outfits use only Drop 1 pieces and facts already
  * on zaflick.com (no claims on hold).
  */

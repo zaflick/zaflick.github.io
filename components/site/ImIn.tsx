@@ -8,7 +8,7 @@ import SignupForm from "./SignupForm";
 import { Img } from "./bits";
 
 /**
- * The "I'm in" invite (DRAFT, /in). All copy TODO-approve.
+ * The "I'm in" invite (/in, live 27 Nov 2026).
  * - A friend opening someone's link (/in?ref=Z<n>) sees "A friend is in. Are you?" and the Circle form.
  * - A member sees their own invite: a story card and a sticker made in the browser, their link,
  *   and share buttons. Nothing is uploaded; the images are drawn on a canvas on the device.

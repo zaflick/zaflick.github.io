@@ -135,6 +135,6 @@ export async function signup(email: string, meta: SignupMeta = { form: "unknown"
   return m;
 }
 
-/** Personal share link: zaflick.com/?ref=Z<number>, as on the live site. */
-export const shareUrl = (m: Member | null) => `${SITE_URL}/${m?.number ? `?ref=Z${m.number}` : ""}`;
+/** Personal share link: zaflick.com/in?ref=Z<number> (the "I'm in" invite page, since 27 Nov 2026). */
+export const shareUrl = (m: Member | null) => `${SITE_URL}/in${m?.number ? `?ref=Z${m.number}` : ""}`;
 export const SHARE_TEXT = "Whatever the plan, you're in. Zaflick's first drop opens to the Circle first. Come with me:"; // TODO-approve

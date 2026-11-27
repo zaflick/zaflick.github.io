@@ -3,8 +3,7 @@ import { links } from "@/lib/site";
 import { Crumbs, PageHead, Img, Todo } from "@/components/site/bits";
 import LeadForm from "@/components/site/LeadForm";
 
-// DRAFT page (preview only until approved). All copy TODO-approve.
-// Before it goes live: add the "crew" tab to the Apps Script (scripts/zaflick-forms.gs) and deploy a new version.
+// Approved by Ayushi and live 27 Nov 2026. Entries go to the "Cast your crew" tab of the Zaflick forms sheet (Apps Script v4).
 export const metadata = pageMeta({
   title: "Cast your crew: be in Zaflick's first shoot",
   description:

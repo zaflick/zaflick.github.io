@@ -6,7 +6,7 @@ import { FOUNDERS, FOUNDERS_HEADLINE, FOUNDERS_STORY } from "@/lib/content/found
 export const metadata = pageMeta({
   title: "About Zaflick: clothes for whatever the plan", // TODO-approve
   description:
-    "Zaflick is an Indian athleisure brand for good times with friends: five pieces for women and men, one outfit for a walk, a game or a coffee, starting in Hyderabad and Bengaluru.",
+    "Meet Zaflick and its founders: Indian athleisure for good times with friends, one outfit for any plan, starting in Hyderabad and Bengaluru.",
   path: "/about",
   image: "/assets/img/og-about.jpg",
 });

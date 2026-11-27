@@ -4,7 +4,7 @@ import { useState } from "react";
 import { shareUrl, SHARE_TEXT, useMember } from "@/lib/member";
 import { track } from "@/lib/track";
 
-/** "Bring a friend": shares the visitor's personal link (zaflick.com/?ref=Z<number>). */
+/** "Bring a friend": shares the visitor's personal link (zaflick.com/in?ref=Z<number>). */
 export default function ShareButton({ className = "btn btn-ink" }: { className?: string }) {
   const member = useMember();
   const [copied, setCopied] = useState(false);

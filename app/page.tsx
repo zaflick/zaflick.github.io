@@ -22,7 +22,7 @@ import { BENEFITS, href, links } from "@/lib/site";
 export const metadata = pageMeta({
   title: "Whatever the plan, you're in | Zaflick athleisure",
   description:
-    "Clothes for good times with friends. One outfit for a walk, a game or a coffee, with no changing in between. Five pieces, designed in India, starting in Hyderabad and Bengaluru.",
+    "Clothes for good times with friends: one outfit for a walk, a game or a coffee, no changing in between. Five pieces, starting in Hyderabad and Bengaluru.",
   path: "/",
 });
 

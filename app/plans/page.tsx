@@ -3,7 +3,7 @@ import { href } from "@/lib/site";
 import { CITIES } from "@/lib/content/plans";
 import { Crumbs, PageHead, JoinBand, Todo } from "@/components/site/bits";
 
-// DRAFT page (preview only until approved). All copy TODO-approve.
+// Approved by Ayushi and live 27 Nov 2026.
 export const metadata = pageMeta({
   title: "Weekend plans with friends in Hyderabad and Bengaluru | Zaflick",
   description:

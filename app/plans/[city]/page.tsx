@@ -6,7 +6,7 @@ import { bySlug } from "@/lib/content/products";
 import { article } from "@/lib/content/journal";
 import { Crumbs, PageHead, JoinBand, JsonLd, AnswerBox } from "@/components/site/bits";
 
-// DRAFT page (preview only until approved). All copy TODO-approve.
+// Approved by Ayushi and live 27 Nov 2026.
 export const dynamicParams = false;
 export const generateStaticParams = () => CITIES.map((c) => ({ city: c.slug }));
 

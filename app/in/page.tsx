@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import ImIn from "@/components/site/ImIn";
 
-// DRAFT page (preview only until approved). All copy TODO-approve.
+// Approved by Ayushi and live 27 Nov 2026.
 // Invite links are personal, so this page stays out of search and the sitemap.
 const meta = pageMeta({
   title: "I'm in. Are you? | Zaflick",

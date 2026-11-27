@@ -41,7 +41,7 @@ const POSTS: Article[] = [
     dek: "A morning walk at KBR Park, a game, a café in Banjara Hills, the lake at night. How to dress once for a Hyderabad weekend and not think about it again.",
     answer:
       "Wear one comfortable outfit that works for all of it: a breathable top or sports bra, a light jacket you can take off or zip up, relaxed wide-leg pants or a high-waisted legging, and clean sneakers. Hyderabad mornings from November to February are cool and afternoons warm, so a light layer matters more than anything else.",
-    date: "2026-11-24",
+    date: "2026-11-27",
     topic: "Outfits",
     img: "friends",
     alt: "Four friends in tonal sets talking around a table on a terrace café.",
@@ -94,7 +94,6 @@ const POSTS: Article[] = [
     ],
     related: ["wide-leg-pants", "fitted-jacket"],
     cta: { label: "Join the Circle", href: "/circle" },
-    draft: true,
   },
   {
     slug: "game-and-dinner-outfit-bengaluru",
@@ -103,7 +102,7 @@ const POSTS: Article[] = [
     dek: "Badminton or pickleball after work, then dinner in Indiranagar. How to dress for both without going home to change.",
     answer:
       "Wear a breathable top, a relaxed or high-waisted bottom that lets you move, and clean sneakers, then add a light jacket when the game is over. Bengaluru evenings are mild and often cool, so a layer you can zip up covers dinner. Keep to one or two colours so the outfit still looks put together at the table.",
-    date: "2026-11-26",
+    date: "2026-11-27",
     topic: "Outfits",
     img: "hero-both",
     alt: "A man in an olive set and a woman in an aubergine set talking at a coffee bar.",
@@ -157,7 +156,6 @@ const POSTS: Article[] = [
     ],
     related: ["active-tshirt", "wide-leg-pants"],
     cta: { label: "Join the Circle", href: "/circle" },
-    draft: true,
   },
   {
     slug: "how-to-check-leggings-see-through",
